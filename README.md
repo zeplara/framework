@@ -8,7 +8,7 @@ The name Zeplara itself is taken from Zephir (Zep) and laravel (Lara) and if the
 The Zeplara framework is open-sourced software licensed under the MIT license.
 
 ## Documentation
-- API Documentation (https://zeplara.github.io/docs/)
+- API Documentation https://zeplara.github.io/docs/
 
 
 
