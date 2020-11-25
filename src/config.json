@@ -9,7 +9,7 @@
         "theme": {
             "name": "zephir",
             "options": {
-                "github": null,
+                "github": "https://github.com/zeplara/framework",
                 "analytics": null,
                 "main_color": "#3E6496",
                 "link_color": "#3E6496",
