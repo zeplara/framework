@@ -3,12 +3,11 @@ Zeplara is a PHP framework to make it easier for developers to create web-based 
 
 The name Zeplara itself is taken from Zephir (Zep) and laravel (Lara) and if they are combined into Zeplara. Zeplara uses the same concept as laravel, namely the MVC Framework concept, not only the concept, but Zeplara also has the same Design Pattern as Laravel. As we know, many developers make it very easy for the Laravel Framework when creating a web-based application, it's all because of the design patterns and concepts of Laravel itself.
 
+## Documentation
+- API Documentation https://zeplara.github.io/docs/
 
 ## License
 The Zeplara framework is open-sourced software licensed under the MIT license.
-
-## Documentation
-- API Documentation https://zeplara.github.io/docs/
 
 
 
