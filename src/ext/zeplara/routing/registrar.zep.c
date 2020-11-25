@@ -471,29 +471,6 @@ PHP_METHOD(Zeplara_Routing_Registrar, register) {
 }
 
 /**
- * @return string
- */
-PHP_METHOD(Zeplara_Routing_Registrar, getSchemeAttribute) {
-
-	zval _0, _1$$3, _2$$3;
-	zval *this_ptr = getThis();
-
-	ZVAL_UNDEF(&_0);
-	ZVAL_UNDEF(&_1$$3);
-	ZVAL_UNDEF(&_2$$3);
-
-
-	zephir_read_property(&_0, this_ptr, ZEND_STRL("attributes"), PH_NOISY_CC | PH_READONLY);
-	if (zephir_array_isset_string(&_0, SL("scheme"))) {
-		zephir_read_property(&_1$$3, this_ptr, ZEND_STRL("attributes"), PH_NOISY_CC | PH_READONLY);
-		zephir_array_fetch_string(&_2$$3, &_1$$3, SL("scheme"), PH_NOISY | PH_READONLY, "zeplara/Routing/Registrar.zep", 141);
-		RETURN_CTORW(&_2$$3);
-	}
-	RETURN_STRING("");
-
-}
-
-/**
  * @param string value
  * @return void
  */
@@ -548,29 +525,6 @@ PHP_METHOD(Zeplara_Routing_Registrar, setSchemeAttribute) {
 }
 
 /**
- * @return string
- */
-PHP_METHOD(Zeplara_Routing_Registrar, getHostAttribute) {
-
-	zval _0, _1$$3, _2$$3;
-	zval *this_ptr = getThis();
-
-	ZVAL_UNDEF(&_0);
-	ZVAL_UNDEF(&_1$$3);
-	ZVAL_UNDEF(&_2$$3);
-
-
-	zephir_read_property(&_0, this_ptr, ZEND_STRL("attributes"), PH_NOISY_CC | PH_READONLY);
-	if (zephir_array_isset_string(&_0, SL("host"))) {
-		zephir_read_property(&_1$$3, this_ptr, ZEND_STRL("attributes"), PH_NOISY_CC | PH_READONLY);
-		zephir_array_fetch_string(&_2$$3, &_1$$3, SL("host"), PH_NOISY | PH_READONLY, "zeplara/Routing/Registrar.zep", 170);
-		RETURN_CTORW(&_2$$3);
-	}
-	RETURN_STRING("");
-
-}
-
-/**
  * @param string value
  * @return void
  */
@@ -607,29 +561,6 @@ PHP_METHOD(Zeplara_Routing_Registrar, setHostAttribute) {
 }
 
 /**
- * @return string
- */
-PHP_METHOD(Zeplara_Routing_Registrar, getPrefixAttribute) {
-
-	zval _0, _1$$3, _2$$3;
-	zval *this_ptr = getThis();
-
-	ZVAL_UNDEF(&_0);
-	ZVAL_UNDEF(&_1$$3);
-	ZVAL_UNDEF(&_2$$3);
-
-
-	zephir_read_property(&_0, this_ptr, ZEND_STRL("attributes"), PH_NOISY_CC | PH_READONLY);
-	if (zephir_array_isset_string(&_0, SL("prefix"))) {
-		zephir_read_property(&_1$$3, this_ptr, ZEND_STRL("attributes"), PH_NOISY_CC | PH_READONLY);
-		zephir_array_fetch_string(&_2$$3, &_1$$3, SL("prefix"), PH_NOISY | PH_READONLY, "zeplara/Routing/Registrar.zep", 191);
-		RETURN_CTORW(&_2$$3);
-	}
-	RETURN_STRING("");
-
-}
-
-/**
  * @param string value
  * @return void
  */
@@ -637,7 +568,8 @@ PHP_METHOD(Zeplara_Routing_Registrar, setPrefixAttribute) {
 
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
-	zval *value_param = NULL, _0, _1, _2, _3, _4, _5, _6, _7, _8, _9;
+	zephir_fcall_cache_entry *_3 = NULL;
+	zval *value_param = NULL, _0, _1, _2, _4, _5, _6, _7, _8, _9, _10, _11;
 	zval value;
 	zval *this_ptr = getThis();
 
@@ -645,13 +577,14 @@ PHP_METHOD(Zeplara_Routing_Registrar, setPrefixAttribute) {
 	ZVAL_UNDEF(&_0);
 	ZVAL_UNDEF(&_1);
 	ZVAL_UNDEF(&_2);
-	ZVAL_UNDEF(&_3);
 	ZVAL_UNDEF(&_4);
 	ZVAL_UNDEF(&_5);
 	ZVAL_UNDEF(&_6);
 	ZVAL_UNDEF(&_7);
 	ZVAL_UNDEF(&_8);
 	ZVAL_UNDEF(&_9);
+	ZVAL_UNDEF(&_10);
+	ZVAL_UNDEF(&_11);
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &value_param);
@@ -670,49 +603,31 @@ PHP_METHOD(Zeplara_Routing_Registrar, setPrefixAttribute) {
 
 	ZEPHIR_INIT_VAR(&_0);
 	ZEPHIR_INIT_VAR(&_1);
-	ZEPHIR_CALL_METHOD(&_2, this_ptr, "getprefixattribute", NULL, 119);
-	zephir_check_call_status();
-	ZEPHIR_INIT_VAR(&_3);
-	ZVAL_STRING(&_3, "/");
-	zephir_fast_trim(&_1, &_2, &_3, ZEPHIR_TRIM_BOTH);
-	ZEPHIR_INIT_VAR(&_4);
+	zephir_read_property(&_4, this_ptr, ZEND_STRL("attributes"), PH_NOISY_CC | PH_READONLY);
 	ZEPHIR_INIT_VAR(&_5);
-	ZVAL_STRING(&_5, "/");
-	zephir_fast_trim(&_4, &value, &_5, ZEPHIR_TRIM_BOTH);
+	ZVAL_STRING(&_5, "prefix");
 	ZEPHIR_INIT_VAR(&_6);
-	ZEPHIR_CONCAT_VSV(&_6, &_1, "/", &_4);
+	ZVAL_STRING(&_6, "");
+	ZEPHIR_CALL_CE_STATIC(&_2, zeplara_support_arr_ce, "get", &_3, 0, &_4, &_5, &_6);
+	zephir_check_call_status();
+	ZEPHIR_INIT_NVAR(&_5);
+	ZVAL_STRING(&_5, "/");
+	zephir_fast_trim(&_1, &_2, &_5, ZEPHIR_TRIM_BOTH);
+	ZEPHIR_INIT_NVAR(&_6);
 	ZEPHIR_INIT_VAR(&_7);
 	ZVAL_STRING(&_7, "/");
-	zephir_fast_trim(&_0, &_6, &_7, ZEPHIR_TRIM_BOTH);
+	zephir_fast_trim(&_6, &value, &_7, ZEPHIR_TRIM_BOTH);
 	ZEPHIR_INIT_VAR(&_8);
-	ZEPHIR_CONCAT_SV(&_8, "/", &_0);
+	ZEPHIR_CONCAT_VSV(&_8, &_1, "/", &_6);
 	ZEPHIR_INIT_VAR(&_9);
-	ZVAL_STRING(&_9, "prefix");
-	zephir_update_property_array(this_ptr, SL("attributes"), &_9, &_8);
+	ZVAL_STRING(&_9, "/");
+	zephir_fast_trim(&_0, &_8, &_9, ZEPHIR_TRIM_BOTH);
+	ZEPHIR_INIT_VAR(&_10);
+	ZEPHIR_CONCAT_SV(&_10, "/", &_0);
+	ZEPHIR_INIT_VAR(&_11);
+	ZVAL_STRING(&_11, "prefix");
+	zephir_update_property_array(this_ptr, SL("attributes"), &_11, &_10);
 	ZEPHIR_MM_RESTORE();
-
-}
-
-/**
- * @return string
- */
-PHP_METHOD(Zeplara_Routing_Registrar, getNamespaceAttribute) {
-
-	zval _0, _1$$3, _2$$3;
-	zval *this_ptr = getThis();
-
-	ZVAL_UNDEF(&_0);
-	ZVAL_UNDEF(&_1$$3);
-	ZVAL_UNDEF(&_2$$3);
-
-
-	zephir_read_property(&_0, this_ptr, ZEND_STRL("attributes"), PH_NOISY_CC | PH_READONLY);
-	if (zephir_array_isset_string(&_0, SL("namespace"))) {
-		zephir_read_property(&_1$$3, this_ptr, ZEND_STRL("attributes"), PH_NOISY_CC | PH_READONLY);
-		zephir_array_fetch_string(&_2$$3, &_1$$3, SL("namespace"), PH_NOISY | PH_READONLY, "zeplara/Routing/Registrar.zep", 212);
-		RETURN_CTORW(&_2$$3);
-	}
-	RETURN_STRING("");
 
 }
 
@@ -724,7 +639,8 @@ PHP_METHOD(Zeplara_Routing_Registrar, setNamespaceAttribute) {
 
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
-	zval *value_param = NULL, _0, _1, _2, _3, _4, _5, _6, _7, _8, _9;
+	zephir_fcall_cache_entry *_3 = NULL;
+	zval *value_param = NULL, _0, _1, _2, _4, _5, _6, _7, _8, _9, _10, _11;
 	zval value;
 	zval *this_ptr = getThis();
 
@@ -732,13 +648,14 @@ PHP_METHOD(Zeplara_Routing_Registrar, setNamespaceAttribute) {
 	ZVAL_UNDEF(&_0);
 	ZVAL_UNDEF(&_1);
 	ZVAL_UNDEF(&_2);
-	ZVAL_UNDEF(&_3);
 	ZVAL_UNDEF(&_4);
 	ZVAL_UNDEF(&_5);
 	ZVAL_UNDEF(&_6);
 	ZVAL_UNDEF(&_7);
 	ZVAL_UNDEF(&_8);
 	ZVAL_UNDEF(&_9);
+	ZVAL_UNDEF(&_10);
+	ZVAL_UNDEF(&_11);
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &value_param);
@@ -757,50 +674,31 @@ PHP_METHOD(Zeplara_Routing_Registrar, setNamespaceAttribute) {
 
 	ZEPHIR_INIT_VAR(&_0);
 	ZEPHIR_INIT_VAR(&_1);
-	ZEPHIR_CALL_METHOD(&_2, this_ptr, "getnamespaceattribute", NULL, 120);
-	zephir_check_call_status();
-	ZEPHIR_INIT_VAR(&_3);
-	ZVAL_STRING(&_3, "\\");
-	zephir_fast_trim(&_1, &_2, &_3, ZEPHIR_TRIM_BOTH);
-	ZEPHIR_INIT_VAR(&_4);
+	zephir_read_property(&_4, this_ptr, ZEND_STRL("attributes"), PH_NOISY_CC | PH_READONLY);
 	ZEPHIR_INIT_VAR(&_5);
-	ZVAL_STRING(&_5, "\\");
-	zephir_fast_trim(&_4, &value, &_5, ZEPHIR_TRIM_BOTH);
+	ZVAL_STRING(&_5, "namespace");
 	ZEPHIR_INIT_VAR(&_6);
-	ZEPHIR_CONCAT_VSV(&_6, &_1, "\\", &_4);
+	ZVAL_STRING(&_6, "");
+	ZEPHIR_CALL_CE_STATIC(&_2, zeplara_support_arr_ce, "get", &_3, 0, &_4, &_5, &_6);
+	zephir_check_call_status();
+	ZEPHIR_INIT_NVAR(&_5);
+	ZVAL_STRING(&_5, "\\");
+	zephir_fast_trim(&_1, &_2, &_5, ZEPHIR_TRIM_BOTH);
+	ZEPHIR_INIT_NVAR(&_6);
 	ZEPHIR_INIT_VAR(&_7);
 	ZVAL_STRING(&_7, "\\");
-	zephir_fast_trim(&_0, &_6, &_7, ZEPHIR_TRIM_BOTH);
+	zephir_fast_trim(&_6, &value, &_7, ZEPHIR_TRIM_BOTH);
 	ZEPHIR_INIT_VAR(&_8);
-	ZEPHIR_CONCAT_SV(&_8, "\\", &_0);
+	ZEPHIR_CONCAT_VSV(&_8, &_1, "\\", &_6);
 	ZEPHIR_INIT_VAR(&_9);
-	ZVAL_STRING(&_9, "namespace");
-	zephir_update_property_array(this_ptr, SL("attributes"), &_9, &_8);
+	ZVAL_STRING(&_9, "\\");
+	zephir_fast_trim(&_0, &_8, &_9, ZEPHIR_TRIM_BOTH);
+	ZEPHIR_INIT_VAR(&_10);
+	ZEPHIR_CONCAT_SV(&_10, "\\", &_0);
+	ZEPHIR_INIT_VAR(&_11);
+	ZVAL_STRING(&_11, "namespace");
+	zephir_update_property_array(this_ptr, SL("attributes"), &_11, &_10);
 	ZEPHIR_MM_RESTORE();
-
-}
-
-/**
- * @return array
- */
-PHP_METHOD(Zeplara_Routing_Registrar, getRequirementsAttribute) {
-
-	zval _0, _1$$3, _2$$3;
-	zval *this_ptr = getThis();
-
-	ZVAL_UNDEF(&_0);
-	ZVAL_UNDEF(&_1$$3);
-	ZVAL_UNDEF(&_2$$3);
-
-
-	zephir_read_property(&_0, this_ptr, ZEND_STRL("attributes"), PH_NOISY_CC | PH_READONLY);
-	if (zephir_array_isset_string(&_0, SL("requirements"))) {
-		zephir_read_property(&_1$$3, this_ptr, ZEND_STRL("attributes"), PH_NOISY_CC | PH_READONLY);
-		zephir_array_fetch_string(&_2$$3, &_1$$3, SL("requirements"), PH_NOISY | PH_READONLY, "zeplara/Routing/Registrar.zep", 233);
-		RETURN_CTORW(&_2$$3);
-	}
-	array_init(return_value);
-	return;
 
 }
 
@@ -840,7 +738,7 @@ PHP_METHOD(Zeplara_Routing_Registrar, setRequirementsAttribute) {
 		ZVAL_STRING(&_2$$3, "requirements");
 		zephir_update_property_array(this_ptr, SL("attributes"), &_2$$3, &_1$$3);
 	}
-	zephir_is_iterable(&requirements, 0, "zeplara/Routing/Registrar.zep", 258);
+	zephir_is_iterable(&requirements, 0, "zeplara/Routing/Registrar.zep", 199);
 	if (Z_TYPE_P(&requirements) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_KEY_VAL(Z_ARRVAL_P(&requirements), _5, _6, _3)
 		{
@@ -853,7 +751,7 @@ PHP_METHOD(Zeplara_Routing_Registrar, setRequirementsAttribute) {
 			ZEPHIR_INIT_NVAR(&value);
 			ZVAL_COPY(&value, _3);
 			if (zephir_is_numeric(&key)) {
-				ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The requirements key should be string type.", "zeplara/Routing/Registrar.zep", 253);
+				ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The requirements key should be string type.", "zeplara/Routing/Registrar.zep", 194);
 				return;
 			}
 			zephir_update_property_array_multi(this_ptr, SL("attributes"), &value, SL("sz"), 3, SL("requirements"), &key);
@@ -872,7 +770,7 @@ PHP_METHOD(Zeplara_Routing_Registrar, setRequirementsAttribute) {
 			ZEPHIR_CALL_METHOD(&value, &requirements, "current", NULL, 0);
 			zephir_check_call_status();
 				if (zephir_is_numeric(&key)) {
-					ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The requirements key should be string type.", "zeplara/Routing/Registrar.zep", 253);
+					ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The requirements key should be string type.", "zeplara/Routing/Registrar.zep", 194);
 					return;
 				}
 				zephir_update_property_array_multi(this_ptr, SL("attributes"), &value, SL("sz"), 3, SL("requirements"), &key);
@@ -921,33 +819,9 @@ PHP_METHOD(Zeplara_Routing_Registrar, setWhereAttribute) {
 	ZEPHIR_INIT_VAR(&_0);
 	zephir_create_array(&_0, 1, 0);
 	zephir_array_update_zval(&_0, &key, value, PH_COPY);
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setrequirementsattribute", NULL, 121, &_0);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setrequirementsattribute", NULL, 119, &_0);
 	zephir_check_call_status();
 	ZEPHIR_MM_RESTORE();
-
-}
-
-/**
- * @return array
- */
-PHP_METHOD(Zeplara_Routing_Registrar, getMiddlewareAttribute) {
-
-	zval _0, _1$$3, _2$$3;
-	zval *this_ptr = getThis();
-
-	ZVAL_UNDEF(&_0);
-	ZVAL_UNDEF(&_1$$3);
-	ZVAL_UNDEF(&_2$$3);
-
-
-	zephir_read_property(&_0, this_ptr, ZEND_STRL("attributes"), PH_NOISY_CC | PH_READONLY);
-	if (zephir_array_isset_string(&_0, SL("middleware"))) {
-		zephir_read_property(&_1$$3, this_ptr, ZEND_STRL("attributes"), PH_NOISY_CC | PH_READONLY);
-		zephir_array_fetch_string(&_2$$3, &_1$$3, SL("middleware"), PH_NOISY | PH_READONLY, "zeplara/Routing/Registrar.zep", 275);
-		RETURN_CTORW(&_2$$3);
-	}
-	array_init(return_value);
-	return;
 
 }
 
@@ -956,56 +830,41 @@ PHP_METHOD(Zeplara_Routing_Registrar, getMiddlewareAttribute) {
  */
 PHP_METHOD(Zeplara_Routing_Registrar, setMiddlewareAttribute) {
 
-	zval _0, _1, _2, _3, _4, _5;
+	zval _0, _1, _3, _4, _5, _6, _7, _8;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
+	zephir_fcall_cache_entry *_2 = NULL;
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&_0);
 	ZVAL_UNDEF(&_1);
-	ZVAL_UNDEF(&_2);
 	ZVAL_UNDEF(&_3);
 	ZVAL_UNDEF(&_4);
 	ZVAL_UNDEF(&_5);
+	ZVAL_UNDEF(&_6);
+	ZVAL_UNDEF(&_7);
+	ZVAL_UNDEF(&_8);
 
 	ZEPHIR_MM_GROW();
 
 	ZEPHIR_INIT_VAR(&_0);
-	ZEPHIR_CALL_METHOD(&_1, this_ptr, "getmiddlewareattribute", NULL, 122);
-	zephir_check_call_status();
-	ZEPHIR_INIT_VAR(&_2);
-	zephir_get_args(&_2);
-	zephir_fast_array_merge(&_0, &_1, &_2);
-	ZVAL_LONG(&_3, 0);
-	ZEPHIR_CALL_FUNCTION(&_4, "array_unique", NULL, 117, &_0, &_3);
-	zephir_check_call_status();
+	zephir_read_property(&_3, this_ptr, ZEND_STRL("attributes"), PH_NOISY_CC | PH_READONLY);
+	ZEPHIR_INIT_VAR(&_4);
+	array_init(&_4);
 	ZEPHIR_INIT_VAR(&_5);
 	ZVAL_STRING(&_5, "middleware");
-	zephir_update_property_array(this_ptr, SL("attributes"), &_5, &_4);
+	ZEPHIR_CALL_CE_STATIC(&_1, zeplara_support_arr_ce, "get", &_2, 0, &_3, &_5, &_4);
+	zephir_check_call_status();
+	ZEPHIR_INIT_NVAR(&_5);
+	zephir_get_args(&_5);
+	zephir_fast_array_merge(&_0, &_1, &_5);
+	ZVAL_LONG(&_6, 0);
+	ZEPHIR_CALL_FUNCTION(&_7, "array_unique", NULL, 117, &_0, &_6);
+	zephir_check_call_status();
+	ZEPHIR_INIT_VAR(&_8);
+	ZVAL_STRING(&_8, "middleware");
+	zephir_update_property_array(this_ptr, SL("attributes"), &_8, &_7);
 	ZEPHIR_MM_RESTORE();
-
-}
-
-/**
- * @return string
- */
-PHP_METHOD(Zeplara_Routing_Registrar, getNameAttribute) {
-
-	zval _0, _1$$3, _2$$3;
-	zval *this_ptr = getThis();
-
-	ZVAL_UNDEF(&_0);
-	ZVAL_UNDEF(&_1$$3);
-	ZVAL_UNDEF(&_2$$3);
-
-
-	zephir_read_property(&_0, this_ptr, ZEND_STRL("attributes"), PH_NOISY_CC | PH_READONLY);
-	if (zephir_array_isset_string(&_0, SL("name"))) {
-		zephir_read_property(&_1$$3, this_ptr, ZEND_STRL("attributes"), PH_NOISY_CC | PH_READONLY);
-		zephir_array_fetch_string(&_2$$3, &_1$$3, SL("name"), PH_NOISY | PH_READONLY, "zeplara/Routing/Registrar.zep", 295);
-		RETURN_CTORW(&_2$$3);
-	}
-	RETURN_STRING("");
 
 }
 

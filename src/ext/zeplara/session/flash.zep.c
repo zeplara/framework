@@ -129,7 +129,7 @@ PHP_METHOD(Zeplara_Session_Flash, set) {
 	ZEPHIR_CALL_PARENT(NULL, zeplara_session_flash_ce, getThis(), "set", &_0, 0, key, value);
 	zephir_check_call_status();
 	zephir_read_property(&_1, this_ptr, ZEND_STRL("manager"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_METHOD(&_2, this_ptr, "resolvekey", NULL, 145, key);
+	ZEPHIR_CALL_METHOD(&_2, this_ptr, "resolvekey", NULL, 142, key);
 	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(NULL, &_1, "set", NULL, 0, &_2, value);
 	zephir_check_call_status();

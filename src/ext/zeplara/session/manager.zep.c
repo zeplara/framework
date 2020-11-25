@@ -137,9 +137,9 @@ PHP_METHOD(Zeplara_Session_Manager, __construct) {
 
 	zephir_update_property_zval(this_ptr, ZEND_STRL("handler"), handler);
 	zephir_update_property_zval(this_ptr, ZEND_STRL("name"), name);
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setprefix", NULL, 146, prefix);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setprefix", NULL, 143, prefix);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setid", NULL, 147, id);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setid", NULL, 144, id);
 	zephir_check_call_status();
 	ZEPHIR_MM_RESTORE();
 
@@ -169,7 +169,7 @@ PHP_METHOD(Zeplara_Session_Manager, setId) {
 	ZEPHIR_INIT_VAR(&_0);
 	_1 = Z_TYPE_P(id) == IS_STRING;
 	if (_1) {
-		ZEPHIR_CALL_FUNCTION(&_2, "ctype_alnum", NULL, 148, id);
+		ZEPHIR_CALL_FUNCTION(&_2, "ctype_alnum", NULL, 145, id);
 		zephir_check_call_status();
 		_1 = ZEPHIR_IS_TRUE_IDENTICAL(&_2);
 	}
@@ -180,7 +180,7 @@ PHP_METHOD(Zeplara_Session_Manager, setId) {
 	if (_3) {
 		ZEPHIR_CPY_WRT(&_0, id);
 	} else {
-		ZEPHIR_CALL_METHOD(&_0, this_ptr, "generatesessionid", NULL, 149);
+		ZEPHIR_CALL_METHOD(&_0, this_ptr, "generatesessionid", NULL, 146);
 		zephir_check_call_status();
 	}
 	zephir_update_property_zval(this_ptr, ZEND_STRL("id"), &_0);
@@ -333,9 +333,9 @@ PHP_METHOD(Zeplara_Session_Manager, regenerate) {
 		ZEPHIR_CALL_METHOD(NULL, &_1$$4, "destroy", NULL, 0, &_4$$4);
 		zephir_check_call_status();
 	}
-	ZEPHIR_CALL_METHOD(&_5, this_ptr, "generatesessionid", NULL, 149);
+	ZEPHIR_CALL_METHOD(&_5, this_ptr, "generatesessionid", NULL, 146);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setid", NULL, 147, &_5);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setid", NULL, 144, &_5);
 	zephir_check_call_status();
 	ZEPHIR_MM_RESTORE();
 

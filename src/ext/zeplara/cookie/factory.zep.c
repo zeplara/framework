@@ -15,6 +15,8 @@
 #include "kernel/object.h"
 #include "kernel/fcall.h"
 #include "kernel/memory.h"
+#include "kernel/time.h"
+#include "kernel/operators.h"
 
 
 ZEPHIR_INIT_CLASS(Zeplara_Cookie_Factory) {
@@ -124,7 +126,7 @@ PHP_METHOD(Zeplara_Cookie_Factory, forever) {
 
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
-	zval *name, name_sub, *value = NULL, value_sub, *path = NULL, path_sub, *domain = NULL, domain_sub, *secure = NULL, secure_sub, *httpOnly = NULL, httpOnly_sub, *sameSite = NULL, sameSite_sub, __$false, __$true, __$null, _0;
+	zval *name, name_sub, *value = NULL, value_sub, *path = NULL, path_sub, *domain = NULL, domain_sub, *secure = NULL, secure_sub, *httpOnly = NULL, httpOnly_sub, *sameSite = NULL, sameSite_sub, __$false, __$true, __$null, _0, _1;
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&name_sub);
@@ -138,6 +140,7 @@ PHP_METHOD(Zeplara_Cookie_Factory, forever) {
 	ZVAL_BOOL(&__$true, 1);
 	ZVAL_NULL(&__$null);
 	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&_1);
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 6, &name, &value, &path, &domain, &secure, &httpOnly, &sameSite);
@@ -171,8 +174,10 @@ PHP_METHOD(Zeplara_Cookie_Factory, forever) {
 	}
 
 
-	ZVAL_LONG(&_0, 2628000);
-	ZEPHIR_RETURN_CALL_SELF("make", NULL, 0, name, value, &_0, path, domain, secure, httpOnly, sameSite);
+	ZEPHIR_INIT_VAR(&_0);
+	zephir_time(&_0);
+	ZVAL_LONG(&_1, (zephir_get_numberval(&_0) + ((((3650 * 24) * 60) * 60))));
+	ZEPHIR_RETURN_CALL_SELF("make", NULL, 0, name, value, &_1, path, domain, secure, httpOnly, sameSite);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -191,7 +196,7 @@ PHP_METHOD(Zeplara_Cookie_Factory, forget) {
 
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
-	zval *name, name_sub, *path = NULL, path_sub, *domain = NULL, domain_sub, *secure = NULL, secure_sub, *httpOnly = NULL, httpOnly_sub, *sameSite = NULL, sameSite_sub, __$false, __$true, __$null, _0, _1;
+	zval *name, name_sub, *path = NULL, path_sub, *domain = NULL, domain_sub, *secure = NULL, secure_sub, *httpOnly = NULL, httpOnly_sub, *sameSite = NULL, sameSite_sub, __$false, __$true, __$null, _0, _1, _2;
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&name_sub);
@@ -205,6 +210,7 @@ PHP_METHOD(Zeplara_Cookie_Factory, forget) {
 	ZVAL_NULL(&__$null);
 	ZVAL_UNDEF(&_0);
 	ZVAL_UNDEF(&_1);
+	ZVAL_UNDEF(&_2);
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 5, &name, &path, &domain, &secure, &httpOnly, &sameSite);
@@ -234,9 +240,11 @@ PHP_METHOD(Zeplara_Cookie_Factory, forget) {
 
 
 	ZEPHIR_INIT_VAR(&_0);
-	ZVAL_STRING(&_0, "");
-	ZVAL_LONG(&_1, -2628000);
-	ZEPHIR_RETURN_CALL_SELF("make", NULL, 0, name, &_0, &_1, path, domain, secure, httpOnly, sameSite);
+	zephir_time(&_0);
+	ZEPHIR_INIT_VAR(&_1);
+	ZVAL_STRING(&_1, "");
+	ZVAL_LONG(&_2, (zephir_get_numberval(&_0) - 3600));
+	ZEPHIR_RETURN_CALL_SELF("make", NULL, 0, name, &_1, &_2, path, domain, secure, httpOnly, sameSite);
 	zephir_check_call_status();
 	RETURN_MM();
 

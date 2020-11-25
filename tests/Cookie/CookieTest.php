@@ -16,7 +16,7 @@ class CookieTest extends TestCase
     {
         $cookie = new Cookie('name');
 
-        static::assertEquals('name', $cookie->getName());
+        self::assertSame('name', $cookie->getName());
     }
 
     /**
@@ -32,17 +32,17 @@ class CookieTest extends TestCase
             throw $e;
         }
 
-        static::assertNull(isset($cookie) ? $cookie : null);
+        self::assertNull(isset($cookie) ? $cookie : null);
     }
 
 
     public function testValue()
     {
         $cookie = new Cookie('name', 'value');
-        static::assertEquals('value', $cookie->getValue());
+        self::assertSame('value', $cookie->getValue());
     
         $cookie = new Cookie('name', null);
-        static::assertEquals('', $cookie->getValue());
+        self::assertSame('', $cookie->getValue());
     }
 
     public function testInvalidValue()
@@ -64,7 +64,7 @@ class CookieTest extends TestCase
             $expiration = strtotime($expiration);
         }
         
-        static::assertEquals($expiration, $cookie->getExpiration());
+        self::assertSame((int) $expiration, $cookie->getExpiration());
     }
 
     public function testInvalidExpiration()
@@ -77,22 +77,22 @@ class CookieTest extends TestCase
     public function testPath()
     {
         $cookie = new Cookie('foo', 'bar', 0);
-        static::assertEquals('/', $cookie->getPath());
+        self::assertSame('/', $cookie->getPath());
 
         $cookie->setPath('/public');
-        static::assertEquals('/public', $cookie->getPath()); 
+        self::assertSame('/public', $cookie->getPath()); 
 
         $cookie->setPath('public');
-        static::assertEquals('public', $cookie->getPath());     
+        self::assertSame('public', $cookie->getPath());     
 
         $cookie->setPath('public/');
-        static::assertEquals('public/', $cookie->getPath());
+        self::assertSame('public/', $cookie->getPath());
 
         $cookie->setPath(null);
-        static::assertEquals('/', $cookie->getPath());  
+        self::assertSame('/', $cookie->getPath());  
 
         $cookie->setPath('');
-        static::assertEquals('/', $cookie->getPath());
+        self::assertSame('/', $cookie->getPath());
     }
 
     public function testInvalidPath()
@@ -105,19 +105,19 @@ class CookieTest extends TestCase
             throw $e;
         }
 
-        static::assertNull(isset($cookie) ? $cookie : null);
+        self::assertNull(isset($cookie) ? $cookie : null);
     }
 
     public function testValidDomain()
     {
         $cookie = new Cookie('foo', 'bar', 0, '/', 'example.com');
-        static::assertEquals('example.com', $cookie->getDomain());
+        self::assertSame('example.com', $cookie->getDomain());
 
         $cookie->setDomain(null);
-        static::assertEquals('', $cookie->getDomain());
+        self::assertSame('', $cookie->getDomain());
 
         $cookie->setDomain('');
-        static::assertEquals('', $cookie->getDomain());
+        self::assertSame('', $cookie->getDomain());
     }
 
     public function testInvalidDomain()
@@ -130,37 +130,37 @@ class CookieTest extends TestCase
             throw $e;
         }
     
-        static::assertNull(isset($cookie) ? $cookie : null);
+        self::assertNull(isset($cookie) ? $cookie : null);
     }
 
     public function testIsSecure()
     {
         $cookie = new Cookie('name', 'value', 0, '/', '', true);
         
-        static::assertTrue($cookie->isSecure());
+        self::assertTrue($cookie->isSecure());
 
         $cookie->setSecure(false);
 
-        static::assertFalse($cookie->isSecure());
+        self::assertFalse($cookie->isSecure());
 
         $cookie->setSecure(true);
 
-        static::assertTrue($cookie->isSecure());
+        self::assertTrue($cookie->isSecure());
     }
 
     public function testIsHttpOnly()
     {
         $cookie = new Cookie('name', 'value', 0, '/', '', false, true, null);
 
-        static::assertTrue($cookie->isHttpOnly());
+        self::assertTrue($cookie->isHttpOnly());
     
         $cookie->setHttpOnly(false);
 
-        static::assertFalse($cookie->isHttpOnly());
+        self::assertFalse($cookie->isHttpOnly());
 
         $cookie->setHttpOnly(true);
 
-        static::assertTrue($cookie->isHttpOnly());
+        self::assertTrue($cookie->isHttpOnly());
     }
 
     /**
@@ -171,11 +171,11 @@ class CookieTest extends TestCase
         
         $cookie = new Cookie('name', '', 0, '/', '', false, true, $sameSite);
 
-        static::assertEquals($expected, $cookie->getSameSite());
+        self::assertSame($expected, $cookie->getSameSite());
 
         $cookie->setSameSite($sameSite);
 
-        static::assertEquals($expected, $cookie->getSameSite());
+        self::assertSame($expected, $cookie->getSameSite());
     }
 
     /**
@@ -193,7 +193,7 @@ class CookieTest extends TestCase
             throw $e;
         }
 
-        static::assertNull(isset($cookie) ? $cookie : null);
+        self::assertNull(isset($cookie) ? $cookie : null);
     }
 
     /**
@@ -201,7 +201,7 @@ class CookieTest extends TestCase
      */
     public function testCookieToString($cookie, $expected)
     {
-        static::assertEquals($expected, (string) $cookie);
+        self::assertSame($expected, (string) $cookie);
     }
 
     public function provideInvalidName()

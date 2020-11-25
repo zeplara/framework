@@ -14,20 +14,13 @@ PHP_METHOD(Zeplara_Routing_Registrar, options);
 PHP_METHOD(Zeplara_Routing_Registrar, any);
 PHP_METHOD(Zeplara_Routing_Registrar, group);
 PHP_METHOD(Zeplara_Routing_Registrar, register);
-PHP_METHOD(Zeplara_Routing_Registrar, getSchemeAttribute);
 PHP_METHOD(Zeplara_Routing_Registrar, setSchemeAttribute);
-PHP_METHOD(Zeplara_Routing_Registrar, getHostAttribute);
 PHP_METHOD(Zeplara_Routing_Registrar, setHostAttribute);
-PHP_METHOD(Zeplara_Routing_Registrar, getPrefixAttribute);
 PHP_METHOD(Zeplara_Routing_Registrar, setPrefixAttribute);
-PHP_METHOD(Zeplara_Routing_Registrar, getNamespaceAttribute);
 PHP_METHOD(Zeplara_Routing_Registrar, setNamespaceAttribute);
-PHP_METHOD(Zeplara_Routing_Registrar, getRequirementsAttribute);
 PHP_METHOD(Zeplara_Routing_Registrar, setRequirementsAttribute);
 PHP_METHOD(Zeplara_Routing_Registrar, setWhereAttribute);
-PHP_METHOD(Zeplara_Routing_Registrar, getMiddlewareAttribute);
 PHP_METHOD(Zeplara_Routing_Registrar, setMiddlewareAttribute);
-PHP_METHOD(Zeplara_Routing_Registrar, getNameAttribute);
 PHP_METHOD(Zeplara_Routing_Registrar, setNameAttribute);
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_zeplara_routing_registrar___construct, 0, 0, 1)
@@ -152,20 +145,13 @@ ZEPHIR_INIT_FUNCS(zeplara_routing_registrar_method_entry) {
 	PHP_ME(Zeplara_Routing_Registrar, any, arginfo_zeplara_routing_registrar_any, ZEND_ACC_PUBLIC)
 	PHP_ME(Zeplara_Routing_Registrar, group, arginfo_zeplara_routing_registrar_group, ZEND_ACC_PUBLIC)
 	PHP_ME(Zeplara_Routing_Registrar, register, arginfo_zeplara_routing_registrar_register, ZEND_ACC_PUBLIC)
-	PHP_ME(Zeplara_Routing_Registrar, getSchemeAttribute, NULL, ZEND_ACC_PROTECTED)
 	PHP_ME(Zeplara_Routing_Registrar, setSchemeAttribute, arginfo_zeplara_routing_registrar_setschemeattribute, ZEND_ACC_PROTECTED)
-	PHP_ME(Zeplara_Routing_Registrar, getHostAttribute, NULL, ZEND_ACC_PROTECTED)
 	PHP_ME(Zeplara_Routing_Registrar, setHostAttribute, arginfo_zeplara_routing_registrar_sethostattribute, ZEND_ACC_PROTECTED)
-	PHP_ME(Zeplara_Routing_Registrar, getPrefixAttribute, NULL, ZEND_ACC_PROTECTED)
 	PHP_ME(Zeplara_Routing_Registrar, setPrefixAttribute, arginfo_zeplara_routing_registrar_setprefixattribute, ZEND_ACC_PROTECTED)
-	PHP_ME(Zeplara_Routing_Registrar, getNamespaceAttribute, NULL, ZEND_ACC_PROTECTED)
 	PHP_ME(Zeplara_Routing_Registrar, setNamespaceAttribute, arginfo_zeplara_routing_registrar_setnamespaceattribute, ZEND_ACC_PROTECTED)
-	PHP_ME(Zeplara_Routing_Registrar, getRequirementsAttribute, NULL, ZEND_ACC_PROTECTED)
 	PHP_ME(Zeplara_Routing_Registrar, setRequirementsAttribute, arginfo_zeplara_routing_registrar_setrequirementsattribute, ZEND_ACC_PROTECTED)
 	PHP_ME(Zeplara_Routing_Registrar, setWhereAttribute, arginfo_zeplara_routing_registrar_setwhereattribute, ZEND_ACC_PROTECTED)
-	PHP_ME(Zeplara_Routing_Registrar, getMiddlewareAttribute, NULL, ZEND_ACC_PROTECTED)
 	PHP_ME(Zeplara_Routing_Registrar, setMiddlewareAttribute, NULL, ZEND_ACC_PROTECTED)
-	PHP_ME(Zeplara_Routing_Registrar, getNameAttribute, NULL, ZEND_ACC_PROTECTED)
 	PHP_ME(Zeplara_Routing_Registrar, setNameAttribute, arginfo_zeplara_routing_registrar_setnameattribute, ZEND_ACC_PROTECTED)
 	PHP_FE_END
 };

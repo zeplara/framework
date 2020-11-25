@@ -5,8 +5,8 @@ ZEPHIR_INIT_CLASS(Zeplara_Http_Request);
 
 PHP_METHOD(Zeplara_Http_Request, getUri);
 PHP_METHOD(Zeplara_Http_Request, getMethod);
-PHP_METHOD(Zeplara_Http_Request, getRequestTarget);
 PHP_METHOD(Zeplara_Http_Request, __construct);
+PHP_METHOD(Zeplara_Http_Request, getRequestTarget);
 PHP_METHOD(Zeplara_Http_Request, withRequestTarget);
 PHP_METHOD(Zeplara_Http_Request, withMethod);
 PHP_METHOD(Zeplara_Http_Request, withUri);
@@ -50,8 +50,8 @@ ZEND_END_ARG_INFO()
 ZEPHIR_INIT_FUNCS(zeplara_http_request_method_entry) {
 	PHP_ME(Zeplara_Http_Request, getUri, NULL, ZEND_ACC_PUBLIC)
 	PHP_ME(Zeplara_Http_Request, getMethod, arginfo_zeplara_http_request_getmethod, ZEND_ACC_PUBLIC)
-	PHP_ME(Zeplara_Http_Request, getRequestTarget, NULL, ZEND_ACC_PUBLIC)
 	PHP_ME(Zeplara_Http_Request, __construct, arginfo_zeplara_http_request___construct, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+	PHP_ME(Zeplara_Http_Request, getRequestTarget, NULL, ZEND_ACC_PUBLIC)
 	PHP_ME(Zeplara_Http_Request, withRequestTarget, arginfo_zeplara_http_request_withrequesttarget, ZEND_ACC_PUBLIC)
 	PHP_ME(Zeplara_Http_Request, withMethod, arginfo_zeplara_http_request_withmethod, ZEND_ACC_PUBLIC)
 	PHP_ME(Zeplara_Http_Request, withUri, arginfo_zeplara_http_request_withuri, ZEND_ACC_PUBLIC)

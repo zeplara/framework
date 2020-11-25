@@ -154,12 +154,12 @@ PHP_METHOD(Zeplara_Support_File_Finder_FileFinder, __construct) {
 	}
 
 
-	ZEPHIR_CALL_METHOD(&_0, this_ptr, "normalizepath", NULL, 156, path);
+	ZEPHIR_CALL_METHOD(&_0, this_ptr, "normalizepath", NULL, 153, path);
 	zephir_check_call_status();
 	zephir_update_property_zval(this_ptr, ZEND_STRL("path"), &_0);
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setdepth", NULL, 157, depth);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setdepth", NULL, 154, depth);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setfilters", NULL, 158, &filters);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setfilters", NULL, 155, &filters);
 	zephir_check_call_status();
 	ZEPHIR_MM_RESTORE();
 
@@ -207,12 +207,12 @@ PHP_METHOD(Zeplara_Support_File_Finder_FileFinder, getIterator) {
 	object_init_ex(&_0, zephir_get_internal_ce(SL("arrayiterator")));
 	zephir_read_property(&_2, this_ptr, ZEND_STRL("path"), PH_NOISY_CC | PH_READONLY);
 	zephir_read_property(&_3, this_ptr, ZEND_STRL("depth"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_METHOD(&_1, this_ptr, "loadpath", NULL, 159, &_2, &_3);
+	ZEPHIR_CALL_METHOD(&_1, this_ptr, "loadpath", NULL, 156, &_2, &_3);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, &_0, "__construct", NULL, 160, &_1);
+	ZEPHIR_CALL_METHOD(NULL, &_0, "__construct", NULL, 157, &_1);
 	zephir_check_call_status();
 	zephir_read_property(&_4, this_ptr, ZEND_STRL("filters"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 161, &_0, &_4);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 158, &_0, &_4);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -283,7 +283,7 @@ PHP_METHOD(Zeplara_Support_File_Finder_FileFinder, __call) {
 		zephir_array_fast_append(&_2$$3, name);
 		ZEPHIR_CALL_USER_FUNC_ARRAY(&_1$$3, &_2$$3, &arguments);
 		zephir_check_call_status();
-		ZEPHIR_CALL_METHOD(NULL, this_ptr, "addfilter", NULL, 162, &_1$$3);
+		ZEPHIR_CALL_METHOD(NULL, this_ptr, "addfilter", NULL, 159, &_1$$3);
 		zephir_check_call_status();
 	} else {
 		zephir_read_property(&_4$$4, this_ptr, ZEND_STRL("filters"), PH_NOISY_CC | PH_READONLY);
@@ -381,7 +381,7 @@ PHP_METHOD(Zeplara_Support_File_Finder_FileFinder, instance) {
 
 
 	object_init_ex(return_value, zeplara_support_file_finder_filefinder_ce);
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 163, path, depth, &filters);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 160, path, depth, &filters);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -527,13 +527,13 @@ PHP_METHOD(Zeplara_Support_File_Finder_FileFinder, loadPath) {
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&entries);
 	array_init(&entries);
-	ZEPHIR_CALL_FUNCTION(&handle, "opendir", NULL, 164, path);
+	ZEPHIR_CALL_FUNCTION(&handle, "opendir", NULL, 161, path);
 	zephir_check_call_status();
 	while (1) {
 		if (!(1)) {
 			break;
 		}
-		ZEPHIR_CALL_FUNCTION(&entry, "readdir", &_3, 165, &handle);
+		ZEPHIR_CALL_FUNCTION(&entry, "readdir", &_3, 162, &handle);
 		zephir_check_call_status();
 		if (ZEPHIR_IS_FALSE_IDENTICAL(&entry)) {
 			break;
@@ -551,14 +551,14 @@ PHP_METHOD(Zeplara_Support_File_Finder_FileFinder, loadPath) {
 		zephir_fast_trim(&_5$$4, path, &_6$$4, ZEPHIR_TRIM_RIGHT);
 		ZEPHIR_INIT_NVAR(&_7$$4);
 		ZEPHIR_CONCAT_VVV(&_7$$4, &_5$$4, &separator, &entry);
-		ZEPHIR_CALL_METHOD(&entry, this_ptr, "normalizepath", &_8, 156, &_7$$4);
+		ZEPHIR_CALL_METHOD(&entry, this_ptr, "normalizepath", &_8, 153, &_7$$4);
 		zephir_check_call_status();
 		ZEPHIR_INIT_NVAR(&_9$$4);
 		object_init_ex(&_9$$4, zeplara_support_file_splfileinfo_ce);
-		ZEPHIR_CALL_METHOD(NULL, &_9$$4, "__construct", &_10, 166, &entry);
+		ZEPHIR_CALL_METHOD(NULL, &_9$$4, "__construct", &_10, 163, &entry);
 		zephir_check_call_status();
 		zephir_array_append(&entries, &_9$$4, PH_SEPARATE, "zeplara/Support/File/Finder/FileFinder.zep", 163);
-		ZEPHIR_CALL_FUNCTION(&_11$$4, "is_dir", &_12, 167, &entry);
+		ZEPHIR_CALL_FUNCTION(&_11$$4, "is_dir", &_12, 164, &entry);
 		zephir_check_call_status();
 		_13$$4 = zephir_is_true(&_11$$4);
 		if (_13$$4) {
@@ -568,13 +568,13 @@ PHP_METHOD(Zeplara_Support_File_Finder_FileFinder, loadPath) {
 			depth--;
 			ZEPHIR_INIT_NVAR(&_14$$7);
 			ZVAL_LONG(&_16$$7, depth);
-			ZEPHIR_CALL_METHOD(&_15$$7, this_ptr, "loadpath", &_17, 159, &entry, &_16$$7);
+			ZEPHIR_CALL_METHOD(&_15$$7, this_ptr, "loadpath", &_17, 156, &entry, &_16$$7);
 			zephir_check_call_status();
 			zephir_fast_array_merge(&_14$$7, &entries, &_15$$7);
 			ZEPHIR_CPY_WRT(&entries, &_14$$7);
 		}
 	}
-	ZEPHIR_CALL_FUNCTION(NULL, "closedir", NULL, 168, &handle);
+	ZEPHIR_CALL_FUNCTION(NULL, "closedir", NULL, 165, &handle);
 	zephir_check_call_status();
 	ZEPHIR_CALL_FUNCTION(NULL, "restore_error_handler", NULL, 54);
 	zephir_check_call_status();

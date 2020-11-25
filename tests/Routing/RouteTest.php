@@ -15,9 +15,9 @@ class RouteTest extends TestCase
         
         }, ['GET']);
 
-        self::assertEquals('/', $route->getPattern());
+        self::assertSame('/', $route->getPattern());
         self::assertIsArray($route->getMethods());
-        self::assertEquals(['GET'], $route->getMethods());
+        self::assertSame(['GET'], $route->getMethods());
     }
 
     public function testAttributesOnConstructor()
@@ -29,9 +29,9 @@ class RouteTest extends TestCase
             'middleware' => ['auth'] 
         ]);
 
-        self::assertEquals('home', $route->name());
+        self::assertSame('home', $route->name());
         self::assertIsArray($route->middleware());
-        self::assertEquals(['auth'], $route->middleware());
+        self::assertSame(['auth'], $route->middleware());
     }
 
     public function testAttributesWithChainMethod()
@@ -42,9 +42,9 @@ class RouteTest extends TestCase
 
         $route->middleware('auth')->name('home');
 
-        self::assertEquals('home', $route->name());
+        self::assertSame('home', $route->name());
         self::assertIsArray($route->middleware());
-        self::assertEquals(['auth'], $route->middleware());
+        self::assertSame(['auth'], $route->middleware());
     }
 
     public function testInvalidAttributeOnConstructor()

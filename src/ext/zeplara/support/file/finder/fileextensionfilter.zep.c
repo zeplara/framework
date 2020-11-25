@@ -147,7 +147,7 @@ PHP_METHOD(Zeplara_Support_File_Finder_FileExtensionFilter, accept) {
 			zephir_read_property(&_5$$3, this_ptr, ZEND_STRL("extensions"), PH_NOISY_CC | PH_READONLY);
 			ZEPHIR_INIT_VAR(&_6$$3);
 			ZVAL_STRING(&_6$$3, "strtolower");
-			ZEPHIR_CALL_FUNCTION(&_7$$3, "array_map", NULL, 155, &_6$$3, &_5$$3);
+			ZEPHIR_CALL_FUNCTION(&_7$$3, "array_map", NULL, 152, &_6$$3, &_5$$3);
 			zephir_check_call_status();
 			ZVAL_BOOL(&_1$$3, zephir_fast_in_array(&_3$$3, &_7$$3) == 0);
 		} else {
@@ -158,7 +158,7 @@ PHP_METHOD(Zeplara_Support_File_Finder_FileExtensionFilter, accept) {
 			zephir_read_property(&_9$$3, this_ptr, ZEND_STRL("extensions"), PH_NOISY_CC | PH_READONLY);
 			ZEPHIR_INIT_VAR(&_10$$3);
 			ZVAL_STRING(&_10$$3, "strtolower");
-			ZEPHIR_CALL_FUNCTION(&_11$$3, "array_map", NULL, 155, &_10$$3, &_9$$3);
+			ZEPHIR_CALL_FUNCTION(&_11$$3, "array_map", NULL, 152, &_10$$3, &_9$$3);
 			zephir_check_call_status();
 			ZVAL_BOOL(&_1$$3, zephir_fast_in_array(&_6$$3, &_11$$3));
 		}

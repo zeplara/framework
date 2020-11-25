@@ -19,6 +19,7 @@
 #include "kernel/operators.h"
 #include "kernel/memory.h"
 #include "kernel/concat.h"
+#include "kernel/string.h"
 
 
 ZEPHIR_INIT_CLASS(Zeplara_Http_Request) {
@@ -64,17 +65,6 @@ PHP_METHOD(Zeplara_Http_Request, getMethod) {
 
 
 	RETURN_MEMBER(getThis(), "method");
-
-}
-
-/**
- */
-PHP_METHOD(Zeplara_Http_Request, getRequestTarget) {
-
-	zval *this_ptr = getThis();
-
-
-	RETURN_MEMBER(getThis(), "requestTarget");
 
 }
 
@@ -145,6 +135,42 @@ PHP_METHOD(Zeplara_Http_Request, __construct) {
 
 }
 
+PHP_METHOD(Zeplara_Http_Request, getRequestTarget) {
+
+	zval _0, uriQuery, requestTarget, _1, _2, _3$$4;
+	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
+	zend_long ZEPHIR_LAST_CALL_STATUS;
+	zval *this_ptr = getThis();
+
+	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&uriQuery);
+	ZVAL_UNDEF(&requestTarget);
+	ZVAL_UNDEF(&_1);
+	ZVAL_UNDEF(&_2);
+	ZVAL_UNDEF(&_3$$4);
+
+	ZEPHIR_MM_GROW();
+
+	ZEPHIR_OBS_VAR(&_0);
+	zephir_read_property(&_0, this_ptr, ZEND_STRL("requestTarget"), PH_NOISY_CC);
+	if (Z_TYPE_P(&_0) != IS_NULL) {
+		RETURN_MM_MEMBER(getThis(), "requestTarget");
+	}
+	zephir_read_property(&_1, this_ptr, ZEND_STRL("uri"), PH_NOISY_CC | PH_READONLY);
+	ZEPHIR_CALL_METHOD(&uriQuery, &_1, "getquery", NULL, 0);
+	zephir_check_call_status();
+	zephir_read_property(&_2, this_ptr, ZEND_STRL("uri"), PH_NOISY_CC | PH_READONLY);
+	ZEPHIR_CALL_METHOD(&requestTarget, &_2, "getpath", NULL, 0);
+	zephir_check_call_status();
+	if (!ZEPHIR_IS_STRING_IDENTICAL(&uriQuery, "")) {
+		ZEPHIR_INIT_VAR(&_3$$4);
+		ZEPHIR_CONCAT_SV(&_3$$4, "?", &uriQuery);
+		zephir_concat_self(&requestTarget, &_3$$4);
+	}
+	RETURN_CCTOR(&requestTarget);
+
+}
+
 /**
  * @param requestTarget
  * @return static
@@ -152,10 +178,12 @@ PHP_METHOD(Zeplara_Http_Request, __construct) {
 PHP_METHOD(Zeplara_Http_Request, withRequestTarget) {
 
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
-	zval *requestTarget, requestTarget_sub, clone;
+	zval *requestTarget, requestTarget_sub, _0, _1, clone;
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&requestTarget_sub);
+	ZVAL_UNDEF(&_0);
+	ZVAL_UNDEF(&_1);
 	ZVAL_UNDEF(&clone);
 
 	ZEPHIR_MM_GROW();
@@ -164,7 +192,15 @@ PHP_METHOD(Zeplara_Http_Request, withRequestTarget) {
 
 
 	if (Z_TYPE_P(requestTarget) != IS_STRING) {
-		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The requestTarget should be string type.", "zeplara/Http/Request.zep", 52);
+		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The requestTarget should be string type.", "zeplara/Http/Request.zep", 70);
+		return;
+	}
+	ZEPHIR_INIT_VAR(&_0);
+	ZVAL_STRING(&_0, " ");
+	ZEPHIR_INIT_VAR(&_1);
+	zephir_fast_strpos(&_1, requestTarget, &_0, 0 );
+	if (!ZEPHIR_IS_FALSE_IDENTICAL(&_1)) {
+		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The requestTarget cannot contain whitespace.", "zeplara/Http/Request.zep", 74);
 		return;
 	}
 	ZEPHIR_INIT_VAR(&clone);

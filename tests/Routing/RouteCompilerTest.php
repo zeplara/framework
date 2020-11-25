@@ -426,13 +426,13 @@ class RouteCompilerTest extends TestCase
             $route->host($list['pattern']);
             $compiled = RouteCompiler::compile($route);
             foreach (Arr::wrap($list['matching']['expected'] ?? []) as $expected) {
-                static::assertMatchesRegularExpression($compiled->getHost()->getRegex(), $expected);
+                self::assertMatchesRegularExpression($compiled->getHost()->getRegex(), $expected);
             }
             foreach (Arr::wrap($list['matching']['unexpected'] ?? []) as $unExpected) {
-                static::assertDoesNotMatchRegularExpression($compiled->getHost()->getRegex(), $unExpected);
+                self::assertDoesNotMatchRegularExpression($compiled->getHost()->getRegex(), $unExpected);
             }
             if (isset($list['regex'])) {
-                static::assertEquals(sprintf("{^%s$}sDui", $list['regex']), $compiled->getHost()->getRegex());
+                self::assertSame(sprintf("{^%s$}sDui", $list['regex']), $compiled->getHost()->getRegex());
             }
         }
     }
@@ -554,13 +554,13 @@ class RouteCompilerTest extends TestCase
             }, ['GET']);
             $compiled = RouteCompiler::compile($route);
             foreach (Arr::wrap($list['matching']['expected'] ?? []) as $expected) {
-                static::assertMatchesRegularExpression($compiled->getPath()->getRegex(), $expected);
+                self::assertMatchesRegularExpression($compiled->getPath()->getRegex(), $expected);
             }
             foreach (Arr::wrap($list['matching']['unexpected'] ?? []) as $unExpected) {
-                static::assertDoesNotMatchRegularExpression($compiled->getPath()->getRegex(), $unExpected);
+                self::assertDoesNotMatchRegularExpression($compiled->getPath()->getRegex(), $unExpected);
             }
             if (isset($list['regex'])) {
-                static::assertEquals(sprintf("{^%s$}sDu", $list['regex']), $compiled->getPath()->getRegex());
+                self::assertSame(sprintf("{^%s$}sDu", $list['regex']), $compiled->getPath()->getRegex());
             }
         }
     }
@@ -573,35 +573,35 @@ class RouteCompilerTest extends TestCase
 
         $route->where('id', '1|2');
         $compiled = RouteCompiler::compile($route);
-        static::assertEquals('{^/post/(?P<id>1|2)$}sDu',$compiled->getPath()->getRegex());
+        self::assertSame('{^/post/(?P<id>1|2)$}sDu',$compiled->getPath()->getRegex());
         
         $route->where('id', '^1|2');
         $compiled = RouteCompiler::compile($route);
-        static::assertEquals('{^/post/(?P<id>1|2)$}sDu',$compiled->getPath()->getRegex());
+        self::assertSame('{^/post/(?P<id>1|2)$}sDu',$compiled->getPath()->getRegex());
 
         $route->where('id', '1|2$');
         $compiled = RouteCompiler::compile($route);
-        static::assertEquals('{^/post/(?P<id>1|2)$}sDu',$compiled->getPath()->getRegex());
+        self::assertSame('{^/post/(?P<id>1|2)$}sDu',$compiled->getPath()->getRegex());
 
         $route->where('id', '^1|2$');
         $compiled = RouteCompiler::compile($route);
-        static::assertEquals('{^/post/(?P<id>1|2)$}sDu',$compiled->getPath()->getRegex());
+        self::assertSame('{^/post/(?P<id>1|2)$}sDu',$compiled->getPath()->getRegex());
         
         $route->where('id', '(1|2)');
         $compiled = RouteCompiler::compile($route);
-        static::assertEquals('{^/post/(?P<id>(?:1|2))$}sDu',$compiled->getPath()->getRegex());
+        self::assertSame('{^/post/(?P<id>(?:1|2))$}sDu',$compiled->getPath()->getRegex());
 
         $route->where('id', '((1|2))');
         $compiled = RouteCompiler::compile($route);
-        static::assertEquals('{^/post/(?P<id>(?:(?:1|2)))$}sDu',$compiled->getPath()->getRegex());
+        self::assertSame('{^/post/(?P<id>(?:(?:1|2)))$}sDu',$compiled->getPath()->getRegex());
 
         $route->where('id', '(?:(1|2))');
         $compiled = RouteCompiler::compile($route);
-        static::assertEquals('{^/post/(?P<id>(?:(?:1|2)))$}sDu',$compiled->getPath()->getRegex());
+        self::assertSame('{^/post/(?P<id>(?:(?:1|2)))$}sDu',$compiled->getPath()->getRegex());
 
         $route->where('id', '(?:(?:1|2))');
         $compiled = RouteCompiler::compile($route);
-        static::assertEquals('{^/post/(?P<id>(?:(?:1|2)))$}sDu',$compiled->getPath()->getRegex());
+        self::assertSame('{^/post/(?P<id>(?:(?:1|2)))$}sDu',$compiled->getPath()->getRegex());
     }
 
     public function testInvalidLengthVariable()

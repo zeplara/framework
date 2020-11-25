@@ -19,7 +19,7 @@ class EncrypterTest extends TestCase
     {
         $encrypter = new Encrypter(Str::random(openssl_cipher_iv_length($cipher)), $cipher);
 
-        static::assertEquals('hello world', $encrypter->decrypt($encrypter->encrypt('hello world')));
+        self::assertSame('hello world', $encrypter->decrypt($encrypter->encrypt('hello world')));
     }
 
     /**
@@ -37,7 +37,7 @@ class EncrypterTest extends TestCase
             throw $e;
         }
 
-        static::assertNull(isset($encrypter) ? $encrypter : null);
+        self::assertNull(isset($encrypter) ? $encrypter : null);
     }
 
     public function provideCipherMethods()

@@ -1,5 +1,6 @@
 namespace Zeplara\Routing;
 
+use Zeplara\Support\Arr;
 use InvalidArgumentException;
 use Zeplara\Contracts\Routing\Registrar as RegistrarContract;
 
@@ -133,18 +134,6 @@ final class Registrar extends Attribute implements RegistrarContract
     }
 
     /**
-     * @return string
-     */
-    protected function getSchemeAttribute()
-    {
-        if isset this->attributes["scheme"] {
-            return this->attributes["scheme"];
-        }
-
-        return "";
-    }
-
-    /**
      * @param string value
      * @return void
      */
@@ -160,18 +149,6 @@ final class Registrar extends Attribute implements RegistrarContract
 
         let this->attributes["scheme"] = value;
     }
-
-    /**
-     * @return string
-     */
-    protected function getHostAttribute()
-    {
-        if isset this->attributes["host"] {
-            return this->attributes["host"];
-        }
- 
-        return "";
-    }
  
     /**
      * @param string value
@@ -181,18 +158,6 @@ final class Registrar extends Attribute implements RegistrarContract
     {
         let this->attributes["host"] = value;
     }
-
-    /**
-     * @return string
-     */
-    protected function getPrefixAttribute()
-    {
-        if isset this->attributes["prefix"] {
-            return this->attributes["prefix"];
-        }
-
-        return "";
-    }
  
     /**
      * @param string value
@@ -200,19 +165,7 @@ final class Registrar extends Attribute implements RegistrarContract
      */
     protected function setPrefixAttribute(string! value)
     {
-        let this->attributes["prefix"] = "/".trim(trim(this->getPrefixAttribute(), "/")."/".trim(value, "/"),"/");
-    }
-
-         /**
-     * @return string
-     */
-    protected function getNamespaceAttribute()
-    {
-        if isset this->attributes["namespace"] {
-            return this->attributes["namespace"];
-        }
-
-        return "";
+        let this->attributes["prefix"] = "/".trim(trim(Arr::get(this->attributes, "prefix", ""), "/")."/".trim(value, "/"),"/");
     }
     
     /**
@@ -221,19 +174,7 @@ final class Registrar extends Attribute implements RegistrarContract
      */
     protected function setNamespaceAttribute(string! value)
     {
-        let this->attributes["namespace"] = "\\".trim(trim(this->getNamespaceAttribute(), "\\")."\\".trim(value, "\\"),"\\");
-    }
- 
-    /**
-     * @return array
-     */
-    protected function getRequirementsAttribute()
-    {
-        if isset this->attributes["requirements"] {
-            return this->attributes["requirements"];
-        }
-
-        return [];
+        let this->attributes["namespace"] = "\\".trim(trim(Arr::get(this->attributes, "namespace", ""), "\\")."\\".trim(value, "\\"),"\\");
     }
 
     /**
@@ -267,35 +208,11 @@ final class Registrar extends Attribute implements RegistrarContract
     }
  
     /**
-     * @return array
-     */
-    protected function getMiddlewareAttribute()
-    {
-        if isset this->attributes["middleware"] {
-            return this->attributes["middleware"];
-        }
- 
-        return [];
-    }
- 
-    /**
      * @return void
      */
     protected function setMiddlewareAttribute()
     {
-        let this->attributes["middleware"] = array_unique(array_merge(this->getMiddlewareAttribute(), func_get_args()), SORT_REGULAR);
-    }
- 
-    /**
-     * @return string
-     */
-    protected function getNameAttribute()
-    {
-        if isset this->attributes["name"] {
-            return this->attributes["name"];
-        }
- 
-        return "";
+        let this->attributes["middleware"] = array_unique(array_merge(Arr::get(this->attributes, "middleware", []), func_get_args()), SORT_REGULAR);
     }
  
     /**

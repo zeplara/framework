@@ -15,8 +15,8 @@ class ContainerTest extends TestCase
 
         $container->set(ContractA::class, A::class);
 
-        static::assertInstanceOf(ContractA::class, $container->get(ContractA::class));
-        static::assertInstanceOf(A::class, $container->get(ContractA::class));
+        self::assertInstanceOf(ContractA::class, $container->get(ContractA::class));
+        self::assertInstanceOf(A::class, $container->get(ContractA::class));
     }
 
     public function testClosureBindingsResolution()
@@ -27,13 +27,13 @@ class ContainerTest extends TestCase
             return 'blah';
         });
 
-        static::assertEquals('blah', $container->get('test'));
+        self::assertSame('blah', $container->get('test'));
 
         $container->set('ContractAString', function () {
             return ContractA::class;
         });
 
-        static::assertIsString($container->get('ContractAString'));
+        self::assertIsString($container->get('ContractAString'));
 
         $container->set(ContractA::class, function () {
             $a = new  A;
@@ -47,9 +47,9 @@ class ContainerTest extends TestCase
 
         $a->name = 'ilham';
 
-        static::assertInstanceOf(ContractA::class, $container->get(ContractA::class));
-        static::assertInstanceOf(A::class, $container->get(ContractA::class));
-        static::assertEquals($container->get(ContractA::class)->name, $a->name);
+        self::assertInstanceOf(ContractA::class, $container->get(ContractA::class));
+        self::assertInstanceOf(A::class, $container->get(ContractA::class));
+        self::assertSame($container->get(ContractA::class)->name, $a->name);
     }
 
     public function testResolvedBindingsResolution()
@@ -62,25 +62,25 @@ class ContainerTest extends TestCase
 
         $container->set(ContractA::class, $a, true);
 
-        static::assertInstanceOf(ContractA::class, $container->get(ContractA::class));
-        static::assertInstanceOf(A::class, $container->get(ContractA::class));
-        static::assertEquals($a->name, $container->get(ContractA::class)->name);
+        self::assertInstanceOf(ContractA::class, $container->get(ContractA::class));
+        self::assertInstanceOf(A::class, $container->get(ContractA::class));
+        self::assertSame($a->name, $container->get(ContractA::class)->name);
 
         $container->set('name', $a->name, true);
 
-        static::assertEquals($a->name, $container->get('name'));
+        self::assertSame($a->name, $container->get('name'));
         
         $container->set('name1', function () use ($a) {
             return $a->name;
         }, true);
 
-        static::assertEquals($a->name, $container->get('name1'));
+        self::assertSame($a->name, $container->get('name1'));
 
         $container->set('ContractAString', function () {
             return ContractA::class;
         }, true);
 
-        static::assertIsString($container->get('ContractAString'));
+        self::assertIsString($container->get('ContractAString'));
     }
 
     public function testAliasBindingsResolution()
@@ -94,34 +94,34 @@ class ContainerTest extends TestCase
         $container->set('AClass', A::class);
         $container->set('AClass', 'AClass');
 
-        static::assertEquals($a->name, $container->get(ContractA::class)->name);
-        static::assertEquals($a->name, $container->get(A::class)->name);
-        static::assertEquals($a->name, $container->get('AClass')->name);
+        self::assertSame($a->name, $container->get(ContractA::class)->name);
+        self::assertSame($a->name, $container->get(A::class)->name);
+        self::assertSame($a->name, $container->get('AClass')->name);
 
         $container->put(A::class);
 
-        static::assertFalse($container->has(A::class));
-        static::assertTrue($container->has(ContractA::class));
-        static::assertTrue($container->has('AClass'));
+        self::assertFalse($container->has(A::class));
+        self::assertTrue($container->has(ContractA::class));
+        self::assertTrue($container->has('AClass'));
 
         $container->put('AClass');
-        static::assertTrue($container->has(ContractA::class));
-        static::assertFalse($container->has('AClass'));
-        static::assertFalse($container->has(A::class));
+        self::assertTrue($container->has(ContractA::class));
+        self::assertFalse($container->has('AClass'));
+        self::assertFalse($container->has(A::class));
 
         $container->put(ContractA::class);
-        static::assertFalse($container->has(ContractA::class));
-        static::assertFalse($container->has('AClass'));
-        static::assertFalse($container->has(A::class));
+        self::assertFalse($container->has(ContractA::class));
+        self::assertFalse($container->has('AClass'));
+        self::assertFalse($container->has(A::class));
 
         $container->set(ContractA::class, $a, true);
         $container->set(A::class, ContractA::class);
         $container->set('AClass', A::class);
 
         $container->put(ContractA::class);
-        static::assertFalse($container->has(ContractA::class));
-        static::assertFalse($container->has('AClass'));
-        static::assertFalse($container->has(A::class));
+        self::assertFalse($container->has(ContractA::class));
+        self::assertFalse($container->has('AClass'));
+        self::assertFalse($container->has(A::class));
     }
 
     public function testAliasErrorWhenKeyExistsAsRootBindingResolution()
@@ -155,31 +155,31 @@ class ContainerTest extends TestCase
         $a->name = 'ilham';
         $container->set(ContractA::class, $a, true);
         
-        static::assertInstanceOf(ContractA::class, $container->make(ContractAInjection::class)->a);
-        static::assertInstanceOf(A::class, $container->make(ContractAInjection::class)->a);
-        static::assertInstanceOf(A::class, $container->make(ContractAInjection::class)->aSame);
-        static::assertEquals($a->name, $container->make(ContractAInjection::class)->a->name);
-        static::assertNull($container->make(ContractAInjection::class)->aSame->name);
+        self::assertInstanceOf(ContractA::class, $container->make(ContractAInjection::class)->a);
+        self::assertInstanceOf(A::class, $container->make(ContractAInjection::class)->a);
+        self::assertInstanceOf(A::class, $container->make(ContractAInjection::class)->aSame);
+        self::assertSame($a->name, $container->make(ContractAInjection::class)->a->name);
+        self::assertNull($container->make(ContractAInjection::class)->aSame->name);
 
-        static::assertInstanceOf(ContractAInjectionInjection::class, $container->make(ContractAInjectionInjection::class));
-        static::assertInstanceOf(ContractAInjection::class, $container->make(ContractAInjectionInjection::class)->contractAInjection);
-        static::assertInstanceOf(ContractA::class, $container->make(ContractAInjectionInjection::class)->contractAInjection->a);
-        static::assertInstanceOf(A::class, $container->make(ContractAInjectionInjection::class)->contractAInjection->a);
-        static::assertEquals($a->name, $container->make(ContractAInjectionInjection::class)->contractAInjection->a->name);
+        self::assertInstanceOf(ContractAInjectionInjection::class, $container->make(ContractAInjectionInjection::class));
+        self::assertInstanceOf(ContractAInjection::class, $container->make(ContractAInjectionInjection::class)->contractAInjection);
+        self::assertInstanceOf(ContractA::class, $container->make(ContractAInjectionInjection::class)->contractAInjection->a);
+        self::assertInstanceOf(A::class, $container->make(ContractAInjectionInjection::class)->contractAInjection->a);
+        self::assertSame($a->name, $container->make(ContractAInjectionInjection::class)->contractAInjection->a->name);
         
         $container->set(A::class, ContractA::class);
 
-        static::assertInstanceOf(ContractA::class, $container->make(ContractAInjection::class)->a);
-        static::assertInstanceOf(A::class, $container->make(ContractAInjection::class)->a);
-        static::assertInstanceOf(A::class, $container->make(ContractAInjection::class)->aSame);
-        static::assertEquals($a->name, $container->make(ContractAInjection::class)->a->name);
-        static::assertNotNull($container->make(ContractAInjection::class)->aSame->name);
+        self::assertInstanceOf(ContractA::class, $container->make(ContractAInjection::class)->a);
+        self::assertInstanceOf(A::class, $container->make(ContractAInjection::class)->a);
+        self::assertInstanceOf(A::class, $container->make(ContractAInjection::class)->aSame);
+        self::assertSame($a->name, $container->make(ContractAInjection::class)->a->name);
+        self::assertNotNull($container->make(ContractAInjection::class)->aSame->name);
 
-        static::assertInstanceOf(ContractAInjectionInjection::class, $container->make(ContractAInjectionInjection::class));
-        static::assertInstanceOf(ContractAInjection::class, $container->make(ContractAInjectionInjection::class)->contractAInjection);
-        static::assertInstanceOf(ContractA::class, $container->make(ContractAInjectionInjection::class)->contractAInjection->a);
-        static::assertInstanceOf(A::class, $container->make(ContractAInjectionInjection::class)->contractAInjection->a);
-        static::assertEquals($a->name, $container->make(ContractAInjectionInjection::class)->contractAInjection->a->name);
+        self::assertInstanceOf(ContractAInjectionInjection::class, $container->make(ContractAInjectionInjection::class));
+        self::assertInstanceOf(ContractAInjection::class, $container->make(ContractAInjectionInjection::class)->contractAInjection);
+        self::assertInstanceOf(ContractA::class, $container->make(ContractAInjectionInjection::class)->contractAInjection->a);
+        self::assertInstanceOf(A::class, $container->make(ContractAInjectionInjection::class)->contractAInjection->a);
+        self::assertSame($a->name, $container->make(ContractAInjectionInjection::class)->contractAInjection->a->name);
     }
 
     public function testArgumentsDependencyInjection()
@@ -194,9 +194,9 @@ class ContainerTest extends TestCase
         
         $obj = $container->make(ContractAInjectionArguments::class, ['blah']);
 
-        static::assertInstanceOf(ContractA::class, $obj->a);
-        static::assertInstanceOf(A::class, $obj->a);
-        static::assertEquals('blah', $obj->param1);
+        self::assertInstanceOf(ContractA::class, $obj->a);
+        self::assertInstanceOf(A::class, $obj->a);
+        self::assertSame('blah', $obj->param1);
 
         $args = $container->make(__NAMESPACE__.'\\ContractAInjectionArguments.advancedParams', [
             'param2',
@@ -204,14 +204,14 @@ class ContainerTest extends TestCase
             'param6'
         ]);
 
-        static::assertCount(7, $args);
-        static::assertNull($args[0]);
-        static::assertEquals('param2', $args[1]);
-        static::assertEquals('param3', $args[2]);
-        static::assertEquals('param4', $args[3]);
-        static::assertEquals('param5', $args[4]);
-        static::assertEquals('param6', $args[5]);
-        static::assertNull($args[6]);
+        self::assertCount(7, $args);
+        self::assertNull($args[0]);
+        self::assertSame('param2', $args[1]);
+        self::assertSame('param3', $args[2]);
+        self::assertSame('param4', $args[3]);
+        self::assertSame('param5', $args[4]);
+        self::assertSame('param6', $args[5]);
+        self::assertNull($args[6]);
 
         $args = $container->make(__NAMESPACE__.'\\ContractAInjectionArguments.advancedParamsWithRegistered', [
             'param2',
@@ -219,14 +219,14 @@ class ContainerTest extends TestCase
             'param6'
         ]);
 
-        static::assertCount(7, $args);
-        static::assertInstanceOf(ContractA::class, $args[0]);
-        static::assertEquals('param2', $args[1]);
-        static::assertEquals('param3', $args[2]);
-        static::assertEquals('param4', $args[3]);
-        static::assertEquals('param5', $args[4]);
-        static::assertEquals('param6', $args[5]);
-        static::assertNull($args[6]);
+        self::assertCount(7, $args);
+        self::assertInstanceOf(ContractA::class, $args[0]);
+        self::assertSame('param2', $args[1]);
+        self::assertSame('param3', $args[2]);
+        self::assertSame('param4', $args[3]);
+        self::assertSame('param5', $args[4]);
+        self::assertSame('param6', $args[5]);
+        self::assertNull($args[6]);
 
         $args = $container->make(__NAMESPACE__.'\\ContractAInjectionArguments.advancedParamsWithNullObject', [
             'param2',
@@ -234,14 +234,14 @@ class ContainerTest extends TestCase
             'param6'
         ]);
 
-        static::assertCount(7, $args);
-        static::assertNull($args[0]);
-        static::assertEquals('param2', $args[1]);
-        static::assertEquals('param3', $args[2]);
-        static::assertEquals('param4', $args[3]);
-        static::assertEquals('param5', $args[4]);
-        static::assertEquals('param6', $args[5]);
-        static::assertNull($args[6]);
+        self::assertCount(7, $args);
+        self::assertNull($args[0]);
+        self::assertSame('param2', $args[1]);
+        self::assertSame('param3', $args[2]);
+        self::assertSame('param4', $args[3]);
+        self::assertSame('param5', $args[4]);
+        self::assertSame('param6', $args[5]);
+        self::assertNull($args[6]);
 
         $args = $container->make(__NAMESPACE__.'\\ContractAInjectionArguments.advancedParamsWithNullObject', [
             new NullObjectParam('ilham'),
@@ -250,35 +250,35 @@ class ContainerTest extends TestCase
             'param6'
         ]);
 
-        static::assertCount(7, $args);
-        static::assertNotNull($args[0]);
-        static::assertInstanceOf(NullObjectParam::class, $args[0]);
-        static::assertEquals('param2', $args[1]);
-        static::assertEquals('param3', $args[2]);
-        static::assertEquals('param4', $args[3]);
-        static::assertEquals('param5', $args[4]);
-        static::assertEquals('param6', $args[5]);
-        static::assertNull($args[6]);
+        self::assertCount(7, $args);
+        self::assertNotNull($args[0]);
+        self::assertInstanceOf(NullObjectParam::class, $args[0]);
+        self::assertSame('param2', $args[1]);
+        self::assertSame('param3', $args[2]);
+        self::assertSame('param4', $args[3]);
+        self::assertSame('param5', $args[4]);
+        self::assertSame('param6', $args[5]);
+        self::assertNull($args[6]);
     }
 
     public function testCallFunction()
     {
         $container = new Container;
 
-        static::assertTrue($container->make(__NAMESPACE__.'\\callFunction'));
+        self::assertTrue($container->make(__NAMESPACE__.'\\callFunction'));
     }
 
     public function testCallMethod()
     {
         $container = new Container;
 
-        static::assertTrue($container->make(__NAMESPACE__.'\\CallClassMethod.call'));
-        static::assertTrue($container->make([__NAMESPACE__.'\\CallClassMethod', 'call']));
+        self::assertTrue($container->make(__NAMESPACE__.'\\CallClassMethod.call'));
+        self::assertTrue($container->make([__NAMESPACE__.'\\CallClassMethod', 'call']));
 
-        static::assertTrue($container->make(__NAMESPACE__.'\\CallClassMethod.callStatic'));
-        static::assertTrue($container->make([__NAMESPACE__.'\\CallClassMethod', 'callStatic']));
+        self::assertTrue($container->make(__NAMESPACE__.'\\CallClassMethod.callStatic'));
+        self::assertTrue($container->make([__NAMESPACE__.'\\CallClassMethod', 'callStatic']));
 
-        static::assertTrue($container->make(new CallClassMethod));
+        self::assertTrue($container->make(new CallClassMethod));
     }
 
     public function testInvalidAbstractString()

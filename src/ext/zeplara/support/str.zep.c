@@ -113,9 +113,9 @@ PHP_METHOD(Zeplara_Support_Str, studly) {
 		ZEPHIR_INIT_NVAR(&_3$$3);
 		ZVAL_STRING(&_3$$3, "capitalize");
 		zephir_array_fast_append(&_2$$3, &_3$$3);
-		ZEPHIR_CALL_SELF(&_4$$3, "splitbydashwhitespaceunderscore", &_5, 186, &value);
+		ZEPHIR_CALL_SELF(&_4$$3, "splitbydashwhitespaceunderscore", &_5, 183, &value);
 		zephir_check_call_status();
-		ZEPHIR_CALL_FUNCTION(&_6$$3, "array_map", NULL, 155, &_2$$3, &_4$$3);
+		ZEPHIR_CALL_FUNCTION(&_6$$3, "array_map", NULL, 152, &_2$$3, &_4$$3);
 		zephir_check_call_status();
 		zephir_fast_join_str(&_1$$3, SL(""), &_6$$3);
 		zephir_update_static_property_array_multi_ce(zeplara_support_str_ce, SL("studlyCache"), &_1$$3, SL("z"), 1, &value);
@@ -186,15 +186,15 @@ PHP_METHOD(Zeplara_Support_Str, snake) {
 	zephir_read_static_property_ce(&_0, zeplara_support_str_ce, SL("snakeCache"), PH_NOISY_CC | PH_READONLY);
 	zephir_array_fetch(&_1, &_0, &value, PH_READONLY, "zeplara/Support/Str.zep", 189);
 	if (!(zephir_array_isset(&_1, &delimiter))) {
-		ZEPHIR_CALL_FUNCTION(&_3$$3, "preg_quote", NULL, 131, &delimiter);
+		ZEPHIR_CALL_FUNCTION(&_3$$3, "preg_quote", NULL, 128, &delimiter);
 		zephir_check_call_status();
 		ZEPHIR_INIT_VAR(&_4$$3);
 		ZEPHIR_CONCAT_SVS(&_4$$3, "/((?<!^|[A-Z]|", &_3$$3, "))(?=[A-Z])/u");
 		ZEPHIR_INIT_VAR(&_5$$3);
-		ZEPHIR_CALL_SELF(&_6$$3, "splitbydashwhitespaceunderscore", &_7, 186, &value);
+		ZEPHIR_CALL_SELF(&_6$$3, "splitbydashwhitespaceunderscore", &_7, 183, &value);
 		zephir_check_call_status();
 		zephir_fast_join(&_5$$3, &delimiter, &_6$$3);
-		ZEPHIR_CALL_FUNCTION(&_8$$3, "preg_replace", NULL, 185, &_4$$3, &delimiter, &_5$$3);
+		ZEPHIR_CALL_FUNCTION(&_8$$3, "preg_replace", NULL, 182, &_4$$3, &delimiter, &_5$$3);
 		zephir_check_call_status();
 		ZEPHIR_CALL_SELF(&_2$$3, "lower", NULL, 0, &_8$$3);
 		zephir_check_call_status();
@@ -277,7 +277,7 @@ PHP_METHOD(Zeplara_Support_Str, lower) {
 
 	ZEPHIR_INIT_VAR(&_0);
 	ZVAL_STRING(&_0, "UTF-8");
-	ZEPHIR_RETURN_CALL_FUNCTION("mb_strtolower", NULL, 187, &value, &_0);
+	ZEPHIR_RETURN_CALL_FUNCTION("mb_strtolower", NULL, 184, &value, &_0);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -312,7 +312,7 @@ PHP_METHOD(Zeplara_Support_Str, upper) {
 	}
 
 
-	ZEPHIR_RETURN_CALL_FUNCTION("mb_strtoupper", NULL, 188, &value);
+	ZEPHIR_RETURN_CALL_FUNCTION("mb_strtoupper", NULL, 185, &value);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -352,7 +352,7 @@ PHP_METHOD(Zeplara_Support_Str, title) {
 	ZVAL_LONG(&_0, 2);
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "UTF-8");
-	ZEPHIR_RETURN_CALL_FUNCTION("mb_convert_case", NULL, 189, &value, &_0, &_1);
+	ZEPHIR_RETURN_CALL_FUNCTION("mb_convert_case", NULL, 186, &value, &_0, &_1);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -475,7 +475,7 @@ PHP_METHOD(Zeplara_Support_Str, ascii) {
 	ZVAL_STRING(&_13, "/[^\x20-\x7E]/u");
 	ZEPHIR_INIT_VAR(&_14);
 	ZVAL_STRING(&_14, "");
-	ZEPHIR_RETURN_CALL_FUNCTION("preg_replace", NULL, 185, &_13, &_14, &value);
+	ZEPHIR_RETURN_CALL_FUNCTION("preg_replace", NULL, 182, &_13, &_14, &value);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -548,13 +548,13 @@ PHP_METHOD(Zeplara_Support_Str, slug) {
 	}
 
 
-	ZEPHIR_CALL_FUNCTION(&_0, "preg_quote", NULL, 131, &separator);
+	ZEPHIR_CALL_FUNCTION(&_0, "preg_quote", NULL, 128, &separator);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_1);
 	ZEPHIR_CONCAT_SVS(&_1, "/[^A-Za-z0-9", &_0, "]+/");
 	ZEPHIR_CALL_SELF(&_2, "ascii", NULL, 0, &value, &language);
 	zephir_check_call_status();
-	ZEPHIR_CALL_FUNCTION(&_3, "preg_replace", NULL, 185, &_1, &separator, &_2);
+	ZEPHIR_CALL_FUNCTION(&_3, "preg_replace", NULL, 182, &_1, &separator, &_2);
 	zephir_check_call_status();
 	zephir_fast_trim(return_value, &_3, &separator, ZEPHIR_TRIM_BOTH);
 	RETURN_MM();
@@ -697,7 +697,7 @@ PHP_METHOD(Zeplara_Support_Str, random) {
 		}
 		ZVAL_LONG(&_0$$3, 0);
 		ZVAL_LONG(&_1$$3, 61);
-		ZEPHIR_CALL_FUNCTION(&_2$$3, "rand", &_3, 190, &_0$$3, &_1$$3);
+		ZEPHIR_CALL_FUNCTION(&_2$$3, "rand", &_3, 187, &_0$$3, &_1$$3);
 		zephir_check_call_status();
 		ZVAL_LONG(&_0$$3, 1);
 		ZEPHIR_INIT_NVAR(&_4$$3);

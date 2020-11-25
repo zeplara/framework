@@ -98,7 +98,7 @@ PHP_METHOD(Zeplara_Routing_Router, __construct) {
 	}
 
 
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setroutes", NULL, 137, &routes);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setroutes", NULL, 134, &routes);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_0);
 	object_init_ex(&_0, zeplara_routing_group_ce);
@@ -149,7 +149,7 @@ PHP_METHOD(Zeplara_Routing_Router, setRoutes) {
 				ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The value must be instanceof Route.", "zeplara/Routing/Router.zep", 57);
 				return;
 			}
-			ZEPHIR_CALL_METHOD(NULL, this_ptr, "addroute", &_3, 138, &route);
+			ZEPHIR_CALL_METHOD(NULL, this_ptr, "addroute", &_3, 135, &route);
 			zephir_check_call_status();
 		} ZEND_HASH_FOREACH_END();
 	} else {
@@ -171,7 +171,7 @@ PHP_METHOD(Zeplara_Routing_Router, setRoutes) {
 					ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The value must be instanceof Route.", "zeplara/Routing/Router.zep", 57);
 					return;
 				}
-				ZEPHIR_CALL_METHOD(NULL, this_ptr, "addroute", &_3, 138, &route);
+				ZEPHIR_CALL_METHOD(NULL, this_ptr, "addroute", &_3, 135, &route);
 				zephir_check_call_status();
 			ZEPHIR_CALL_METHOD(NULL, &routes, "next", NULL, 0);
 			zephir_check_call_status();
@@ -408,7 +408,7 @@ PHP_METHOD(Zeplara_Routing_Router, createRoute) {
 		}
 	}
 	object_init_ex(return_value, zeplara_routing_route_ce);
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 139, pattern, callback, &methods, &attributes);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 136, pattern, callback, &methods, &attributes);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -493,7 +493,7 @@ PHP_METHOD(Zeplara_Routing_Router, __call) {
 	zephir_create_array(&_0, 2, 0);
 	ZEPHIR_INIT_VAR(&_1);
 	object_init_ex(&_1, zeplara_routing_registrar_ce);
-	ZEPHIR_CALL_METHOD(NULL, &_1, "__construct", NULL, 140, this_ptr);
+	ZEPHIR_CALL_METHOD(NULL, &_1, "__construct", NULL, 137, this_ptr);
 	zephir_check_call_status();
 	zephir_array_fast_append(&_0, &_1);
 	zephir_array_fast_append(&_0, name);

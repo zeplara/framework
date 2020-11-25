@@ -18,7 +18,7 @@ class Request extends AbstractMessage implements RequestInterface
     /**
      * @var mixed
      */
-    protected requestTarget { get };
+    protected requestTarget;
 
     /**
      * @param string method
@@ -42,6 +42,24 @@ class Request extends AbstractMessage implements RequestInterface
         parent::__construct(body, headers, protocolVersion);
     }
 
+    public function getRequestTarget()
+    {
+        if typeof this->requestTarget != "NULL" {
+            return this->requestTarget;
+        }
+
+        var uriQuery, requestTarget;
+
+        let uriQuery = this->uri->getQuery(),
+            requestTarget = this->uri->getPath();
+    
+        if uriQuery !== "" {
+            let requestTarget .= "?".uriQuery;
+        }
+
+        return requestTarget;
+    }
+
     /**
      * @param requestTarget
      * @return static
@@ -51,6 +69,11 @@ class Request extends AbstractMessage implements RequestInterface
         if typeof requestTarget != "string" {
             throw new InvalidArgumentException("The requestTarget should be string type.");
         }
+
+        if strpos(requestTarget, " ") !== false {
+            throw new InvalidArgumentException("The requestTarget cannot contain whitespace.");
+        }
+
         var $clone;
         let $clone = clone this,
             $clone->requestTarget = requestTarget;

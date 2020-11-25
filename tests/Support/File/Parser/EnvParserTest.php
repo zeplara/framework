@@ -12,77 +12,77 @@ class EnvParserTest extends TestCase
     {    
         $env = EnvParser::parse('APP_NAME=Zeplara');
 
-        static::assertIsArray($env);
-        static::assertArrayHasKey('APP_NAME', $env);
-        static::assertEquals('Zeplara', $env['APP_NAME']);
+        self::assertIsArray($env);
+        self::assertArrayHasKey('APP_NAME', $env);
+        self::assertSame('Zeplara', $env['APP_NAME']);
     }
 
     public function testNullValue()
     {
         $null = EnvParser::parse('APP_KEY')['APP_KEY'];
-        static::assertNull($null);
+        self::assertNull($null);
 
         $null = EnvParser::parse('APP_KEY ')['APP_KEY'];
-        static::assertNull($null);
+        self::assertNull($null);
 
         $null = EnvParser::parse('APP_KEY=')['APP_KEY'];
-        static::assertNull($null);
+        self::assertNull($null);
 
         $null = EnvParser::parse('APP_KEY = ')['APP_KEY'];
-        static::assertNull($null);
+        self::assertNull($null);
     }
 
     public function testBooleanValue()
     {
         $debug = EnvParser::parse('APP_DEBUG=true')['APP_DEBUG'];
         
-        static::assertIsBool($debug);
-        static::assertTrue($debug);
+        self::assertIsBool($debug);
+        self::assertTrue($debug);
     }
 
     public function testFloatValue()
     {
         $value = EnvParser::parse('CACHE_TIMEOUT=1.5')['CACHE_TIMEOUT'];
 
-        static::assertIsFloat($value);
+        self::assertIsFloat($value);
 
         $value = EnvParser::parse('CACHE_TIMEOUT=.5')['CACHE_TIMEOUT'];
 
-        static::assertIsFloat($value);
+        self::assertIsFloat($value);
 
         $value = EnvParser::parse('CACHE_TIMEOUT=-1.5')['CACHE_TIMEOUT'];
 
-        static::assertIsFloat($value);
+        self::assertIsFloat($value);
 
         $value = EnvParser::parse('CACHE_TIMEOUT=+1.5')['CACHE_TIMEOUT'];
 
-        static::assertIsFloat($value);
+        self::assertIsFloat($value);
 
         $value = EnvParser::parse('CACHE_TIMEOUT=+.5')['CACHE_TIMEOUT'];
 
-        static::assertIsFloat($value);
+        self::assertIsFloat($value);
 
         $value = EnvParser::parse('CACHE_TIMEOUT=1e7')['CACHE_TIMEOUT'];
 
-        static::assertIsFloat($value);
+        self::assertIsFloat($value);
 
         $value = EnvParser::parse('CACHE_TIMEOUT=1E7')['CACHE_TIMEOUT'];
 
-        static::assertIsFloat($value);
+        self::assertIsFloat($value);
     }
 
     public function testQuotedValue()
     {
         $value = EnvParser::parse('APP_NAME="Zeplara PHP Framework"')['APP_NAME'];
 
-        static::assertIsString($value);
+        self::assertIsString($value);
 
-        static::assertEquals('Zeplara PHP Framework', $value);
+        self::assertSame('Zeplara PHP Framework', $value);
 
         $value = EnvParser::parse('APP_DESCRIPTION="Hello i\"m Zeplara"')['APP_DESCRIPTION'];
 
 
-        static::assertEquals('Hello i"m Zeplara', $value);    
+        self::assertSame('Hello i"m Zeplara', $value);    
     }
 
     public function testArrayValue()
@@ -136,13 +136,13 @@ class EnvParserTest extends TestCase
                     continue;
                 }
 
-                self::assertEquals($value, $b[$key]);
+                self::assertSame($value, $b[$key]);
             }
         };
 
         $similar($similar, $lists, $values);
 
-        static::assertIsArray($values);
+        self::assertIsArray($values);
     }
 
     public function testInvalidKeyFormat()
@@ -151,37 +151,37 @@ class EnvParserTest extends TestCase
         try {
             $env = EnvParser::parse('APP-NAME=Zepalra');
         } catch (ParserException $e) {
-            static::assertInstanceOf(ParserException::class, $e);
-            static::assertEquals(1, $e->getLine());
+            self::assertInstanceOf(ParserException::class, $e);
+            self::assertSame(1, $e->getLine());
         }
-        static::assertNull($env);
+        self::assertNull($env);
         
         $env = null;
         try {
             $env = EnvParser::parse('`APP-NAME=Zepalra');
         } catch (ParserException $e) {
-            static::assertInstanceOf(ParserException::class, $e);
-            static::assertEquals(1, $e->getLine());
+            self::assertInstanceOf(ParserException::class, $e);
+            self::assertSame(1, $e->getLine());
         }
-        static::assertNull($env);
+        self::assertNull($env);
 
         $env = null;
         try {
             $env = EnvParser::parse('APP NAME=Zepalra');
         } catch (ParserException $e) {
-            static::assertInstanceOf(ParserException::class, $e);
-            static::assertEquals(1, $e->getLine());
+            self::assertInstanceOf(ParserException::class, $e);
+            self::assertSame(1, $e->getLine());
         }
-        static::assertNull($env);
+        self::assertNull($env);
 
         $env = null;
         try {
             $env = EnvParser::parse('APP NAME');
         } catch (ParserException $e) {
-            static::assertInstanceOf(ParserException::class, $e);
-            static::assertEquals(1, $e->getLine());
+            self::assertInstanceOf(ParserException::class, $e);
+            self::assertSame(1, $e->getLine());
         }
-        static::assertNull($env);        
+        self::assertNull($env);        
     }
 
     public function testErrorMultipleVariableBasicValue()
@@ -222,11 +222,11 @@ class EnvParserTest extends TestCase
                 ]
             EOL);
         } catch (ParserException $e) {
-            static::assertInstanceOf(ParserException::class, $e);
-            static::assertEquals('Syntax error ["Mochammad Riyadh Ilham Akbar Pasya" "Jhon Doe"].', $e->getMessage());
-            static::assertEquals(2, $e->getLine());
+            self::assertInstanceOf(ParserException::class, $e);
+            self::assertSame('Syntax error ["Mochammad Riyadh Ilham Akbar Pasya" "Jhon Doe"].', $e->getMessage());
+            self::assertSame(2, $e->getLine());
         }
-        static::assertNull($env);
+        self::assertNull($env);
 
         $env = null;
         try {
@@ -241,11 +241,11 @@ class EnvParserTest extends TestCase
                 ]
             EOL);
         } catch (ParserException $e) {
-            static::assertInstanceOf(ParserException::class, $e);
-            static::assertEquals(3, $e->getLine());
-            static::assertEquals('Syntax error ["name" => "Mochammad Riyadh Ilham"].', $e->getMessage());
+            self::assertInstanceOf(ParserException::class, $e);
+            self::assertSame(3, $e->getLine());
+            self::assertSame('Syntax error ["name" => "Mochammad Riyadh Ilham"].', $e->getMessage());
         }
-        static::assertNull($env);
+        self::assertNull($env);
 
         $env = null;
         try {
@@ -260,11 +260,11 @@ class EnvParserTest extends TestCase
                 ]
             EOL);
         } catch (ParserException $e) {
-            static::assertInstanceOf(ParserException::class, $e);
-            static::assertEquals(3, $e->getLine());
-            static::assertEquals("Syntax error [Mochammad Riyadh Ilham].", $e->getMessage());
+            self::assertInstanceOf(ParserException::class, $e);
+            self::assertSame(3, $e->getLine());
+            self::assertSame("Syntax error [Mochammad Riyadh Ilham].", $e->getMessage());
         }
-        static::assertNull($env);
+        self::assertNull($env);
     }
 
     public function testCommentedKey()
@@ -299,31 +299,31 @@ class EnvParserTest extends TestCase
             'NULL_EMPTY_VALUE',
             'NULL_WITH_VALUE'
         ] as $key) {
-            static::assertArrayNotHasKey(sprintf('COMMENT_KEY_%s', $key), $env);
+            self::assertArrayNotHasKey(sprintf('COMMENT_KEY_%s', $key), $env);
         }
 
-        static::assertEmpty($env);
+        self::assertEmpty($env);
     }
 
     public function testCommentedValueBasic()
     {
         $value = EnvParser::parse('APP_NAME=#comment#Zeplara')['APP_NAME'];
-        self::assertEquals('Zeplara', $value);
+        self::assertSame('Zeplara', $value);
 
         $value = EnvParser::parse('APP_NAME=#comment# Zeplara')['APP_NAME'];
-        self::assertEquals('Zeplara', $value);
+        self::assertSame('Zeplara', $value);
     }
 
     public function testCommentedValueQuoted()
     {
         $value = EnvParser::parse('APP_NAME=#comment#"Zeplara PHP Framework"')['APP_NAME'];
-        self::assertEquals('Zeplara PHP Framework', $value);
+        self::assertSame('Zeplara PHP Framework', $value);
 
         $value = EnvParser::parse('APP_NAME=#comment# "Zeplara PHP Framework"')['APP_NAME'];
-        self::assertEquals('Zeplara PHP Framework', $value);
+        self::assertSame('Zeplara PHP Framework', $value);
 
         $value = EnvParser::parse('APP_NAME=#comment# "Zeplara #not_replaced_comment PHP Framework"')['APP_NAME'];
-        self::assertEquals('Zeplara #not_replaced_comment PHP Framework', $value);
+        self::assertSame('Zeplara #not_replaced_comment PHP Framework', $value);
     }
 
     public function testCommentedValueBool()
@@ -365,7 +365,7 @@ class EnvParserTest extends TestCase
             ]
         EOL)['APP_LISTS'];
         
-        self::assertEquals('value', $values['key']);
+        self::assertSame('value', $values['key']);
         self::assertArrayHasKey('nested', $values);
         self::assertIsArray($values['nested']);
         self::assertCount(0, $values['nested']);
@@ -378,7 +378,7 @@ class EnvParserTest extends TestCase
         APP_NAME_PUB=\${APP_NAME}
         EOL);
 
-        self::assertEquals($env['APP_NAME'], $env['APP_NAME_PUB']);
+        self::assertSame($env['APP_NAME'], $env['APP_NAME_PUB']);
     }
 
     public function testStringValueVariable()
@@ -388,7 +388,7 @@ class EnvParserTest extends TestCase
         APP_NAME_PUB="\${APP_NAME} PHP Framework"
         EOL);
 
-        self::assertEquals(sprintf('%s PHP Framework', $env['APP_NAME']), $env['APP_NAME_PUB']);
+        self::assertSame(sprintf('%s PHP Framework', $env['APP_NAME']), $env['APP_NAME_PUB']);
     }
 
     public function testBooleanValueVariable()
@@ -418,7 +418,7 @@ class EnvParserTest extends TestCase
         EOL);
 
         self::assertIsInt($env['CACHE_TIMEOUT_PUB']);
-        self::assertEquals(5200, $env['CACHE_TIMEOUT_PUB']);
+        self::assertSame(5200, $env['CACHE_TIMEOUT_PUB']);
     }
 
     public function testFloatValueVariable()
@@ -429,7 +429,7 @@ class EnvParserTest extends TestCase
         EOL);
 
         self::assertIsFloat($env['CACHE_TIMEOUT_PUB']);
-        self::assertEquals(5200.5, $env['CACHE_TIMEOUT_PUB']);
+        self::assertSame(5200.5, $env['CACHE_TIMEOUT_PUB']);
     }
 
     public function testArrayValueVariable()
@@ -449,8 +449,8 @@ class EnvParserTest extends TestCase
         ]
         EOL);
 
-        self::assertEquals($env['APP_NAME'], $env['APP_LISTS'][0]['name']);
-        self::assertEquals($env['APP_NAME'], $env['APP_CONFIG']['name']);
-        self::assertEquals($env['APP_LISTS'], $env['APP_CONFIG']['lists']);
+        self::assertSame($env['APP_NAME'], $env['APP_LISTS'][0]['name']);
+        self::assertSame($env['APP_NAME'], $env['APP_CONFIG']['name']);
+        self::assertSame($env['APP_LISTS'], $env['APP_CONFIG']['lists']);
     }
 }

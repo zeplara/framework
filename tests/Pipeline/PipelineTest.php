@@ -16,7 +16,7 @@ class PipelineTest extends TestCase
             }
         ]);
 
-        self::assertEquals('Ilham Doe', $pipeline->send(function ($firstName, $lastName) {
+        self::assertSame('Ilham Doe', $pipeline->send(function ($firstName, $lastName) {
             return $firstName.' '.$lastName;
         }, ['Jhon', 'Doe']));
     }
@@ -41,7 +41,7 @@ class PipelineTest extends TestCase
             return $next('Ilham');
         });
 
-        self::assertEquals('Ilham', $pipeline->send(function ($name) {
+        self::assertSame('Ilham', $pipeline->send(function ($name) {
             return $name;
         }, ['Jhon Doe']));
     }
@@ -52,7 +52,7 @@ class PipelineTest extends TestCase
             '\Zeplara\Tests\Pipeline\functionPipe'
         ]);
 
-        self::assertEquals('after', $pipeline->send(function ($name) {
+        self::assertSame('after', $pipeline->send(function ($name) {
             return $name;
         }, ['before']));
 
@@ -61,7 +61,7 @@ class PipelineTest extends TestCase
 
         $pipeline->addPipe('\Zeplara\Tests\Pipeline\functionPipe');
 
-        self::assertEquals('after', $pipeline->send(function ($name) {
+        self::assertSame('after', $pipeline->send(function ($name) {
             return $name;
         }, ['before']));
     }
@@ -72,7 +72,7 @@ class PipelineTest extends TestCase
             ClassPipe::class
         ]);
 
-        self::assertEquals('after', $pipeline->send(function ($name) {
+        self::assertSame('after', $pipeline->send(function ($name) {
             return $name;
         }, ['before']));
 
@@ -81,7 +81,7 @@ class PipelineTest extends TestCase
 
         $pipeline->addPipe(ClassPipe::class);
 
-        self::assertEquals('after', $pipeline->send(function ($name) {
+        self::assertSame('after', $pipeline->send(function ($name) {
             return $name;
         }, ['before']));
     }

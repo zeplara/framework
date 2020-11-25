@@ -123,7 +123,7 @@ PHP_METHOD(Zeplara_Support_Arr, flatten) {
 				ZEPHIR_CALL_SELF(&nestedValues$$3, "flatten", &_2, 0, &item, &_3$$5);
 				zephir_check_call_status();
 			} else {
-				ZEPHIR_CALL_FUNCTION(&nestedValues$$3, "array_values", &_4, 150, &item);
+				ZEPHIR_CALL_FUNCTION(&nestedValues$$3, "array_values", &_4, 147, &item);
 				zephir_check_call_status();
 			}
 			zephir_is_iterable(&nestedValues$$3, 0, "zeplara/Support/Arr.zep", 55);
@@ -172,7 +172,7 @@ PHP_METHOD(Zeplara_Support_Arr, flatten) {
 					ZEPHIR_CALL_SELF(&nestedValues$$9, "flatten", &_2, 0, &item, &_7$$11);
 					zephir_check_call_status();
 				} else {
-					ZEPHIR_CALL_FUNCTION(&nestedValues$$9, "array_values", &_4, 150, &item);
+					ZEPHIR_CALL_FUNCTION(&nestedValues$$9, "array_values", &_4, 147, &item);
 					zephir_check_call_status();
 				}
 				zephir_is_iterable(&nestedValues$$9, 0, "zeplara/Support/Arr.zep", 55);
@@ -251,7 +251,7 @@ PHP_METHOD(Zeplara_Support_Arr, get) {
 		zephir_array_fetch(&_0$$3, values, key, PH_NOISY | PH_READONLY, "zeplara/Support/Arr.zep", 69);
 		RETURN_CTOR(&_0$$3);
 	}
-	ZEPHIR_CALL_SELF(&segments, "createsegmentsofkey", &_1, 151, key);
+	ZEPHIR_CALL_SELF(&segments, "createsegmentsofkey", &_1, 148, key);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(&sgmnts, &segments);
 	while (1) {
@@ -263,20 +263,20 @@ PHP_METHOD(Zeplara_Support_Arr, get) {
 			break;
 		}
 		ZEPHIR_MAKE_REF(&sgmnts);
-		ZEPHIR_CALL_FUNCTION(NULL, "array_pop", &_3, 152, &sgmnts);
+		ZEPHIR_CALL_FUNCTION(NULL, "array_pop", &_3, 149, &sgmnts);
 		ZEPHIR_UNREF(&sgmnts);
 		zephir_check_call_status();
-		ZEPHIR_CALL_SELF(key, "implodesegmentsofkey", &_4, 153, &sgmnts);
+		ZEPHIR_CALL_SELF(key, "implodesegmentsofkey", &_4, 150, &sgmnts);
 		zephir_check_call_status();
 	}
 	ZVAL_LONG(&_5, zephir_fast_count_int(&sgmnts));
-	ZEPHIR_CALL_FUNCTION(&_6, "array_slice", NULL, 154, &segments, &_5);
+	ZEPHIR_CALL_FUNCTION(&_6, "array_slice", NULL, 151, &segments, &_5);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(&segments, &_6);
 	if (zephir_array_isset(values, key)) {
 		if (zephir_fast_count_int(&segments)) {
 			zephir_array_fetch(&_7$$6, values, key, PH_NOISY | PH_READONLY, "zeplara/Support/Arr.zep", 86);
-			ZEPHIR_CALL_SELF(&_8$$6, "implodesegmentsofkey", &_4, 153, &segments);
+			ZEPHIR_CALL_SELF(&_8$$6, "implodesegmentsofkey", &_4, 150, &segments);
 			zephir_check_call_status();
 			ZEPHIR_RETURN_CALL_SELF("get", NULL, 0, &_7$$6, &_8$$6, defaultValue);
 			zephir_check_call_status();
@@ -322,7 +322,7 @@ PHP_METHOD(Zeplara_Support_Arr, has) {
 	if (zephir_array_isset(values, key)) {
 		RETURN_MM_BOOL(1);
 	}
-	ZEPHIR_CALL_SELF(&segments, "createsegmentsofkey", &_0, 151, key);
+	ZEPHIR_CALL_SELF(&segments, "createsegmentsofkey", &_0, 148, key);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(&sgmnts, &segments);
 	while (1) {
@@ -334,20 +334,20 @@ PHP_METHOD(Zeplara_Support_Arr, has) {
 			break;
 		}
 		ZEPHIR_MAKE_REF(&sgmnts);
-		ZEPHIR_CALL_FUNCTION(NULL, "array_pop", &_2, 152, &sgmnts);
+		ZEPHIR_CALL_FUNCTION(NULL, "array_pop", &_2, 149, &sgmnts);
 		ZEPHIR_UNREF(&sgmnts);
 		zephir_check_call_status();
-		ZEPHIR_CALL_SELF(key, "implodesegmentsofkey", &_3, 153, &sgmnts);
+		ZEPHIR_CALL_SELF(key, "implodesegmentsofkey", &_3, 150, &sgmnts);
 		zephir_check_call_status();
 	}
 	ZVAL_LONG(&_4, zephir_fast_count_int(&sgmnts));
-	ZEPHIR_CALL_FUNCTION(&_5, "array_slice", NULL, 154, &segments, &_4);
+	ZEPHIR_CALL_FUNCTION(&_5, "array_slice", NULL, 151, &segments, &_4);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(&segments, &_5);
 	if (zephir_array_isset(values, key)) {
 		if (zephir_fast_count_int(&segments)) {
 			zephir_array_fetch(&_6$$6, values, key, PH_NOISY | PH_READONLY, "zeplara/Support/Arr.zep", 120);
-			ZEPHIR_CALL_SELF(&_7$$6, "implodesegmentsofkey", &_3, 153, &segments);
+			ZEPHIR_CALL_SELF(&_7$$6, "implodesegmentsofkey", &_3, 150, &segments);
 			zephir_check_call_status();
 			ZEPHIR_RETURN_CALL_SELF("has", NULL, 0, &_6$$6, &_7$$6);
 			zephir_check_call_status();
@@ -391,7 +391,7 @@ PHP_METHOD(Zeplara_Support_Arr, put) {
 
 
 	zephir_array_unset(values, key, PH_SEPARATE);
-	ZEPHIR_CALL_SELF(&segments, "createsegmentsofkey", &_0, 151, key);
+	ZEPHIR_CALL_SELF(&segments, "createsegmentsofkey", &_0, 148, key);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(&sgmnts, &segments);
 	while (1) {
@@ -403,20 +403,20 @@ PHP_METHOD(Zeplara_Support_Arr, put) {
 			break;
 		}
 		ZEPHIR_MAKE_REF(&sgmnts);
-		ZEPHIR_CALL_FUNCTION(NULL, "array_pop", &_2, 152, &sgmnts);
+		ZEPHIR_CALL_FUNCTION(NULL, "array_pop", &_2, 149, &sgmnts);
 		ZEPHIR_UNREF(&sgmnts);
 		zephir_check_call_status();
-		ZEPHIR_CALL_SELF(key, "implodesegmentsofkey", &_3, 153, &sgmnts);
+		ZEPHIR_CALL_SELF(key, "implodesegmentsofkey", &_3, 150, &sgmnts);
 		zephir_check_call_status();
 	}
 	ZVAL_LONG(&_4, zephir_fast_count_int(&sgmnts));
-	ZEPHIR_CALL_FUNCTION(&_5, "array_slice", NULL, 154, &segments, &_4);
+	ZEPHIR_CALL_FUNCTION(&_5, "array_slice", NULL, 151, &segments, &_4);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(&segments, &_5);
 	if (zephir_array_isset(values, key)) {
 		if (zephir_fast_count_int(&segments)) {
 			zephir_array_fetch(&_7$$5, values, key, PH_NOISY | PH_READONLY, "zeplara/Support/Arr.zep", 152);
-			ZEPHIR_CALL_SELF(&_8$$5, "implodesegmentsofkey", &_3, 153, &segments);
+			ZEPHIR_CALL_SELF(&_8$$5, "implodesegmentsofkey", &_3, 150, &segments);
 			zephir_check_call_status();
 			ZEPHIR_CALL_SELF(&_6$$5, "put", NULL, 0, &_7$$5, &_8$$5);
 			zephir_check_call_status();
@@ -469,7 +469,7 @@ PHP_METHOD(Zeplara_Support_Arr, set) {
 		RETVAL_ZVAL(values, 1, 0);
 		RETURN_MM();
 	}
-	ZEPHIR_CALL_SELF(&segments, "createsegmentsofkey", &_0, 151, key);
+	ZEPHIR_CALL_SELF(&segments, "createsegmentsofkey", &_0, 148, key);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(&sgmnts, &segments);
 	while (1) {
@@ -481,14 +481,14 @@ PHP_METHOD(Zeplara_Support_Arr, set) {
 			break;
 		}
 		ZEPHIR_MAKE_REF(&sgmnts);
-		ZEPHIR_CALL_FUNCTION(NULL, "array_pop", &_2, 152, &sgmnts);
+		ZEPHIR_CALL_FUNCTION(NULL, "array_pop", &_2, 149, &sgmnts);
 		ZEPHIR_UNREF(&sgmnts);
 		zephir_check_call_status();
-		ZEPHIR_CALL_SELF(key, "implodesegmentsofkey", &_3, 153, &sgmnts);
+		ZEPHIR_CALL_SELF(key, "implodesegmentsofkey", &_3, 150, &sgmnts);
 		zephir_check_call_status();
 	}
 	ZVAL_LONG(&_4, zephir_fast_count_int(&sgmnts));
-	ZEPHIR_CALL_FUNCTION(&_5, "array_slice", NULL, 154, &segments, &_4);
+	ZEPHIR_CALL_FUNCTION(&_5, "array_slice", NULL, 151, &segments, &_4);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(&segments, &_5);
 	if (zephir_fast_count_int(&segments)) {
@@ -502,7 +502,7 @@ PHP_METHOD(Zeplara_Support_Arr, set) {
 		}
 		ZEPHIR_CALL_SELF(&_7$$5, "wrap", NULL, 0, &_8$$5);
 		zephir_check_call_status();
-		ZEPHIR_CALL_SELF(&_9$$5, "implodesegmentsofkey", &_3, 153, &segments);
+		ZEPHIR_CALL_SELF(&_9$$5, "implodesegmentsofkey", &_3, 150, &segments);
 		zephir_check_call_status();
 		ZEPHIR_CALL_SELF(&_6$$5, "set", NULL, 0, &_7$$5, &_9$$5, value);
 		zephir_check_call_status();
