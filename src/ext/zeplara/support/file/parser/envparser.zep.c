@@ -1301,12 +1301,9 @@ PHP_METHOD(Zeplara_Support_File_Parser_EnvParser, compileArrayValue) {
  */
 PHP_METHOD(Zeplara_Support_File_Parser_EnvParser, compileStringValue) {
 
-	zval _28$$5, _50$$6;
-	zval _4$$3;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
-	zephir_fcall_cache_entry *_17 = NULL, *_19 = NULL, *_23 = NULL, *_40 = NULL, *_41 = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
-	zval *value, value_sub, *values, values_sub, *line, line_sub, matches, _0, _1, _2, _3$$4, variable$$3, variables$$3, _5$$3, _6$$3, _7$$3, _8$$3, _9$$3, _10$$3, _11$$3, _12$$3, _13$$3, _14$$3, *_15$$3, _16$$3, _62$$3, _63$$3, _64$$3, _18$$5, _20$$5, _21$$5, _22$$5, _24$$5, _25$$5, _26$$5, _27$$5, _29$$5, _30$$5, _31$$5, _32$$5, _33$$5, _34$$5, _35$$5, _36$$5, _37$$5, _38$$5, _39$$5, _42$$6, _43$$6, _44$$6, _45$$6, _46$$6, _47$$6, _48$$6, _49$$6, _51$$6, _52$$6, _53$$6, _54$$6, _55$$6, _56$$6, _57$$6, _58$$6, _59$$6, _60$$6, _61$$6;
+	zval *value, value_sub, *values, values_sub, *line, line_sub, matches, _0, _1, _2, _3$$4, _4$$3, _5$$3, _6$$3, _7$$3, _8$$3, _9$$3, _10$$3, _11$$3, _12$$3;
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&value_sub);
@@ -1317,8 +1314,7 @@ PHP_METHOD(Zeplara_Support_File_Parser_EnvParser, compileStringValue) {
 	ZVAL_UNDEF(&_1);
 	ZVAL_UNDEF(&_2);
 	ZVAL_UNDEF(&_3$$4);
-	ZVAL_UNDEF(&variable$$3);
-	ZVAL_UNDEF(&variables$$3);
+	ZVAL_UNDEF(&_4$$3);
 	ZVAL_UNDEF(&_5$$3);
 	ZVAL_UNDEF(&_6$$3);
 	ZVAL_UNDEF(&_7$$3);
@@ -1327,53 +1323,6 @@ PHP_METHOD(Zeplara_Support_File_Parser_EnvParser, compileStringValue) {
 	ZVAL_UNDEF(&_10$$3);
 	ZVAL_UNDEF(&_11$$3);
 	ZVAL_UNDEF(&_12$$3);
-	ZVAL_UNDEF(&_13$$3);
-	ZVAL_UNDEF(&_14$$3);
-	ZVAL_UNDEF(&_16$$3);
-	ZVAL_UNDEF(&_62$$3);
-	ZVAL_UNDEF(&_63$$3);
-	ZVAL_UNDEF(&_64$$3);
-	ZVAL_UNDEF(&_18$$5);
-	ZVAL_UNDEF(&_20$$5);
-	ZVAL_UNDEF(&_21$$5);
-	ZVAL_UNDEF(&_22$$5);
-	ZVAL_UNDEF(&_24$$5);
-	ZVAL_UNDEF(&_25$$5);
-	ZVAL_UNDEF(&_26$$5);
-	ZVAL_UNDEF(&_27$$5);
-	ZVAL_UNDEF(&_29$$5);
-	ZVAL_UNDEF(&_30$$5);
-	ZVAL_UNDEF(&_31$$5);
-	ZVAL_UNDEF(&_32$$5);
-	ZVAL_UNDEF(&_33$$5);
-	ZVAL_UNDEF(&_34$$5);
-	ZVAL_UNDEF(&_35$$5);
-	ZVAL_UNDEF(&_36$$5);
-	ZVAL_UNDEF(&_37$$5);
-	ZVAL_UNDEF(&_38$$5);
-	ZVAL_UNDEF(&_39$$5);
-	ZVAL_UNDEF(&_42$$6);
-	ZVAL_UNDEF(&_43$$6);
-	ZVAL_UNDEF(&_44$$6);
-	ZVAL_UNDEF(&_45$$6);
-	ZVAL_UNDEF(&_46$$6);
-	ZVAL_UNDEF(&_47$$6);
-	ZVAL_UNDEF(&_48$$6);
-	ZVAL_UNDEF(&_49$$6);
-	ZVAL_UNDEF(&_51$$6);
-	ZVAL_UNDEF(&_52$$6);
-	ZVAL_UNDEF(&_53$$6);
-	ZVAL_UNDEF(&_54$$6);
-	ZVAL_UNDEF(&_55$$6);
-	ZVAL_UNDEF(&_56$$6);
-	ZVAL_UNDEF(&_57$$6);
-	ZVAL_UNDEF(&_58$$6);
-	ZVAL_UNDEF(&_59$$6);
-	ZVAL_UNDEF(&_60$$6);
-	ZVAL_UNDEF(&_61$$6);
-	ZVAL_UNDEF(&_4$$3);
-	ZVAL_UNDEF(&_28$$5);
-	ZVAL_UNDEF(&_50$$6);
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 3, 0, &value, &values, &line);
@@ -1391,122 +1340,36 @@ PHP_METHOD(Zeplara_Support_File_Parser_EnvParser, compileStringValue) {
 			zephir_array_fetch_long(&_3$$4, &matches, 2, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 191);
 			zephir_array_update_long(&matches, 1, &_3$$4, PH_COPY | PH_SEPARATE ZEPHIR_DEBUG_PARAMS_DUMMY);
 		}
-		ZEPHIR_INIT_VAR(&_4$$3);
-		zephir_create_array(&_4$$3, 2, 0);
-		ZEPHIR_OBS_VAR(&_5$$3);
-		zephir_array_fetch_long(&_5$$3, &matches, 1, PH_NOISY, "zeplara/Support/File/Parser/EnvParser.zep", 196);
-		zephir_array_fast_append(&_4$$3, &_5$$3);
-		zephir_array_fetch_long(&_6$$3, &matches, 1, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 196);
-		ZEPHIR_INIT_VAR(&_7$$3);
-		ZVAL_LONG(&_7$$3, zephir_fast_strlen_ev(&_6$$3));
-		zephir_array_fast_append(&_4$$3, &_7$$3);
-		zephir_array_update_long(&matches, 1, &_4$$3, PH_COPY | PH_SEPARATE ZEPHIR_DEBUG_PARAMS_DUMMY);
-		ZEPHIR_INIT_NVAR(&_7$$3);
-		ZVAL_STRING(&_7$$3, "~%s~");
-		ZEPHIR_INIT_VAR(&_9$$3);
-		ZVAL_STRING(&_9$$3, "\\$\\{([a-zA-Z0-9_.]+)\\}");
-		ZEPHIR_CALL_FUNCTION(&_10$$3, "sprintf", NULL, 2, &_7$$3, &_9$$3);
+		ZEPHIR_CALL_FUNCTION(NULL, "error_clear_last", NULL, 47);
 		zephir_check_call_status();
-		zephir_array_fetch_long(&_11$$3, &matches, 1, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 198);
-		zephir_array_fetch_long(&_12$$3, &_11$$3, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 198);
-		ZVAL_LONG(&_13$$3, (256 | 2));
-		ZEPHIR_INIT_NVAR(&_7$$3);
-		ZVAL_LONG(&_14$$3, (256 | 2));
-		zephir_preg_match(&_7$$3, &_10$$3, &_12$$3, &variables$$3, 1, zephir_get_intval(&_13$$3) , 0 );
-		zephir_is_iterable(&variables$$3, 0, "zeplara/Support/File/Parser/EnvParser.zep", 214);
-		if (Z_TYPE_P(&variables$$3) == IS_ARRAY) {
-			ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&variables$$3), _15$$3)
-			{
-				ZEPHIR_INIT_NVAR(&variable$$3);
-				ZVAL_COPY(&variable$$3, _15$$3);
-				ZEPHIR_CALL_FUNCTION(NULL, "error_clear_last", &_17, 47);
-				zephir_check_call_status();
-				ZEPHIR_INIT_NVAR(&_18$$5);
-				ZEPHIR_INIT_NVAR(&_18$$5);
-				zephir_create_closure_ex(&_18$$5, NULL, zeplara_7__closure_ce, SL("__invoke"));
-				zephir_update_static_property_ce(zeplara_7__closure_ce, ZEND_STRL("line"), line);
-				ZEPHIR_CALL_FUNCTION(NULL, "set_error_handler", &_19, 48, &_18$$5);
-				zephir_check_call_status();
-				zephir_array_fetch_long(&_20$$5, &matches, 1, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-				zephir_array_fetch_long(&_21$$5, &_20$$5, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-				zephir_array_fetch_long(&_24$$5, &variable$$3, 1, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-				zephir_array_fetch_long(&_25$$5, &_24$$5, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-				zephir_array_fetch_long(&_26$$5, &variable$$3, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-				zephir_array_fetch_long(&_27$$5, &_26$$5, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-				ZEPHIR_CALL_CE_STATIC(&_22$$5, zeplara_support_arr_ce, "get", &_23, 0, values, &_25$$5, &_27$$5);
-				zephir_check_call_status();
-				zephir_get_strval(&_28$$5, &_22$$5);
-				zephir_array_fetch_long(&_29$$5, &variable$$3, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-				zephir_array_fetch_long(&_30$$5, &_29$$5, 1, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-				zephir_array_fetch_long(&_31$$5, &matches, 1, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-				zephir_array_fetch_long(&_32$$5, &_31$$5, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-				zephir_array_fetch_long(&_33$$5, &matches, 1, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-				zephir_array_fetch_long(&_34$$5, &_33$$5, 1, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-				zephir_array_fetch_long(&_35$$5, &variable$$3, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-				zephir_array_fetch_long(&_36$$5, &_35$$5, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-				ZVAL_LONG(&_37$$5, (zephir_get_numberval(&_30$$5) + (zephir_fast_strlen_ev(&_32$$5) - zephir_get_numberval(&_34$$5))));
-				ZVAL_LONG(&_38$$5, zephir_fast_strlen_ev(&_36$$5));
-				ZEPHIR_CALL_FUNCTION(&_39$$5, "substr_replace", &_40, 181, &_21$$5, &_28$$5, &_37$$5, &_38$$5);
-				zephir_check_call_status();
-				zephir_array_update_multi(&matches, &_39$$5, SL("ll"), 2, 1, 0);
-				ZEPHIR_CALL_FUNCTION(NULL, "restore_error_handler", &_41, 54);
-				zephir_check_call_status();
-			} ZEND_HASH_FOREACH_END();
-		} else {
-			ZEPHIR_CALL_METHOD(NULL, &variables$$3, "rewind", NULL, 0);
-			zephir_check_call_status();
-			while (1) {
-				ZEPHIR_CALL_METHOD(&_16$$3, &variables$$3, "valid", NULL, 0);
-				zephir_check_call_status();
-				if (!zend_is_true(&_16$$3)) {
-					break;
-				}
-				ZEPHIR_CALL_METHOD(&variable$$3, &variables$$3, "current", NULL, 0);
-				zephir_check_call_status();
-					ZEPHIR_CALL_FUNCTION(NULL, "error_clear_last", &_17, 47);
-					zephir_check_call_status();
-					ZEPHIR_INIT_NVAR(&_42$$6);
-					ZEPHIR_INIT_NVAR(&_42$$6);
-					zephir_create_closure_ex(&_42$$6, NULL, zeplara_8__closure_ce, SL("__invoke"));
-					zephir_update_static_property_ce(zeplara_8__closure_ce, ZEND_STRL("line"), line);
-					ZEPHIR_CALL_FUNCTION(NULL, "set_error_handler", &_19, 48, &_42$$6);
-					zephir_check_call_status();
-					zephir_array_fetch_long(&_43$$6, &matches, 1, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-					zephir_array_fetch_long(&_44$$6, &_43$$6, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-					zephir_array_fetch_long(&_46$$6, &variable$$3, 1, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-					zephir_array_fetch_long(&_47$$6, &_46$$6, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-					zephir_array_fetch_long(&_48$$6, &variable$$3, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-					zephir_array_fetch_long(&_49$$6, &_48$$6, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-					ZEPHIR_CALL_CE_STATIC(&_45$$6, zeplara_support_arr_ce, "get", &_23, 0, values, &_47$$6, &_49$$6);
-					zephir_check_call_status();
-					zephir_get_strval(&_50$$6, &_45$$6);
-					zephir_array_fetch_long(&_51$$6, &variable$$3, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-					zephir_array_fetch_long(&_52$$6, &_51$$6, 1, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-					zephir_array_fetch_long(&_53$$6, &matches, 1, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-					zephir_array_fetch_long(&_54$$6, &_53$$6, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-					zephir_array_fetch_long(&_55$$6, &matches, 1, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-					zephir_array_fetch_long(&_56$$6, &_55$$6, 1, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-					zephir_array_fetch_long(&_57$$6, &variable$$3, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-					zephir_array_fetch_long(&_58$$6, &_57$$6, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 209);
-					ZVAL_LONG(&_59$$6, (zephir_get_numberval(&_52$$6) + (zephir_fast_strlen_ev(&_54$$6) - zephir_get_numberval(&_56$$6))));
-					ZVAL_LONG(&_60$$6, zephir_fast_strlen_ev(&_58$$6));
-					ZEPHIR_CALL_FUNCTION(&_61$$6, "substr_replace", &_40, 181, &_44$$6, &_50$$6, &_59$$6, &_60$$6);
-					zephir_check_call_status();
-					zephir_array_update_multi(&matches, &_61$$6, SL("ll"), 2, 1, 0);
-					ZEPHIR_CALL_FUNCTION(NULL, "restore_error_handler", &_41, 54);
-					zephir_check_call_status();
-				ZEPHIR_CALL_METHOD(NULL, &variables$$3, "next", NULL, 0);
-				zephir_check_call_status();
-			}
-		}
-		ZEPHIR_INIT_NVAR(&variable$$3);
+		ZEPHIR_INIT_VAR(&_4$$3);
+		ZEPHIR_INIT_NVAR(&_4$$3);
+		zephir_create_closure_ex(&_4$$3, NULL, zeplara_7__closure_ce, SL("__invoke"));
+		zephir_update_static_property_ce(zeplara_7__closure_ce, ZEND_STRL("line"), line);
+		ZEPHIR_CALL_FUNCTION(NULL, "set_error_handler", NULL, 48, &_4$$3);
+		zephir_check_call_status();
+		ZEPHIR_INIT_VAR(&_6$$3);
+		ZVAL_STRING(&_6$$3, "~%s~");
+		ZEPHIR_INIT_VAR(&_7$$3);
+		ZVAL_STRING(&_7$$3, "\\$\\{([a-zA-Z0-9_.]+)\\}");
+		ZEPHIR_CALL_FUNCTION(&_8$$3, "sprintf", NULL, 2, &_6$$3, &_7$$3);
+		zephir_check_call_status();
+		ZEPHIR_INIT_NVAR(&_6$$3);
+		ZEPHIR_INIT_NVAR(&_6$$3);
+		zephir_create_closure_ex(&_6$$3, NULL, zeplara_8__closure_ce, SL("__invoke"));
+		zephir_update_static_property_ce(zeplara_8__closure_ce, ZEND_STRL("values"), values);
+		zephir_array_fetch_long(&_9$$3, &matches, 1, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 204);
+		ZEPHIR_CALL_FUNCTION(&_10$$3, "preg_replace_callback", NULL, 41, &_8$$3, &_6$$3, &_9$$3);
+		zephir_check_call_status();
+		zephir_array_update_long(&matches, 1, &_10$$3, PH_COPY | PH_SEPARATE ZEPHIR_DEBUG_PARAMS_DUMMY);
+		ZEPHIR_CALL_FUNCTION(NULL, "restore_error_handler", NULL, 54);
+		zephir_check_call_status();
 		object_init_ex(return_value, zeplara_support_file_parser_compiledvalue_ce);
-		ZEPHIR_INIT_NVAR(&_9$$3);
-		zephir_array_fetch_long(&_62$$3, &matches, 1, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 214);
-		zephir_array_fetch_long(&_63$$3, &_62$$3, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 214);
-		zephir_stripslashes(&_9$$3, &_63$$3);
-		zephir_array_fetch_long(&_64$$3, &matches, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 214);
-		ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 183, &_9$$3, &_64$$3);
+		ZEPHIR_INIT_NVAR(&_7$$3);
+		zephir_array_fetch_long(&_11$$3, &matches, 1, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 208);
+		zephir_stripslashes(&_7$$3, &_11$$3);
+		zephir_array_fetch_long(&_12$$3, &matches, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 208);
+		ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 183, &_7$$3, &_12$$3);
 		zephir_check_call_status();
 		RETURN_MM();
 	}
@@ -1747,20 +1610,20 @@ PHP_METHOD(Zeplara_Support_File_Parser_EnvParser, compileVariableValue) {
 	zephir_preg_match(&_3, &_5, value, &matches, 0, zephir_get_intval(&_6) , 0 );
 	_8 = zephir_is_true(&matches);
 	if (_8) {
-		zephir_array_fetch_long(&_11, &matches, 1, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 277);
-		zephir_array_fetch_long(&_12, &_11, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 277);
+		zephir_array_fetch_long(&_11, &matches, 1, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 271);
+		zephir_array_fetch_long(&_12, &_11, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 271);
 		ZEPHIR_CALL_CE_STATIC(&_9, zeplara_support_arr_ce, "has", &_10, 0, values, &_12);
 		zephir_check_call_status();
 		_8 = zephir_is_true(&_9);
 	}
 	if (_8) {
 		object_init_ex(return_value, zeplara_support_file_parser_compiledvalue_ce);
-		zephir_array_fetch_long(&_15$$3, &matches, 1, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 278);
-		zephir_array_fetch_long(&_16$$3, &_15$$3, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 278);
+		zephir_array_fetch_long(&_15$$3, &matches, 1, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 272);
+		zephir_array_fetch_long(&_16$$3, &_15$$3, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 272);
 		ZEPHIR_CALL_CE_STATIC(&_13$$3, zeplara_support_arr_ce, "get", &_14, 0, values, &_16$$3);
 		zephir_check_call_status();
-		zephir_array_fetch_long(&_17$$3, &matches, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 278);
-		zephir_array_fetch_long(&_18$$3, &_17$$3, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 278);
+		zephir_array_fetch_long(&_17$$3, &matches, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 272);
+		zephir_array_fetch_long(&_18$$3, &_17$$3, 0, PH_NOISY | PH_READONLY, "zeplara/Support/File/Parser/EnvParser.zep", 272);
 		ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 183, &_13$$3, &_18$$3);
 		zephir_check_call_status();
 		RETURN_MM();
@@ -1856,7 +1719,7 @@ PHP_METHOD(Zeplara_Support_File_Parser_EnvParser, compileValue) {
 		zephir_update_static_property_ce(zeplara_support_file_parser_envparser_ce, ZEND_STRL("compilerMethodsCache"), &_4$$3);
 	}
 	zephir_read_static_property_ce(&_5, zeplara_support_file_parser_envparser_ce, SL("compilerMethodsCache"), PH_NOISY_CC | PH_READONLY);
-	zephir_is_iterable(&_5, 0, "zeplara/Support/File/Parser/EnvParser.zep", 314);
+	zephir_is_iterable(&_5, 0, "zeplara/Support/File/Parser/EnvParser.zep", 308);
 	if (Z_TYPE_P(&_5) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&_5), _6)
 		{

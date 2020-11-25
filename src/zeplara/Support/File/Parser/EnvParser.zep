@@ -191,27 +191,21 @@ final class EnvParser extends AbstractParser
                 let matches[1] = matches[2];
             }
 
-            var variable, variables;
+            error_clear_last();
 
-            let matches[1] = [matches[1], strlen(matches[1])];
+            set_error_handler(function () use (line) {
+                // Got warning when using func_get_arg()
+                // Got error variable array when access index from arguments of func_get_args()
+                throw new \Zeplara\Support\File\Parser\ParserException(\Zeplara\Support\Arr::get(func_get_args(), 1), "", line);
+            });
 
-            preg_match_all("~%s~"->format(self::VARIABLE_VALUE_REGEX), matches[1][0], variables, PREG_OFFSET_CAPTURE | PREG_SET_ORDER);
+            let matches[1] = preg_replace_callback("~%s~"->format(self::VARIABLE_VALUE_REGEX), function (matches) use (values) {
+                return (string) \Zeplara\Support\Arr::get(values, matches[1], matches[0]);
+            }, matches[1]);
 
-            for variable in variables {
-                error_clear_last();
+            restore_error_handler();
 
-                set_error_handler(function () use (line) {
-                    // Got warning when using func_get_arg()
-                    // Got error variable array when access index from arguments of func_get_args()
-                    throw new \Zeplara\Support\File\Parser\ParserException(\Zeplara\Support\Arr::get(func_get_args(), 1), "", line);
-                });
-
-                let matches[1][0] = substr_replace(matches[1][0], (string) Arr::get(values, variable[1][0], variable[0][0]), variable[0][1] + (strlen(matches[1][0]) - matches[1][1]), strlen(variable[0][0]));
-                
-                restore_error_handler();
-            }
-
-            return new CompiledValue(stripslashes(matches[1][0]), matches[0]);
+            return new CompiledValue(stripslashes(matches[1]), matches[0]);
         }
     }
 

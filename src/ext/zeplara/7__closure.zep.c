@@ -58,7 +58,7 @@ PHP_METHOD(zeplara_7__closure, __invoke) {
 	ZVAL_STRING(&_5, "");
 	ZEPHIR_CALL_METHOD(NULL, &_0, "__construct", NULL, 10, &_1, &_5, &line);
 	zephir_check_call_status();
-	zephir_throw_exception_debug(&_0, "zeplara/Support/File/Parser/EnvParser.zep", 206);
+	zephir_throw_exception_debug(&_0, "zeplara/Support/File/Parser/EnvParser.zep", 199);
 	ZEPHIR_MM_RESTORE();
 	return;
 
