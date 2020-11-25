@@ -1,0 +1,17 @@
+
+extern zend_class_entry *zeplara_container_invalidabstractexception_ce;
+
+ZEPHIR_INIT_CLASS(Zeplara_Container_InvalidAbstractException);
+
+PHP_METHOD(Zeplara_Container_InvalidAbstractException, __construct);
+PHP_METHOD(Zeplara_Container_InvalidAbstractException, getAbstract);
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_zeplara_container_invalidabstractexception___construct, 0, 0, 1)
+	ZEND_ARG_INFO(0, abstract)
+ZEND_END_ARG_INFO()
+
+ZEPHIR_INIT_FUNCS(zeplara_container_invalidabstractexception_method_entry) {
+	PHP_ME(Zeplara_Container_InvalidAbstractException, __construct, arginfo_zeplara_container_invalidabstractexception___construct, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+	PHP_ME(Zeplara_Container_InvalidAbstractException, getAbstract, NULL, ZEND_ACC_PUBLIC)
+	PHP_FE_END
+};

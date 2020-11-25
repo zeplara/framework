@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if (( $EUID != 0 )); then
+    echo -e "\x1b[35mPlease run as root!\x1b[0m"
+    exit
+fi
+
+WORKDIR=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
+
+echo -e "\x1b[32mCompiling At $(date)\x1b[0m" && 
+cd $WORKDIR && 
+../../vendor/bin/zephir fullclean && 
+../../vendor/bin/zephir build && 
+../../vendor/bin/zephir stubs && 
+../../vendor/bin/zephir api -o ../../doc/%version% && 
+echo -e "\n\x1b[32mRestarting web server...\x1b[0m" && 
+sudo service apache2 reload && 
+echo -e "\n\x1b[32mRunning unit testing...\x1b[0m" && 
+cd $(dirname $(realpath $WORKDIR)) && 
+vendor/bin/phpunit

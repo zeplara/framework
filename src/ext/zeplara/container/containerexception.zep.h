@@ -1,0 +1,5 @@
+
+extern zend_class_entry *zeplara_container_containerexception_ce;
+
+ZEPHIR_INIT_CLASS(Zeplara_Container_ContainerException);
+

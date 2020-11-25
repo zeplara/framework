@@ -1,0 +1,5 @@
+
+extern zend_class_entry *zeplara_encryption_encryptionexception_ce;
+
+ZEPHIR_INIT_CLASS(Zeplara_Encryption_EncryptionException);
+
