@@ -12,7 +12,7 @@ cd $WORKDIR &&
 ../../vendor/bin/zephir fullclean && 
 ../../vendor/bin/zephir build && 
 ../../vendor/bin/zephir stubs && 
-../../vendor/bin/zephir api -o ../../doc/%version% && 
+../../vendor/bin/zephir api -o ../../doc/ && 
 echo -e "\n\x1b[32mRestarting web server...\x1b[0m" && 
 sudo service apache2 reload && 
 echo -e "\n\x1b[32mRunning unit testing...\x1b[0m" && 
