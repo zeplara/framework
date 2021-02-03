@@ -106,5 +106,6 @@
 #include "zeplara/6__closure.zep.h"
 #include "zeplara/7__closure.zep.h"
 #include "zeplara/8__closure.zep.h"
+#include "zeplara/9__closure.zep.h"
 
 #endif

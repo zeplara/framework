@@ -100,7 +100,21 @@ final class RouteCompiler implements RouteCompilerContract
             }
 
             if fetch requirement, requirements[match[3][0]] {
-                let requirement = self::resolveRequirement(requirement);
+                var count;
+
+                if substr(requirement, 0, 1) == "^" {
+                    let requirement = (string) substr(requirement, 1);
+                }
+
+                if substr(requirement, -1) == "$" {
+                    let requirement = (string) substr(requirement, 0, -1);
+                }
+
+                do {
+                    let requirement = preg_replace_callback("#\\(((?!\\?\\:|\\*\\)|\\+\\)|\\?\\)).+)\\)#", function (matches) {
+                        return "(?:%s)"->format(matches[1]);
+                    }, requirement, -1, count);
+                } while (count);
             } else {
                 let nextSeparatorOfRequirement = (isset match[5][2] ? match[5][2] : match[5][0]);
                 if strpos(nextSeparatorOfRequirement, separator) === false {
@@ -134,31 +148,6 @@ final class RouteCompiler implements RouteCompilerContract
         }
 
         return new Regex("{^%s$}%s"->format(regex, flags), variables);
-    }
-
-    /**
-     * @param string requirement
-     * @return string
-     */
-    private static function resolveRequirement(requirement)
-    {
-        var count;
-
-        if substr(requirement, 0, 1) == "^" {
-            let requirement = (string) substr(requirement, 1);
-        }
-
-        if substr(requirement, -1) == "$" {
-            let requirement = (string) substr(requirement, 0, -1);
-        }
-
-        do {
-            let requirement = preg_replace_callback("#\\(((?!\\?\\:|\\*\\)|\\+\\)|\\?\\)).+)\\)#", function (matches) {
-                return "(?:%s)"->format(matches[1]);
-            }, requirement, -1, count);
-        } while (count);
-
-        return requirement;
     }
 
     /**

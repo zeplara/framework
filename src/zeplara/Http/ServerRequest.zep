@@ -91,7 +91,7 @@ final class ServerRequest extends Request implements ServerRequestInterface
     {
         var $clone;
         let $clone = clone this,
-            $clone->withQueryParams = query;
+            $clone->queryParams = query;
 
         return $clone;   
     }
@@ -169,13 +169,16 @@ final class ServerRequest extends Request implements ServerRequestInterface
         return $clone;            
     }
 
-
+    /**
+     * @var array uploadedFiles
+     * @return void
+     */
     private function assertUploadedFiles(uploadedFiles)
     {
         var uploadedFile;
         let uploadedFiles = Arr::flatten(uploadedFiles);
         for uploadedFile in uploadedFiles {
-            if (typeof uploadedFile == "object" && uploadedFile instanceof UploadedFile) === false {
+            if typeof uploadedFile != "object" || (uploadedFile instanceof UploadedFile) === false {
                 throw new InvalidArgumentException("The uploadedFiles values should be instance of \Zeplara\Http\UploadedFile::class");
             }
         }

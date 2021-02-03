@@ -31,7 +31,7 @@ if (PHP_ZEPLARA != "no") {
 	ADD_SOURCES(configure_module_dirname + "/zeplara/session", "cookiesessionhandler.zep.c filesessionhandler.zep.c flash.zep.c manager.zep.c", "zeplara");
 	ADD_SOURCES(configure_module_dirname + "/zeplara/support/facades", "facade.zep.c", "zeplara");
 	ADD_SOURCES(configure_module_dirname + "/zeplara/support/file", "splfileinfo.zep.c", "zeplara");
-	ADD_SOURCES(configure_module_dirname + "/zeplara", "0__closure.zep.c 1__closure.zep.c 2__closure.zep.c 3__closure.zep.c 4__closure.zep.c 5__closure.zep.c 6__closure.zep.c 7__closure.zep.c 8__closure.zep.c", "zeplara");
+	ADD_SOURCES(configure_module_dirname + "/zeplara", "0__closure.zep.c 1__closure.zep.c 2__closure.zep.c 3__closure.zep.c 4__closure.zep.c 5__closure.zep.c 6__closure.zep.c 7__closure.zep.c 8__closure.zep.c 9__closure.zep.c", "zeplara");
   ADD_FLAG("CFLAGS_ZEPLARA", "/D ZEPHIR_RELEASE /Oi /Ot /Oy /Ob2 /Gs /GF /Gy /GL");
   ADD_FLAG("CFLAGS", "/D ZEPHIR_RELEASE /Oi /Ot /Oy /Ob2 /Gs /GF /Gy /GL");
   ADD_FLAG("LDFLAGS", "/LTCG");

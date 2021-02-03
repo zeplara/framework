@@ -63,6 +63,7 @@ zend_class_entry *zeplara_5__closure_ce;
 zend_class_entry *zeplara_6__closure_ce;
 zend_class_entry *zeplara_7__closure_ce;
 zend_class_entry *zeplara_8__closure_ce;
+zend_class_entry *zeplara_9__closure_ce;
 zend_class_entry *zeplara_config_envloader_ce;
 zend_class_entry *zeplara_config_iniloader_ce;
 zend_class_entry *zeplara_config_jsonloader_ce;
@@ -238,6 +239,7 @@ static PHP_MINIT_FUNCTION(zeplara)
 	ZEPHIR_INIT(zeplara_6__closure);
 	ZEPHIR_INIT(zeplara_7__closure);
 	ZEPHIR_INIT(zeplara_8__closure);
+	ZEPHIR_INIT(zeplara_9__closure);
 	
 	return SUCCESS;
 }

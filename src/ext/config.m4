@@ -110,7 +110,8 @@ if test "$PHP_ZEPLARA" = "yes"; then
 	zeplara/5__closure.zep.c
 	zeplara/6__closure.zep.c
 	zeplara/7__closure.zep.c
-	zeplara/8__closure.zep.c "
+	zeplara/8__closure.zep.c
+	zeplara/9__closure.zep.c "
 	PHP_NEW_EXTENSION(zeplara, $zeplara_sources, $ext_shared,, )
 	PHP_SUBST(ZEPLARA_SHARED_LIBADD)
 

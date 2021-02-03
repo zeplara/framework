@@ -63,7 +63,7 @@ PHP_METHOD(Zeplara_Session_FileSessionHandler, __construct) {
 
 
 
-	ZEPHIR_CALL_FUNCTION(&_0, "is_writable", NULL, 138, path);
+	ZEPHIR_CALL_FUNCTION(&_0, "is_writable", NULL, 137, path);
 	zephir_check_call_status();
 	if (!zephir_is_true(&_0)) {
 		ZEPHIR_INIT_VAR(&_1$$3);
@@ -124,17 +124,17 @@ PHP_METHOD(Zeplara_Session_FileSessionHandler, destroy) {
 	zephir_read_property(&_0, this_ptr, ZEND_STRL("path"), PH_NOISY_CC | PH_READONLY);
 	ZEPHIR_INIT_VAR(&file);
 	ZEPHIR_CONCAT_VSV(&file, &_0, "/", session_id);
-	ZEPHIR_CALL_FUNCTION(&_1, "is_file", NULL, 139, &file);
+	ZEPHIR_CALL_FUNCTION(&_1, "is_file", NULL, 138, &file);
 	zephir_check_call_status();
 	if (zephir_is_true(&_1)) {
 		ZEPHIR_CALL_FUNCTION(NULL, "error_clear_last", NULL, 47);
 		zephir_check_call_status();
 		ZEPHIR_INIT_VAR(&_2$$3);
 		ZEPHIR_INIT_NVAR(&_2$$3);
-		zephir_create_closure_ex(&_2$$3, NULL, zeplara_3__closure_ce, SL("__invoke"));
+		zephir_create_closure_ex(&_2$$3, NULL, zeplara_4__closure_ce, SL("__invoke"));
 		ZEPHIR_CALL_FUNCTION(NULL, "set_error_handler", NULL, 48, &_2$$3);
 		zephir_check_call_status();
-		ZEPHIR_CALL_FUNCTION(NULL, "unlink", NULL, 140, &file);
+		ZEPHIR_CALL_FUNCTION(NULL, "unlink", NULL, 139, &file);
 		zephir_check_call_status();
 		ZEPHIR_CALL_FUNCTION(NULL, "restore_error_handler", NULL, 54);
 		zephir_check_call_status();
@@ -192,7 +192,7 @@ PHP_METHOD(Zeplara_Session_FileSessionHandler, gc) {
 	zephir_check_call_status();
 	ZEPHIR_INIT_NVAR(&_5);
 	ZEPHIR_INIT_NVAR(&_5);
-	zephir_create_closure_ex(&_5, NULL, zeplara_4__closure_ce, SL("__invoke"));
+	zephir_create_closure_ex(&_5, NULL, zeplara_5__closure_ce, SL("__invoke"));
 	ZEPHIR_CALL_FUNCTION(NULL, "set_error_handler", NULL, 48, &_5);
 	zephir_check_call_status();
 	zephir_is_iterable(&files, 0, "zeplara/Session/FileSessionHandler.zep", 86);
@@ -203,7 +203,7 @@ PHP_METHOD(Zeplara_Session_FileSessionHandler, gc) {
 			ZVAL_COPY(&file, _7);
 			ZEPHIR_CALL_METHOD(&_9$$3, &file, "getrealpath", NULL, 0);
 			zephir_check_call_status();
-			ZEPHIR_CALL_FUNCTION(NULL, "unlink", &_10, 140, &_9$$3);
+			ZEPHIR_CALL_FUNCTION(NULL, "unlink", &_10, 139, &_9$$3);
 			zephir_check_call_status();
 		} ZEND_HASH_FOREACH_END();
 	} else {
@@ -219,7 +219,7 @@ PHP_METHOD(Zeplara_Session_FileSessionHandler, gc) {
 			zephir_check_call_status();
 				ZEPHIR_CALL_METHOD(&_11$$4, &file, "getrealpath", NULL, 0);
 				zephir_check_call_status();
-				ZEPHIR_CALL_FUNCTION(NULL, "unlink", &_10, 140, &_11$$4);
+				ZEPHIR_CALL_FUNCTION(NULL, "unlink", &_10, 139, &_11$$4);
 				zephir_check_call_status();
 			ZEPHIR_CALL_METHOD(NULL, &files, "next", NULL, 0);
 			zephir_check_call_status();
@@ -277,7 +277,7 @@ PHP_METHOD(Zeplara_Session_FileSessionHandler, read) {
 	zephir_read_property(&_0, this_ptr, ZEND_STRL("path"), PH_NOISY_CC | PH_READONLY);
 	ZEPHIR_INIT_VAR(&file);
 	ZEPHIR_CONCAT_VSV(&file, &_0, "/", session_id);
-	ZEPHIR_CALL_FUNCTION(&_1, "is_file", NULL, 139, &file);
+	ZEPHIR_CALL_FUNCTION(&_1, "is_file", NULL, 138, &file);
 	zephir_check_call_status();
 	if (ZEPHIR_IS_FALSE_IDENTICAL(&_1)) {
 		RETURN_MM_STRING("");
@@ -315,7 +315,7 @@ PHP_METHOD(Zeplara_Session_FileSessionHandler, write) {
 	ZEPHIR_INIT_VAR(&_1);
 	ZEPHIR_CONCAT_VSV(&_1, &_0, "/", session_id);
 	ZVAL_LONG(&_2, 2);
-	ZEPHIR_CALL_FUNCTION(&_3, "file_put_contents", NULL, 141, &_1, session_data, &_2);
+	ZEPHIR_CALL_FUNCTION(&_3, "file_put_contents", NULL, 140, &_1, session_data, &_2);
 	zephir_check_call_status();
 	if (ZEPHIR_IS_FALSE_IDENTICAL(&_3)) {
 		RETURN_MM_BOOL(0);

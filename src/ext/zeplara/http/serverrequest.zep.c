@@ -293,7 +293,7 @@ PHP_METHOD(Zeplara_Http_ServerRequest, withQueryParams) {
 	if (zephir_clone(&clone, this_ptr) == FAILURE) {
 		RETURN_MM();
 	}
-	zephir_update_property_zval(&clone, ZEND_STRL("withQueryParams"), &query);
+	zephir_update_property_zval(&clone, ZEND_STRL("queryParams"), &query);
 	RETURN_CCTOR(&clone);
 
 }
@@ -451,6 +451,10 @@ PHP_METHOD(Zeplara_Http_ServerRequest, withoutAttribute) {
 
 }
 
+/**
+ * @var array uploadedFiles
+ * @return void
+ */
 PHP_METHOD(Zeplara_Http_ServerRequest, assertUploadedFiles) {
 
 	zend_bool _4$$3, _5$$5;
@@ -474,18 +478,18 @@ PHP_METHOD(Zeplara_Http_ServerRequest, assertUploadedFiles) {
 	ZEPHIR_CALL_CE_STATIC(&_0, zeplara_support_arr_ce, "flatten", &_1, 0, uploadedFiles);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(uploadedFiles, &_0);
-	zephir_is_iterable(uploadedFiles, 0, "zeplara/Http/ServerRequest.zep", 182);
+	zephir_is_iterable(uploadedFiles, 0, "zeplara/Http/ServerRequest.zep", 185);
 	if (Z_TYPE_P(uploadedFiles) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(uploadedFiles), _2)
 		{
 			ZEPHIR_INIT_NVAR(&uploadedFile);
 			ZVAL_COPY(&uploadedFile, _2);
-			_4$$3 = Z_TYPE_P(&uploadedFile) == IS_OBJECT;
-			if (_4$$3) {
-				_4$$3 = zephir_instance_of_ev(&uploadedFile, zeplara_http_uploadedfile_ce);
+			_4$$3 = Z_TYPE_P(&uploadedFile) != IS_OBJECT;
+			if (!(_4$$3)) {
+				_4$$3 = (zephir_instance_of_ev(&uploadedFile, zeplara_http_uploadedfile_ce)) == 0;
 			}
-			if (_4$$3 == 0) {
-				ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The uploadedFiles values should be instance of \\Zeplara\\Http\\UploadedFile::class", "zeplara/Http/ServerRequest.zep", 179);
+			if (_4$$3) {
+				ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The uploadedFiles values should be instance of \\Zeplara\\Http\\UploadedFile::class", "zeplara/Http/ServerRequest.zep", 182);
 				return;
 			}
 		} ZEND_HASH_FOREACH_END();
@@ -500,12 +504,12 @@ PHP_METHOD(Zeplara_Http_ServerRequest, assertUploadedFiles) {
 			}
 			ZEPHIR_CALL_METHOD(&uploadedFile, uploadedFiles, "current", NULL, 0);
 			zephir_check_call_status();
-				_5$$5 = Z_TYPE_P(&uploadedFile) == IS_OBJECT;
-				if (_5$$5) {
-					_5$$5 = zephir_instance_of_ev(&uploadedFile, zeplara_http_uploadedfile_ce);
+				_5$$5 = Z_TYPE_P(&uploadedFile) != IS_OBJECT;
+				if (!(_5$$5)) {
+					_5$$5 = (zephir_instance_of_ev(&uploadedFile, zeplara_http_uploadedfile_ce)) == 0;
 				}
-				if (_5$$5 == 0) {
-					ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The uploadedFiles values should be instance of \\Zeplara\\Http\\UploadedFile::class", "zeplara/Http/ServerRequest.zep", 179);
+				if (_5$$5) {
+					ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The uploadedFiles values should be instance of \\Zeplara\\Http\\UploadedFile::class", "zeplara/Http/ServerRequest.zep", 182);
 					return;
 				}
 			ZEPHIR_CALL_METHOD(NULL, uploadedFiles, "next", NULL, 0);

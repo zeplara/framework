@@ -89,7 +89,7 @@ PHP_METHOD(Zeplara_Support_File_Finder_Iterator, accept) {
 
 	ZEPHIR_CALL_METHOD(&_0, this_ptr, "current", NULL, 0);
 	zephir_check_call_status();
-	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "isaccepted", NULL, 170, &_0);
+	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "isaccepted", NULL, 169, &_0);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -157,7 +157,7 @@ PHP_METHOD(Zeplara_Support_File_Finder_Iterator, isAccepted) {
 				ZVAL_STRING(&_9$$5, "Zeplara\\Support\\File\\Finder");
 				ZEPHIR_CALL_FUNCTION(&_10$$5, "sprintf", &_11, 2, &_8$$5, &_9$$5);
 				zephir_check_call_status();
-				ZEPHIR_CALL_METHOD(NULL, &_6$$5, "__construct", &_12, 171, &_10$$5);
+				ZEPHIR_CALL_METHOD(NULL, &_6$$5, "__construct", &_12, 170, &_10$$5);
 				zephir_check_call_status();
 				zephir_throw_exception_debug(&_6$$5, "zeplara/Support/File/Finder/Iterator.zep", 45);
 				ZEPHIR_MM_RESTORE();
@@ -198,7 +198,7 @@ PHP_METHOD(Zeplara_Support_File_Finder_Iterator, isAccepted) {
 					ZVAL_STRING(&_19$$9, "Zeplara\\Support\\File\\Finder");
 					ZEPHIR_CALL_FUNCTION(&_20$$9, "sprintf", &_11, 2, &_18$$9, &_19$$9);
 					zephir_check_call_status();
-					ZEPHIR_CALL_METHOD(NULL, &_16$$9, "__construct", &_12, 171, &_20$$9);
+					ZEPHIR_CALL_METHOD(NULL, &_16$$9, "__construct", &_12, 170, &_20$$9);
 					zephir_check_call_status();
 					zephir_throw_exception_debug(&_16$$9, "zeplara/Support/File/Finder/Iterator.zep", 45);
 					ZEPHIR_MM_RESTORE();

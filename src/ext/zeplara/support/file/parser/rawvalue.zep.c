@@ -92,7 +92,7 @@ PHP_METHOD(Zeplara_Support_File_Parser_RawValue, __construct) {
 	zephir_update_property_zval(this_ptr, ZEND_STRL("value"), &value);
 	ZEPHIR_INIT_VAR(&_0);
 	object_init_ex(&_0, zeplara_support_file_parser_linesiterator_ce);
-	ZEPHIR_CALL_METHOD(NULL, &_0, "__construct", NULL, 173, &value);
+	ZEPHIR_CALL_METHOD(NULL, &_0, "__construct", NULL, 172, &value);
 	zephir_check_call_status();
 	zephir_update_property_zval(this_ptr, ZEND_STRL("lines"), &_0);
 	ZEPHIR_MM_RESTORE();
