@@ -98,7 +98,7 @@ PHP_METHOD(Zeplara_Routing_Router, __construct) {
 	}
 
 
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setroutes", NULL, 133, &routes);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setroutes", NULL, 165, &routes);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_0);
 	object_init_ex(&_0, zeplara_routing_group_ce);
@@ -149,7 +149,7 @@ PHP_METHOD(Zeplara_Routing_Router, setRoutes) {
 				ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The value must be instanceof Route.", "zeplara/Routing/Router.zep", 57);
 				return;
 			}
-			ZEPHIR_CALL_METHOD(NULL, this_ptr, "addroute", &_3, 134, &route);
+			ZEPHIR_CALL_METHOD(NULL, this_ptr, "addroute", &_3, 166, &route);
 			zephir_check_call_status();
 		} ZEND_HASH_FOREACH_END();
 	} else {
@@ -171,7 +171,7 @@ PHP_METHOD(Zeplara_Routing_Router, setRoutes) {
 					ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The value must be instanceof Route.", "zeplara/Routing/Router.zep", 57);
 					return;
 				}
-				ZEPHIR_CALL_METHOD(NULL, this_ptr, "addroute", &_3, 134, &route);
+				ZEPHIR_CALL_METHOD(NULL, this_ptr, "addroute", &_3, 166, &route);
 				zephir_check_call_status();
 			ZEPHIR_CALL_METHOD(NULL, &routes, "next", NULL, 0);
 			zephir_check_call_status();
@@ -392,7 +392,7 @@ PHP_METHOD(Zeplara_Routing_Router, createRoute) {
 			zephir_array_fetch_string(&_39$$10, &attributes, SL("middleware"), PH_NOISY | PH_READONLY, "zeplara/Routing/Router.zep", 111);
 			zephir_fast_array_merge(&_38$$10, &middleware, &_39$$10);
 			ZVAL_LONG(&_40$$10, 0);
-			ZEPHIR_CALL_FUNCTION(&_41$$10, "array_unique", NULL, 117, &_38$$10, &_40$$10);
+			ZEPHIR_CALL_FUNCTION(&_41$$10, "array_unique", NULL, 150, &_38$$10, &_40$$10);
 			zephir_check_call_status();
 			zephir_array_update_string(&attributes, SL("middleware"), &_41$$10, PH_COPY | PH_SEPARATE);
 		}
@@ -408,7 +408,7 @@ PHP_METHOD(Zeplara_Routing_Router, createRoute) {
 		}
 	}
 	object_init_ex(return_value, zeplara_routing_route_ce);
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 135, pattern, callback, &methods, &attributes);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 167, pattern, callback, &methods, &attributes);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -493,7 +493,7 @@ PHP_METHOD(Zeplara_Routing_Router, __call) {
 	zephir_create_array(&_0, 2, 0);
 	ZEPHIR_INIT_VAR(&_1);
 	object_init_ex(&_1, zeplara_routing_registrar_ce);
-	ZEPHIR_CALL_METHOD(NULL, &_1, "__construct", NULL, 136, this_ptr);
+	ZEPHIR_CALL_METHOD(NULL, &_1, "__construct", NULL, 168, this_ptr);
 	zephir_check_call_status();
 	zephir_array_fast_append(&_0, &_1);
 	zephir_array_fast_append(&_0, name);

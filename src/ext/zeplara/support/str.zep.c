@@ -113,15 +113,15 @@ PHP_METHOD(Zeplara_Support_Str, studly) {
 		ZEPHIR_INIT_NVAR(&_3$$3);
 		ZVAL_STRING(&_3$$3, "capitalize");
 		zephir_array_fast_append(&_2$$3, &_3$$3);
-		ZEPHIR_CALL_SELF(&_4$$3, "splitbydashwhitespaceunderscore", &_5, 182, &value);
+		ZEPHIR_CALL_SELF(&_4$$3, "splitbydashwhitespaceunderscore", &_5, 183, &value);
 		zephir_check_call_status();
-		ZEPHIR_CALL_FUNCTION(&_6$$3, "array_map", NULL, 151, &_2$$3, &_4$$3);
+		ZEPHIR_CALL_FUNCTION(&_6$$3, "array_map", NULL, 67, &_2$$3, &_4$$3);
 		zephir_check_call_status();
 		zephir_fast_join_str(&_1$$3, SL(""), &_6$$3);
 		zephir_update_static_property_array_multi_ce(zeplara_support_str_ce, SL("studlyCache"), &_1$$3, SL("z"), 1, &value);
 	}
 	zephir_read_static_property_ce(&_7, zeplara_support_str_ce, SL("studlyCache"), PH_NOISY_CC | PH_READONLY);
-	zephir_array_fetch(&_8, &_7, &value, PH_NOISY | PH_READONLY, "zeplara/Support/Str.zep", 180);
+	zephir_array_fetch(&_8, &_7, &value, PH_NOISY | PH_READONLY, "zeplara/Support/Str.zep", 182);
 	RETURN_CTOR(&_8);
 
 }
@@ -184,25 +184,25 @@ PHP_METHOD(Zeplara_Support_Str, snake) {
 
 
 	zephir_read_static_property_ce(&_0, zeplara_support_str_ce, SL("snakeCache"), PH_NOISY_CC | PH_READONLY);
-	zephir_array_fetch(&_1, &_0, &value, PH_READONLY, "zeplara/Support/Str.zep", 189);
+	zephir_array_fetch(&_1, &_0, &value, PH_READONLY, "zeplara/Support/Str.zep", 191);
 	if (!(zephir_array_isset(&_1, &delimiter))) {
-		ZEPHIR_CALL_FUNCTION(&_3$$3, "preg_quote", NULL, 128, &delimiter);
+		ZEPHIR_CALL_FUNCTION(&_3$$3, "preg_quote", NULL, 161, &delimiter);
 		zephir_check_call_status();
 		ZEPHIR_INIT_VAR(&_4$$3);
 		ZEPHIR_CONCAT_SVS(&_4$$3, "/((?<!^|[A-Z]|", &_3$$3, "))(?=[A-Z])/u");
 		ZEPHIR_INIT_VAR(&_5$$3);
-		ZEPHIR_CALL_SELF(&_6$$3, "splitbydashwhitespaceunderscore", &_7, 182, &value);
+		ZEPHIR_CALL_SELF(&_6$$3, "splitbydashwhitespaceunderscore", &_7, 183, &value);
 		zephir_check_call_status();
 		zephir_fast_join(&_5$$3, &delimiter, &_6$$3);
-		ZEPHIR_CALL_FUNCTION(&_8$$3, "preg_replace", NULL, 181, &_4$$3, &delimiter, &_5$$3);
+		ZEPHIR_CALL_FUNCTION(&_8$$3, "preg_replace", NULL, 96, &_4$$3, &delimiter, &_5$$3);
 		zephir_check_call_status();
 		ZEPHIR_CALL_SELF(&_2$$3, "lower", NULL, 0, &_8$$3);
 		zephir_check_call_status();
 		zephir_update_static_property_array_multi_ce(zeplara_support_str_ce, SL("snakeCache"), &_2$$3, SL("zz"), 2, &value, &delimiter);
 	}
 	zephir_read_static_property_ce(&_9, zeplara_support_str_ce, SL("snakeCache"), PH_NOISY_CC | PH_READONLY);
-	zephir_array_fetch(&_10, &_9, &value, PH_NOISY | PH_READONLY, "zeplara/Support/Str.zep", 193);
-	zephir_array_fetch(&_11, &_10, &delimiter, PH_NOISY | PH_READONLY, "zeplara/Support/Str.zep", 193);
+	zephir_array_fetch(&_10, &_9, &value, PH_NOISY | PH_READONLY, "zeplara/Support/Str.zep", 195);
+	zephir_array_fetch(&_11, &_10, &delimiter, PH_NOISY | PH_READONLY, "zeplara/Support/Str.zep", 195);
 	RETURN_CTOR(&_11);
 
 }
@@ -277,7 +277,7 @@ PHP_METHOD(Zeplara_Support_Str, lower) {
 
 	ZEPHIR_INIT_VAR(&_0);
 	ZVAL_STRING(&_0, "UTF-8");
-	ZEPHIR_RETURN_CALL_FUNCTION("mb_strtolower", NULL, 183, &value, &_0);
+	ZEPHIR_RETURN_CALL_FUNCTION("mb_strtolower", NULL, 184, &value, &_0);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -312,7 +312,7 @@ PHP_METHOD(Zeplara_Support_Str, upper) {
 	}
 
 
-	ZEPHIR_RETURN_CALL_FUNCTION("mb_strtoupper", NULL, 184, &value);
+	ZEPHIR_RETURN_CALL_FUNCTION("mb_strtoupper", NULL, 185, &value);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -352,7 +352,7 @@ PHP_METHOD(Zeplara_Support_Str, title) {
 	ZVAL_LONG(&_0, 2);
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "UTF-8");
-	ZEPHIR_RETURN_CALL_FUNCTION("mb_convert_case", NULL, 185, &value, &_0, &_1);
+	ZEPHIR_RETURN_CALL_FUNCTION("mb_convert_case", NULL, 186, &value, &_0, &_1);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -423,17 +423,17 @@ PHP_METHOD(Zeplara_Support_Str, ascii) {
 
 	ZEPHIR_OBS_VAR(&langSpecific);
 	zephir_read_static_property_ce(&_0, zeplara_support_str_ce, SL("asciiChars"), PH_NOISY_CC | PH_READONLY);
-	zephir_array_fetch_long(&_1, &_0, 1, PH_READONLY, "zeplara/Support/Str.zep", 241);
+	zephir_array_fetch_long(&_1, &_0, 1, PH_READONLY, "zeplara/Support/Str.zep", 243);
 	if (zephir_array_isset_fetch(&langSpecific, &_1, &language, 0)) {
 		ZEPHIR_INIT_VAR(&_2$$3);
-		zephir_array_fetch_long(&_3$$3, &langSpecific, 0, PH_NOISY | PH_READONLY, "zeplara/Support/Str.zep", 242);
-		zephir_array_fetch_long(&_4$$3, &langSpecific, 1, PH_NOISY | PH_READONLY, "zeplara/Support/Str.zep", 242);
+		zephir_array_fetch_long(&_3$$3, &langSpecific, 0, PH_NOISY | PH_READONLY, "zeplara/Support/Str.zep", 244);
+		zephir_array_fetch_long(&_4$$3, &langSpecific, 1, PH_NOISY | PH_READONLY, "zeplara/Support/Str.zep", 244);
 		zephir_fast_str_replace(&_2$$3, &_3$$3, &_4$$3, &value);
 		zephir_get_strval(&value, &_2$$3);
 	}
 	zephir_read_static_property_ce(&_5, zeplara_support_str_ce, SL("asciiChars"), PH_NOISY_CC | PH_READONLY);
-	zephir_array_fetch_long(&_6, &_5, 0, PH_NOISY | PH_READONLY, "zeplara/Support/Str.zep", 246);
-	zephir_is_iterable(&_6, 0, "zeplara/Support/Str.zep", 250);
+	zephir_array_fetch_long(&_6, &_5, 0, PH_NOISY | PH_READONLY, "zeplara/Support/Str.zep", 248);
+	zephir_is_iterable(&_6, 0, "zeplara/Support/Str.zep", 252);
 	if (Z_TYPE_P(&_6) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_KEY_VAL(Z_ARRVAL_P(&_6), _9, _10, _7)
 		{
@@ -475,7 +475,7 @@ PHP_METHOD(Zeplara_Support_Str, ascii) {
 	ZVAL_STRING(&_13, "/[^\x20-\x7E]/u");
 	ZEPHIR_INIT_VAR(&_14);
 	ZVAL_STRING(&_14, "");
-	ZEPHIR_RETURN_CALL_FUNCTION("preg_replace", NULL, 181, &_13, &_14, &value);
+	ZEPHIR_RETURN_CALL_FUNCTION("preg_replace", NULL, 96, &_13, &_14, &value);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -548,13 +548,13 @@ PHP_METHOD(Zeplara_Support_Str, slug) {
 	}
 
 
-	ZEPHIR_CALL_FUNCTION(&_0, "preg_quote", NULL, 128, &separator);
+	ZEPHIR_CALL_FUNCTION(&_0, "preg_quote", NULL, 161, &separator);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_1);
 	ZEPHIR_CONCAT_SVS(&_1, "/[^A-Za-z0-9", &_0, "]+/");
 	ZEPHIR_CALL_SELF(&_2, "ascii", NULL, 0, &value, &language);
 	zephir_check_call_status();
-	ZEPHIR_CALL_FUNCTION(&_3, "preg_replace", NULL, 181, &_1, &separator, &_2);
+	ZEPHIR_CALL_FUNCTION(&_3, "preg_replace", NULL, 96, &_1, &separator, &_2);
 	zephir_check_call_status();
 	zephir_fast_trim(return_value, &_3, &separator, ZEPHIR_TRIM_BOTH);
 	RETURN_MM();
@@ -666,16 +666,16 @@ PHP_METHOD(Zeplara_Support_Str, random) {
 
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zephir_fcall_cache_entry *_3 = NULL;
-	zval *length_param = NULL, chr, chars, _0$$3, _1$$3, _2$$3, _4$$3;
+	zval *length_param = NULL, chr, chars, _0$$4, _1$$4, _2$$4, _4$$4;
 	zend_long length, ZEPHIR_LAST_CALL_STATUS;
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&chr);
 	ZVAL_UNDEF(&chars);
-	ZVAL_UNDEF(&_0$$3);
-	ZVAL_UNDEF(&_1$$3);
-	ZVAL_UNDEF(&_2$$3);
-	ZVAL_UNDEF(&_4$$3);
+	ZVAL_UNDEF(&_0$$4);
+	ZVAL_UNDEF(&_1$$4);
+	ZVAL_UNDEF(&_2$$4);
+	ZVAL_UNDEF(&_4$$4);
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &length_param);
@@ -687,6 +687,10 @@ PHP_METHOD(Zeplara_Support_Str, random) {
 	length = Z_LVAL_P(length_param);
 
 
+	if (length <= 0) {
+		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The length must be greater than zero.", "zeplara/Support/Str.zep", 296);
+		return;
+	}
 	ZEPHIR_INIT_VAR(&chr);
 	ZVAL_STRING(&chr, "");
 	ZEPHIR_INIT_VAR(&chars);
@@ -695,14 +699,14 @@ PHP_METHOD(Zeplara_Support_Str, random) {
 		if (!(length > 0)) {
 			break;
 		}
-		ZVAL_LONG(&_0$$3, 0);
-		ZVAL_LONG(&_1$$3, 61);
-		ZEPHIR_CALL_FUNCTION(&_2$$3, "rand", &_3, 186, &_0$$3, &_1$$3);
+		ZVAL_LONG(&_0$$4, 0);
+		ZVAL_LONG(&_1$$4, 61);
+		ZEPHIR_CALL_FUNCTION(&_2$$4, "rand", &_3, 187, &_0$$4, &_1$$4);
 		zephir_check_call_status();
-		ZVAL_LONG(&_0$$3, 1);
-		ZEPHIR_INIT_NVAR(&_4$$3);
-		zephir_substr(&_4$$3, &chars, zephir_get_intval(&_2$$3), 1 , 0);
-		zephir_concat_self(&chr, &_4$$3);
+		ZVAL_LONG(&_0$$4, 1);
+		ZEPHIR_INIT_NVAR(&_4$$4);
+		zephir_substr(&_4$$4, &chars, zephir_get_intval(&_2$$4), 1 , 0);
+		zephir_concat_self(&chr, &_4$$4);
 		length--;
 	}
 	RETURN_CCTOR(&chr);
@@ -738,7 +742,7 @@ PHP_METHOD(Zeplara_Support_Str, splitByDashWhiteSpaceUnderscore) {
 	zephir_read_static_property_ce(&_0, zeplara_support_str_ce, SL("splitByDashWhiteSpaceUnderscoreMatchesCache"), PH_NOISY_CC | PH_READONLY);
 	if (zephir_array_isset(&_0, value)) {
 		zephir_read_static_property_ce(&_1$$3, zeplara_support_str_ce, SL("splitByDashWhiteSpaceUnderscoreMatchesCache"), PH_NOISY_CC | PH_READONLY);
-		zephir_array_fetch(&_2$$3, &_1$$3, value, PH_NOISY | PH_READONLY, "zeplara/Support/Str.zep", 313);
+		zephir_array_fetch(&_2$$3, &_1$$3, value, PH_NOISY | PH_READONLY, "zeplara/Support/Str.zep", 319);
 		RETURN_CTOR(&_2$$3);
 	}
 	ZEPHIR_INIT_VAR(&_3);
@@ -747,10 +751,10 @@ PHP_METHOD(Zeplara_Support_Str, splitByDashWhiteSpaceUnderscore) {
 	ZEPHIR_INIT_VAR(&_5);
 	ZVAL_STRING(&_5, "/(?:(?!\\-|_|\\s).)+/u");
 	zephir_preg_match(&_4, &_5, value, &matches, 1, 0 , 0 );
-	zephir_array_fetch_long(&_6, &matches, 0, PH_NOISY | PH_READONLY, "zeplara/Support/Str.zep", 320);
+	zephir_array_fetch_long(&_6, &matches, 0, PH_NOISY | PH_READONLY, "zeplara/Support/Str.zep", 326);
 	zephir_update_static_property_array_multi_ce(zeplara_support_str_ce, SL("splitByDashWhiteSpaceUnderscoreMatchesCache"), &_6, SL("z"), 1, value);
 	zephir_read_static_property_ce(&_7, zeplara_support_str_ce, SL("splitByDashWhiteSpaceUnderscoreMatchesCache"), PH_NOISY_CC | PH_READONLY);
-	zephir_array_fetch(&_6, &_7, value, PH_NOISY | PH_READONLY, "zeplara/Support/Str.zep", 322);
+	zephir_array_fetch(&_6, &_7, value, PH_NOISY | PH_READONLY, "zeplara/Support/Str.zep", 328);
 	RETURN_CTOR(&_6);
 
 }
@@ -1225,7 +1229,7 @@ void zephir_init_static_properties_Zeplara_Support_Str(TSRMLS_D) {
 	zephir_array_fast_append(&_2, &_3);
 	zephir_array_update_string(&_1, SL("d"), &_2, PH_COPY | PH_SEPARATE);
 	ZEPHIR_INIT_NVAR(&_2);
-	zephir_create_array(&_2, 40, 0);
+	zephir_create_array(&_2, 41, 0);
 	ZEPHIR_INIT_NVAR(&_3);
 	ZVAL_STRING(&_3, "é");
 	zephir_array_fast_append(&_2, &_3);
@@ -1450,7 +1454,7 @@ void zephir_init_static_properties_Zeplara_Support_Str(TSRMLS_D) {
 	zephir_array_fast_append(&_2, &_3);
 	zephir_array_update_string(&_1, SL("h"), &_2, PH_COPY | PH_SEPARATE);
 	ZEPHIR_INIT_NVAR(&_2);
-	zephir_create_array(&_2, 44, 0);
+	zephir_create_array(&_2, 47, 0);
 	ZEPHIR_INIT_NVAR(&_3);
 	ZVAL_STRING(&_3, "í");
 	zephir_array_fast_append(&_2, &_3);
@@ -1756,7 +1760,7 @@ void zephir_init_static_properties_Zeplara_Support_Str(TSRMLS_D) {
 	zephir_array_fast_append(&_2, &_3);
 	zephir_array_update_string(&_1, SL("n"), &_2, PH_COPY | PH_SEPARATE);
 	ZEPHIR_INIT_NVAR(&_2);
-	zephir_create_array(&_2, 40, 0);
+	zephir_create_array(&_2, 41, 0);
 	ZEPHIR_INIT_NVAR(&_3);
 	ZVAL_STRING(&_3, "ó");
 	zephir_array_fast_append(&_2, &_3);
@@ -2521,7 +2525,7 @@ void zephir_init_static_properties_Zeplara_Support_Str(TSRMLS_D) {
 	zephir_array_fast_append(&_2, &_3);
 	zephir_array_update_string(&_1, SL("(c)"), &_2, PH_COPY | PH_SEPARATE);
 	ZEPHIR_INIT_NVAR(&_2);
-	zephir_create_array(&_2, 48, 0);
+	zephir_create_array(&_2, 53, 0);
 	ZEPHIR_INIT_NVAR(&_3);
 	ZVAL_STRING(&_3, "Á");
 	zephir_array_fast_append(&_2, &_3);
@@ -2740,7 +2744,7 @@ void zephir_init_static_properties_Zeplara_Support_Str(TSRMLS_D) {
 	zephir_array_fast_append(&_2, &_3);
 	zephir_array_update_string(&_1, SL("D"), &_2, PH_COPY | PH_SEPARATE);
 	ZEPHIR_INIT_NVAR(&_2);
-	zephir_create_array(&_2, 33, 0);
+	zephir_create_array(&_2, 37, 0);
 	ZEPHIR_INIT_NVAR(&_3);
 	ZVAL_STRING(&_3, "É");
 	zephir_array_fast_append(&_2, &_3);

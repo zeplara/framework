@@ -16,7 +16,7 @@
 
 ZEPHIR_INIT_CLASS(Zeplara_Encryption_EncryptionException) {
 
-	ZEPHIR_REGISTER_CLASS_EX(Zeplara\\Encryption, EncryptionException, zeplara, encryption_encryptionexception, zend_exception_get_default(TSRMLS_C), NULL, 0);
+	ZEPHIR_REGISTER_CLASS_EX(Zeplara\\Encryption, EncryptionException, zeplara, encryption_encryptionexception, zend_exception_get_default(TSRMLS_C), NULL, ZEND_ACC_FINAL_CLASS);
 
 	zend_class_implements(zeplara_encryption_encryptionexception_ce, 1, zeplara_contracts_encryption_encryptionexception_ce);
 	return SUCCESS;

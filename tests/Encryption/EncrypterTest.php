@@ -17,7 +17,7 @@ class EncrypterTest extends TestCase
      */
     public function testEncryptDecrypt($cipher)
     {
-        $encrypter = new Encrypter(Str::random(openssl_cipher_iv_length($cipher)), $cipher);
+        $encrypter = new Encrypter('key', $cipher);
 
         self::assertSame('hello world', $encrypter->decrypt($encrypter->encrypt('hello world')));
     }
@@ -32,7 +32,7 @@ class EncrypterTest extends TestCase
             "Cipher %s is not supported.", $cipher
         ));
         try {
-            $encrypter = new Encrypter(Str::random(openssl_cipher_iv_length($cipher)), $cipher);
+            $encrypter = new Encrypter('key', $cipher);
         } catch (Throwable $e) {
             throw $e;
         }

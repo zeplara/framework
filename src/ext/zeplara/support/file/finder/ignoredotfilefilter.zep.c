@@ -51,7 +51,7 @@ PHP_METHOD(Zeplara_Support_File_Finder_IgnoreDotFileFilter, accept) {
 	zephir_check_call_status();
 	if (zephir_is_true(&_0)) {
 		ZVAL_LONG(&_1$$3, 8);
-		ZEPHIR_CALL_FUNCTION(&_2$$3, "pathinfo", NULL, 168, fileInfo, &_1$$3);
+		ZEPHIR_CALL_FUNCTION(&_2$$3, "pathinfo", NULL, 169, fileInfo, &_1$$3);
 		zephir_check_call_status();
 		RETURN_MM_BOOL(!ZEPHIR_IS_STRING_IDENTICAL(&_2$$3, ""));
 	}

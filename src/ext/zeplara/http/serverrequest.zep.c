@@ -227,7 +227,7 @@ PHP_METHOD(Zeplara_Http_ServerRequest, __construct) {
 	}
 
 
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "assertuploadedfiles", NULL, 71, &uploadedFiles);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "assertuploadedfiles", NULL, 103, &uploadedFiles);
 	zephir_check_call_status();
 	zephir_update_property_zval(this_ptr, ZEND_STRL("serverParams"), &serverParams);
 	zephir_update_property_zval(this_ptr, ZEND_STRL("parsedBody"), &parsedBody);
@@ -319,7 +319,7 @@ PHP_METHOD(Zeplara_Http_ServerRequest, withUploadedFiles) {
 	ZEPHIR_OBS_COPY_OR_DUP(&files, files_param);
 
 
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "assertuploadedfiles", NULL, 71, &files);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "assertuploadedfiles", NULL, 103, &files);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&clone);
 	if (zephir_clone(&clone, this_ptr) == FAILURE) {

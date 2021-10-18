@@ -56,25 +56,25 @@ interface Cookie
     public function getSameSite();
 
     /**
-     * @param value
+     * @param string|null value
      * @return void
      */
     public function setValue(value);
 
     /**
-     * @param DateTimeInterface|int|string| expiration
+     * @param \DateTimeInterface|int|string expiration
      * @return void
      */
     public function setExpiration(expiration);
 
     /**
-     * @param path
+     * @param string path
      * @return void
      */
     public function setPath(path);
 
     /**
-     * @param domain
+     * @param string domain
      * @return void
      */
     public function setDomain(domain);
@@ -92,7 +92,7 @@ interface Cookie
     public function setHttpOnly(httpOnly);
 
     /**
-     * @param sameSite
+     * @param string sameSite
      * @return mixed
      */
     public function setSameSite(sameSite);

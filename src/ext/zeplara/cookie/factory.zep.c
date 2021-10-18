@@ -106,7 +106,7 @@ PHP_METHOD(Zeplara_Cookie_Factory, make) {
 
 
 	object_init_ex(return_value, zeplara_cookie_cookie_ce);
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 45, name, value, expiration, path, domain, secure, httpOnly, sameSite);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 46, name, value, expiration, path, domain, secure, httpOnly, sameSite);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -176,7 +176,7 @@ PHP_METHOD(Zeplara_Cookie_Factory, forever) {
 
 	ZEPHIR_INIT_VAR(&_0);
 	zephir_time(&_0);
-	ZVAL_LONG(&_1, (zephir_get_numberval(&_0) + ((((3650 * 24) * 60) * 60))));
+	ZVAL_LONG(&_1, (zephir_get_numberval(&_0) + 315360000));
 	ZEPHIR_RETURN_CALL_SELF("make", NULL, 0, name, value, &_1, path, domain, secure, httpOnly, sameSite);
 	zephir_check_call_status();
 	RETURN_MM();

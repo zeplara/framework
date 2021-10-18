@@ -239,19 +239,19 @@ PHP_METHOD(Zeplara_Cookie_Cookie, __construct) {
 		return;
 	}
 	zephir_update_property_zval(this_ptr, ZEND_STRL("name"), &name);
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setvalue", NULL, 33, value);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setvalue", NULL, 34, value);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setexpiration", NULL, 34, expiration);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setexpiration", NULL, 35, expiration);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setpath", NULL, 35, path);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setpath", NULL, 36, path);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setdomain", NULL, 36, domain);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setdomain", NULL, 37, domain);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setsecure", NULL, 37, secure);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setsecure", NULL, 38, secure);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "sethttponly", NULL, 38, httpOnly);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "sethttponly", NULL, 39, httpOnly);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setsamesite", NULL, 39, sameSite);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setsamesite", NULL, 40, sameSite);
 	zephir_check_call_status();
 	ZEPHIR_MM_RESTORE();
 
@@ -290,7 +290,7 @@ PHP_METHOD(Zeplara_Cookie_Cookie, isHttpOnly) {
 }
 
 /**
- * @param value
+ * @param string|null value
  * @return void
  */
 PHP_METHOD(Zeplara_Cookie_Cookie, setValue) {
@@ -355,7 +355,7 @@ PHP_METHOD(Zeplara_Cookie_Cookie, setExpiration) {
 		zephir_check_call_status();
 		ZEPHIR_CPY_WRT(expiration, &_1$$3);
 	} else if (zephir_is_numeric(expiration) == 0) {
-		ZEPHIR_CALL_FUNCTION(&_3$$4, "strtotime", NULL, 40, expiration);
+		ZEPHIR_CALL_FUNCTION(&_3$$4, "strtotime", NULL, 41, expiration);
 		zephir_check_call_status();
 		ZEPHIR_CPY_WRT(expiration, &_3$$4);
 		if (ZEPHIR_IS_FALSE_IDENTICAL(expiration)) {
@@ -377,7 +377,7 @@ PHP_METHOD(Zeplara_Cookie_Cookie, setExpiration) {
 }
 
 /**
- * @param path
+ * @param string path
  * @return void
  */
 PHP_METHOD(Zeplara_Cookie_Cookie, setPath) {
@@ -420,7 +420,7 @@ PHP_METHOD(Zeplara_Cookie_Cookie, setPath) {
 	zephir_array_fast_append(&_1, &_2);
 	ZEPHIR_INIT_NVAR(&_2);
 	ZVAL_STRING(&_2, "/(?:[^a-zA-Z0-9_\\-\\.~:@&=\\+\\,\\/;%]+|%(?![A-Fa-f0-9]{2}))/");
-	ZEPHIR_CALL_FUNCTION(&_3, "preg_replace_callback", NULL, 41, &_2, &_1, path);
+	ZEPHIR_CALL_FUNCTION(&_3, "preg_replace_callback", NULL, 42, &_2, &_1, path);
 	zephir_check_call_status();
 	zephir_update_property_zval(this_ptr, ZEND_STRL("path"), &_3);
 	ZEPHIR_MM_RESTORE();
@@ -428,7 +428,7 @@ PHP_METHOD(Zeplara_Cookie_Cookie, setPath) {
 }
 
 /**
- * @param domain
+ * @param string domain
  * @return void
  */
 PHP_METHOD(Zeplara_Cookie_Cookie, setDomain) {
@@ -505,7 +505,7 @@ PHP_METHOD(Zeplara_Cookie_Cookie, setHttpOnly) {
 }
 
 /**
- * @param sameSite
+ * @param string sameSite
  * @return void
  */
 PHP_METHOD(Zeplara_Cookie_Cookie, setSameSite) {
@@ -604,7 +604,7 @@ PHP_METHOD(Zeplara_Cookie_Cookie, __toString) {
 	ZEPHIR_MM_GROW();
 
 	zephir_read_property(&_0, this_ptr, ZEND_STRL("name"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_FUNCTION(&_1, "urlencode", NULL, 42, &_0);
+	ZEPHIR_CALL_FUNCTION(&_1, "urlencode", NULL, 43, &_0);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&format);
 	ZEPHIR_CONCAT_VS(&format, &_1, "=");
@@ -615,7 +615,7 @@ PHP_METHOD(Zeplara_Cookie_Cookie, __toString) {
 		ZEPHIR_INIT_VAR(&_5$$3);
 		ZVAL_STRING(&_5$$3, "D, d-M-Y H:i:s T");
 		ZVAL_LONG(&_6$$3, (zephir_get_numberval(&_4$$3) - 31536001));
-		ZEPHIR_CALL_FUNCTION(&_7$$3, "gmdate", &_8, 43, &_5$$3, &_6$$3);
+		ZEPHIR_CALL_FUNCTION(&_7$$3, "gmdate", &_8, 44, &_5$$3, &_6$$3);
 		zephir_check_call_status();
 		ZEPHIR_INIT_NVAR(&_5$$3);
 		ZVAL_STRING(&_5$$3, "deleted; Expires=%s; Max-Age=0");
@@ -637,7 +637,7 @@ PHP_METHOD(Zeplara_Cookie_Cookie, __toString) {
 		}
 		ZEPHIR_CPY_WRT(&maxAge$$4, &_12$$4);
 		zephir_read_property(&_10$$4, this_ptr, ZEND_STRL("value"), PH_NOISY_CC | PH_READONLY);
-		ZEPHIR_CALL_FUNCTION(&_13$$4, "rawurlencode", NULL, 44, &_10$$4);
+		ZEPHIR_CALL_FUNCTION(&_13$$4, "rawurlencode", NULL, 45, &_10$$4);
 		zephir_check_call_status();
 		zephir_concat_self(&format, &_13$$4);
 		zephir_read_property(&_14$$4, this_ptr, ZEND_STRL("expiration"), PH_NOISY_CC | PH_READONLY);
@@ -645,7 +645,7 @@ PHP_METHOD(Zeplara_Cookie_Cookie, __toString) {
 			zephir_read_property(&_16$$5, this_ptr, ZEND_STRL("expiration"), PH_NOISY_CC | PH_READONLY);
 			ZEPHIR_INIT_VAR(&_17$$5);
 			ZVAL_STRING(&_17$$5, "D, d-M-Y H:i:s T");
-			ZEPHIR_CALL_FUNCTION(&_18$$5, "gmdate", &_8, 43, &_17$$5, &_16$$5);
+			ZEPHIR_CALL_FUNCTION(&_18$$5, "gmdate", &_8, 44, &_17$$5, &_16$$5);
 			zephir_check_call_status();
 			ZEPHIR_INIT_NVAR(&_17$$5);
 			ZVAL_STRING(&_17$$5, "; Expires=%s; Max-Age=%s");
@@ -707,7 +707,7 @@ PHP_METHOD(Zeplara_Cookie_Cookie, rawUrlEncodeFilter) {
 
 
 	zephir_array_fetch_long(&_0, matches, 0, PH_NOISY | PH_READONLY, "zeplara/Cookie/Cookie.zep", 260);
-	ZEPHIR_RETURN_CALL_FUNCTION("rawurlencode", NULL, 44, &_0);
+	ZEPHIR_RETURN_CALL_FUNCTION("rawurlencode", NULL, 45, &_0);
 	zephir_check_call_status();
 	RETURN_MM();
 

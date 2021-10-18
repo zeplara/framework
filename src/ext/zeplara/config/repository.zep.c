@@ -16,7 +16,7 @@
 
 ZEPHIR_INIT_CLASS(Zeplara_Config_Repository) {
 
-	ZEPHIR_REGISTER_CLASS_EX(Zeplara\\Config, Repository, zeplara, config_repository, zeplara_support_repository_ce, NULL, ZEND_ACC_FINAL_CLASS);
+	ZEPHIR_REGISTER_CLASS_EX(Zeplara\\Config, Repository, zeplara, config_repository, zeplara_support_abstractrepository_ce, NULL, ZEND_ACC_FINAL_CLASS);
 
 	zend_class_implements(zeplara_config_repository_ce, 1, zeplara_contracts_config_repository_ce);
 	return SUCCESS;

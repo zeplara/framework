@@ -38,7 +38,7 @@ final class Factory
      */
     public static function forever(name, value = "", path = "/", domain = "", secure = false, httpOnly = true, sameSite = null)
     {
-        return self::make(name, value, time() + (10 * 365 * 24 * 60 * 60), path, domain, secure, httpOnly, sameSite);
+        return self::make(name, value, time() + 315360000, path, domain, secure, httpOnly, sameSite);
     }
 
     /**

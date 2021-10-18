@@ -71,7 +71,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, compile) {
 	ZVAL_STRING(&_3, ".");
 	ZEPHIR_INIT_VAR(&_4);
 	ZVAL_STRING(&_4, "sDui");
-	ZEPHIR_CALL_SELF(&_0, "parseregex", &_1, 126, &_2, &_3, &_4, &requirements);
+	ZEPHIR_CALL_SELF(&_0, "parseregex", &_1, 159, &_2, &_3, &_4, &requirements);
 	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(&_6, route, "getpattern", NULL, 0);
 	zephir_check_call_status();
@@ -79,9 +79,9 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, compile) {
 	ZVAL_STRING(&_3, "/");
 	ZEPHIR_INIT_NVAR(&_4);
 	ZVAL_STRING(&_4, "sDu");
-	ZEPHIR_CALL_SELF(&_5, "parseregex", &_1, 126, &_6, &_3, &_4, &requirements);
+	ZEPHIR_CALL_SELF(&_5, "parseregex", &_1, 159, &_6, &_3, &_4, &requirements);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 127, &_0, &_5);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 160, &_0, &_5);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -538,7 +538,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 
 	ZEPHIR_INIT_VAR(&regex);
 	ZVAL_STRING(&regex, "");
-	ZEPHIR_CALL_FUNCTION(&_0, "preg_quote", &_1, 128, separator);
+	ZEPHIR_CALL_FUNCTION(&_0, "preg_quote", &_1, 161, separator);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(separator, &_0);
 	ZEPHIR_INIT_VAR(&variables);
@@ -600,7 +600,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 				ZVAL_STRING(&_27$$4, "Cannot set optional pattern \"{%s}\" when the next pattern \"{%s}\" is required.");
 				ZEPHIR_CALL_FUNCTION(&_28$$4, "sprintf", &_29, 2, &_27$$4, &_23$$4, &_26$$4);
 				zephir_check_call_status();
-				ZEPHIR_CALL_METHOD(NULL, &_17$$4, "__construct", &_30, 65, &_28$$4);
+				ZEPHIR_CALL_METHOD(NULL, &_17$$4, "__construct", &_30, 66, &_28$$4);
 				zephir_check_call_status();
 				zephir_throw_exception_debug(&_17$$4, "zeplara/Routing/RouteCompiler.zep", 54);
 				ZEPHIR_MM_RESTORE();
@@ -618,7 +618,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 				ZVAL_LONG(&_38$$5, 32);
 				ZEPHIR_CALL_FUNCTION(&_39$$5, "sprintf", &_29, 2, &_37$$5, &_36$$5, &_38$$5);
 				zephir_check_call_status();
-				ZEPHIR_CALL_METHOD(NULL, &_33$$5, "__construct", &_30, 65, &_39$$5);
+				ZEPHIR_CALL_METHOD(NULL, &_33$$5, "__construct", &_30, 66, &_39$$5);
 				zephir_check_call_status();
 				zephir_throw_exception_debug(&_33$$5, "zeplara/Routing/RouteCompiler.zep", 58);
 				ZEPHIR_MM_RESTORE();
@@ -642,7 +642,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 				ZVAL_STRING(&_50$$6, "Variable \"%s\" cannot start with digit.");
 				ZEPHIR_CALL_FUNCTION(&_51$$6, "sprintf", &_29, 2, &_50$$6, &_49$$6);
 				zephir_check_call_status();
-				ZEPHIR_CALL_METHOD(NULL, &_46$$6, "__construct", &_30, 65, &_51$$6);
+				ZEPHIR_CALL_METHOD(NULL, &_46$$6, "__construct", &_30, 66, &_51$$6);
 				zephir_check_call_status();
 				zephir_throw_exception_debug(&_46$$6, "zeplara/Routing/RouteCompiler.zep", 62);
 				ZEPHIR_MM_RESTORE();
@@ -659,7 +659,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 				ZVAL_STRING(&_58$$7, "Variable \"%s\" must be unique.");
 				ZEPHIR_CALL_FUNCTION(&_59$$7, "sprintf", &_29, 2, &_58$$7, &_57$$7);
 				zephir_check_call_status();
-				ZEPHIR_CALL_METHOD(NULL, &_54$$7, "__construct", &_30, 65, &_59$$7);
+				ZEPHIR_CALL_METHOD(NULL, &_54$$7, "__construct", &_30, 66, &_59$$7);
 				zephir_check_call_status();
 				zephir_throw_exception_debug(&_54$$7, "zeplara/Routing/RouteCompiler.zep", 66);
 				ZEPHIR_MM_RESTORE();
@@ -673,7 +673,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 			if (!ZEPHIR_IS_STRING_IDENTICAL(&_63$$3, "")) {
 				zephir_array_fetch_long(&_64$$8, &match, 1, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 72);
 				zephir_array_fetch_long(&_65$$8, &_64$$8, 0, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 72);
-				ZEPHIR_CALL_FUNCTION(&_66$$8, "preg_quote", &_1, 128, &_65$$8);
+				ZEPHIR_CALL_FUNCTION(&_66$$8, "preg_quote", &_1, 161, &_65$$8);
 				zephir_check_call_status();
 				zephir_array_update_multi(&match, &_66$$8, SL("ll"), 2, 1, 0);
 			}
@@ -682,7 +682,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 			if (!ZEPHIR_IS_STRING_IDENTICAL(&_68$$3, "")) {
 				zephir_array_fetch_long(&_69$$9, &match, 2, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 76);
 				zephir_array_fetch_long(&_70$$9, &_69$$9, 0, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 76);
-				ZEPHIR_CALL_FUNCTION(&_71$$9, "preg_quote", &_1, 128, &_70$$9);
+				ZEPHIR_CALL_FUNCTION(&_71$$9, "preg_quote", &_1, 161, &_70$$9);
 				zephir_check_call_status();
 				zephir_array_update_multi(&match, &_71$$9, SL("ll"), 2, 2, 0);
 				zephir_array_fetch_long(&_72$$9, &match, 4, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 77);
@@ -767,7 +767,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 					}
 					_109$$9 = _105$$9;
 					if (_109$$9) {
-						ZEPHIR_CALL_SELF(&_71$$9, "hasnextstaticprefixonnextmatch", &_110, 129, &nextIdx, &lastIdx, &matches);
+						ZEPHIR_CALL_SELF(&_71$$9, "hasnextstaticprefixonnextmatch", &_110, 162, &nextIdx, &lastIdx, &matches);
 						zephir_check_call_status();
 						_109$$9 = ZEPHIR_IS_TRUE_IDENTICAL(&_71$$9);
 					}
@@ -789,7 +789,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 					zephir_array_update_multi(&match, &_118$$10, SL("ll"), 2, 1, 0);
 					zephir_array_fetch_long(&_119$$10, &match, 2, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 79);
 					zephir_array_fetch_long(&_120$$10, &_119$$10, 0, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 79);
-					ZEPHIR_CALL_FUNCTION(&_121$$10, "preg_quote", &_1, 128, &_120$$10);
+					ZEPHIR_CALL_FUNCTION(&_121$$10, "preg_quote", &_1, 161, &_120$$10);
 					zephir_check_call_status();
 					zephir_array_update_multi(&match, &_121$$10, SL("ll"), 2, 2, 2);
 					ZEPHIR_INIT_NVAR(&_122$$10);
@@ -820,7 +820,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 					}
 					_136$$11 = _132$$11;
 					if (_136$$11) {
-						ZEPHIR_CALL_SELF(&_137$$11, "hasnextstaticprefixonnextmatch", &_110, 129, &nextIdx, &lastIdx, &matches);
+						ZEPHIR_CALL_SELF(&_137$$11, "hasnextstaticprefixonnextmatch", &_110, 162, &nextIdx, &lastIdx, &matches);
 						zephir_check_call_status();
 						_136$$11 = ZEPHIR_IS_FALSE_IDENTICAL(&_137$$11);
 					}
@@ -845,7 +845,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 					}
 					_148$$11 = _145$$11;
 					if (_148$$11) {
-						ZEPHIR_CALL_SELF(&_149$$11, "hasstaticprefixwithoutseparatoronprevmatch", &_150, 130, &prevIdx, &matches);
+						ZEPHIR_CALL_SELF(&_149$$11, "hasstaticprefixwithoutseparatoronprevmatch", &_150, 163, &prevIdx, &matches);
 						zephir_check_call_status();
 						_148$$11 = zephir_is_true(&_149$$11);
 					}
@@ -880,7 +880,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 					zephir_array_update_multi(&matches, &_163$$12, SL("zll"), 3, &nextIdx, 2, 0);
 					zephir_array_fetch_long(&_163$$12, &match, 5, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 87);
 					zephir_array_fetch_long(&_164$$12, &_163$$12, 0, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 87);
-					ZEPHIR_CALL_FUNCTION(&_165$$12, "preg_quote", &_1, 128, &_164$$12);
+					ZEPHIR_CALL_FUNCTION(&_165$$12, "preg_quote", &_1, 161, &_164$$12);
 					zephir_check_call_status();
 					zephir_array_update_multi(&match, &_165$$12, SL("ll"), 2, 5, 2);
 					ZEPHIR_INIT_NVAR(&_166$$12);
@@ -896,7 +896,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 					zephir_array_update_multi(&match, &_171$$13, SL("ll"), 2, 6, 0);
 					zephir_array_fetch_long(&_172$$13, &match, 5, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 91);
 					zephir_array_fetch_long(&_173$$13, &_172$$13, 0, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 91);
-					ZEPHIR_CALL_FUNCTION(&_174$$13, "preg_quote", &_1, 128, &_173$$13);
+					ZEPHIR_CALL_FUNCTION(&_174$$13, "preg_quote", &_1, 161, &_173$$13);
 					zephir_check_call_status();
 					zephir_array_update_multi(&match, &_174$$13, SL("ll"), 2, 5, 2);
 					ZEPHIR_INIT_NVAR(&_175$$13);
@@ -905,7 +905,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 				} else {
 					zephir_array_fetch_long(&_176$$14, &match, 5, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 94);
 					zephir_array_fetch_long(&_177$$14, &_176$$14, 0, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 94);
-					ZEPHIR_CALL_FUNCTION(&_178$$14, "preg_quote", &_1, 128, &_177$$14);
+					ZEPHIR_CALL_FUNCTION(&_178$$14, "preg_quote", &_1, 161, &_177$$14);
 					zephir_check_call_status();
 					zephir_array_update_multi(&match, &_178$$14, SL("ll"), 2, 5, 0);
 				}
@@ -915,7 +915,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 			if (!ZEPHIR_IS_STRING_IDENTICAL(&_180$$3, "")) {
 				zephir_array_fetch_long(&_181$$15, &match, 6, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 99);
 				zephir_array_fetch_long(&_182$$15, &_181$$15, 0, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 99);
-				ZEPHIR_CALL_FUNCTION(&_183$$15, "preg_quote", &_1, 128, &_182$$15);
+				ZEPHIR_CALL_FUNCTION(&_183$$15, "preg_quote", &_1, 161, &_182$$15);
 				zephir_check_call_status();
 				zephir_array_update_multi(&match, &_183$$15, SL("ll"), 2, 6, 0);
 			}
@@ -948,12 +948,12 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 				do {
 					ZEPHIR_INIT_NVAR(&_198$$19);
 					ZEPHIR_INIT_NVAR(&_198$$19);
-					zephir_create_closure_ex(&_198$$19, NULL, zeplara_2__closure_ce, SL("__invoke"));
+					zephir_create_closure_ex(&_198$$19, NULL, zeplara_5__closure_ce, SL("__invoke"));
 					ZEPHIR_INIT_NVAR(&_199$$19);
 					ZVAL_STRING(&_199$$19, "#\\(((?!\\?\\:|\\*\\)|\\+\\)|\\?\\)).+)\\)#");
 					ZVAL_LONG(&_200$$19, -1);
 					ZEPHIR_MAKE_REF(&count$$16);
-					ZEPHIR_CALL_FUNCTION(&_201$$19, "preg_replace_callback", &_202, 41, &_199$$19, &_198$$19, &requirement, &_200$$19, &count$$16);
+					ZEPHIR_CALL_FUNCTION(&_201$$19, "preg_replace_callback", &_202, 42, &_199$$19, &_198$$19, &requirement, &_200$$19, &count$$16);
 					ZEPHIR_UNREF(&count$$16);
 					zephir_check_call_status();
 					ZEPHIR_CPY_WRT(&requirement, &_201$$19);
@@ -978,9 +978,9 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 				} else {
 					ZEPHIR_INIT_NVAR(&_208$$22);
 					ZEPHIR_CONCAT_VV(&_208$$22, separator, &nextSeparatorOfRequirement);
-					ZEPHIR_CALL_FUNCTION(&_209$$22, "str_split", &_210, 131, &_208$$22);
+					ZEPHIR_CALL_FUNCTION(&_209$$22, "str_split", &_210, 97, &_208$$22);
 					zephir_check_call_status();
-					ZEPHIR_CALL_FUNCTION(&_211$$22, "array_unique", &_212, 117, &_209$$22);
+					ZEPHIR_CALL_FUNCTION(&_211$$22, "array_unique", &_212, 150, &_209$$22);
 					zephir_check_call_status();
 					ZEPHIR_INIT_NVAR(&nextSeparatorOfRequirement);
 					zephir_fast_join_str(&nextSeparatorOfRequirement, SL(""), &_211$$22);
@@ -1102,7 +1102,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 					ZVAL_STRING(&_265$$27, "Cannot set optional pattern \"{%s}\" when the next pattern \"{%s}\" is required.");
 					ZEPHIR_CALL_FUNCTION(&_266$$27, "sprintf", &_29, 2, &_265$$27, &_261$$27, &_264$$27);
 					zephir_check_call_status();
-					ZEPHIR_CALL_METHOD(NULL, &_255$$27, "__construct", &_30, 65, &_266$$27);
+					ZEPHIR_CALL_METHOD(NULL, &_255$$27, "__construct", &_30, 66, &_266$$27);
 					zephir_check_call_status();
 					zephir_throw_exception_debug(&_255$$27, "zeplara/Routing/RouteCompiler.zep", 54);
 					ZEPHIR_MM_RESTORE();
@@ -1120,7 +1120,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 					ZVAL_LONG(&_274$$28, 32);
 					ZEPHIR_CALL_FUNCTION(&_275$$28, "sprintf", &_29, 2, &_273$$28, &_272$$28, &_274$$28);
 					zephir_check_call_status();
-					ZEPHIR_CALL_METHOD(NULL, &_269$$28, "__construct", &_30, 65, &_275$$28);
+					ZEPHIR_CALL_METHOD(NULL, &_269$$28, "__construct", &_30, 66, &_275$$28);
 					zephir_check_call_status();
 					zephir_throw_exception_debug(&_269$$28, "zeplara/Routing/RouteCompiler.zep", 58);
 					ZEPHIR_MM_RESTORE();
@@ -1144,7 +1144,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 					ZVAL_STRING(&_286$$29, "Variable \"%s\" cannot start with digit.");
 					ZEPHIR_CALL_FUNCTION(&_287$$29, "sprintf", &_29, 2, &_286$$29, &_285$$29);
 					zephir_check_call_status();
-					ZEPHIR_CALL_METHOD(NULL, &_282$$29, "__construct", &_30, 65, &_287$$29);
+					ZEPHIR_CALL_METHOD(NULL, &_282$$29, "__construct", &_30, 66, &_287$$29);
 					zephir_check_call_status();
 					zephir_throw_exception_debug(&_282$$29, "zeplara/Routing/RouteCompiler.zep", 62);
 					ZEPHIR_MM_RESTORE();
@@ -1161,7 +1161,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 					ZVAL_STRING(&_294$$30, "Variable \"%s\" must be unique.");
 					ZEPHIR_CALL_FUNCTION(&_295$$30, "sprintf", &_29, 2, &_294$$30, &_293$$30);
 					zephir_check_call_status();
-					ZEPHIR_CALL_METHOD(NULL, &_290$$30, "__construct", &_30, 65, &_295$$30);
+					ZEPHIR_CALL_METHOD(NULL, &_290$$30, "__construct", &_30, 66, &_295$$30);
 					zephir_check_call_status();
 					zephir_throw_exception_debug(&_290$$30, "zeplara/Routing/RouteCompiler.zep", 66);
 					ZEPHIR_MM_RESTORE();
@@ -1175,7 +1175,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 				if (!ZEPHIR_IS_STRING_IDENTICAL(&_299$$26, "")) {
 					zephir_array_fetch_long(&_300$$31, &match, 1, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 72);
 					zephir_array_fetch_long(&_301$$31, &_300$$31, 0, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 72);
-					ZEPHIR_CALL_FUNCTION(&_302$$31, "preg_quote", &_1, 128, &_301$$31);
+					ZEPHIR_CALL_FUNCTION(&_302$$31, "preg_quote", &_1, 161, &_301$$31);
 					zephir_check_call_status();
 					zephir_array_update_multi(&match, &_302$$31, SL("ll"), 2, 1, 0);
 				}
@@ -1184,7 +1184,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 				if (!ZEPHIR_IS_STRING_IDENTICAL(&_304$$26, "")) {
 					zephir_array_fetch_long(&_305$$32, &match, 2, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 76);
 					zephir_array_fetch_long(&_306$$32, &_305$$32, 0, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 76);
-					ZEPHIR_CALL_FUNCTION(&_307$$32, "preg_quote", &_1, 128, &_306$$32);
+					ZEPHIR_CALL_FUNCTION(&_307$$32, "preg_quote", &_1, 161, &_306$$32);
 					zephir_check_call_status();
 					zephir_array_update_multi(&match, &_307$$32, SL("ll"), 2, 2, 0);
 					zephir_array_fetch_long(&_308$$32, &match, 4, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 77);
@@ -1269,7 +1269,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 						}
 						_345$$32 = _341$$32;
 						if (_345$$32) {
-							ZEPHIR_CALL_SELF(&_307$$32, "hasnextstaticprefixonnextmatch", &_110, 129, &nextIdx, &lastIdx, &matches);
+							ZEPHIR_CALL_SELF(&_307$$32, "hasnextstaticprefixonnextmatch", &_110, 162, &nextIdx, &lastIdx, &matches);
 							zephir_check_call_status();
 							_345$$32 = ZEPHIR_IS_TRUE_IDENTICAL(&_307$$32);
 						}
@@ -1291,7 +1291,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 						zephir_array_update_multi(&match, &_353$$33, SL("ll"), 2, 1, 0);
 						zephir_array_fetch_long(&_354$$33, &match, 2, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 79);
 						zephir_array_fetch_long(&_355$$33, &_354$$33, 0, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 79);
-						ZEPHIR_CALL_FUNCTION(&_356$$33, "preg_quote", &_1, 128, &_355$$33);
+						ZEPHIR_CALL_FUNCTION(&_356$$33, "preg_quote", &_1, 161, &_355$$33);
 						zephir_check_call_status();
 						zephir_array_update_multi(&match, &_356$$33, SL("ll"), 2, 2, 2);
 						ZEPHIR_INIT_NVAR(&_357$$33);
@@ -1322,7 +1322,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 						}
 						_371$$34 = _367$$34;
 						if (_371$$34) {
-							ZEPHIR_CALL_SELF(&_372$$34, "hasnextstaticprefixonnextmatch", &_110, 129, &nextIdx, &lastIdx, &matches);
+							ZEPHIR_CALL_SELF(&_372$$34, "hasnextstaticprefixonnextmatch", &_110, 162, &nextIdx, &lastIdx, &matches);
 							zephir_check_call_status();
 							_371$$34 = ZEPHIR_IS_FALSE_IDENTICAL(&_372$$34);
 						}
@@ -1347,7 +1347,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 						}
 						_383$$34 = _380$$34;
 						if (_383$$34) {
-							ZEPHIR_CALL_SELF(&_384$$34, "hasstaticprefixwithoutseparatoronprevmatch", &_150, 130, &prevIdx, &matches);
+							ZEPHIR_CALL_SELF(&_384$$34, "hasstaticprefixwithoutseparatoronprevmatch", &_150, 163, &prevIdx, &matches);
 							zephir_check_call_status();
 							_383$$34 = zephir_is_true(&_384$$34);
 						}
@@ -1382,7 +1382,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 						zephir_array_update_multi(&matches, &_397$$35, SL("zll"), 3, &nextIdx, 2, 0);
 						zephir_array_fetch_long(&_397$$35, &match, 5, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 87);
 						zephir_array_fetch_long(&_398$$35, &_397$$35, 0, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 87);
-						ZEPHIR_CALL_FUNCTION(&_399$$35, "preg_quote", &_1, 128, &_398$$35);
+						ZEPHIR_CALL_FUNCTION(&_399$$35, "preg_quote", &_1, 161, &_398$$35);
 						zephir_check_call_status();
 						zephir_array_update_multi(&match, &_399$$35, SL("ll"), 2, 5, 2);
 						ZEPHIR_INIT_NVAR(&_400$$35);
@@ -1398,7 +1398,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 						zephir_array_update_multi(&match, &_405$$36, SL("ll"), 2, 6, 0);
 						zephir_array_fetch_long(&_406$$36, &match, 5, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 91);
 						zephir_array_fetch_long(&_407$$36, &_406$$36, 0, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 91);
-						ZEPHIR_CALL_FUNCTION(&_408$$36, "preg_quote", &_1, 128, &_407$$36);
+						ZEPHIR_CALL_FUNCTION(&_408$$36, "preg_quote", &_1, 161, &_407$$36);
 						zephir_check_call_status();
 						zephir_array_update_multi(&match, &_408$$36, SL("ll"), 2, 5, 2);
 						ZEPHIR_INIT_NVAR(&_409$$36);
@@ -1407,7 +1407,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 					} else {
 						zephir_array_fetch_long(&_410$$37, &match, 5, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 94);
 						zephir_array_fetch_long(&_411$$37, &_410$$37, 0, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 94);
-						ZEPHIR_CALL_FUNCTION(&_412$$37, "preg_quote", &_1, 128, &_411$$37);
+						ZEPHIR_CALL_FUNCTION(&_412$$37, "preg_quote", &_1, 161, &_411$$37);
 						zephir_check_call_status();
 						zephir_array_update_multi(&match, &_412$$37, SL("ll"), 2, 5, 0);
 					}
@@ -1417,7 +1417,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 				if (!ZEPHIR_IS_STRING_IDENTICAL(&_414$$26, "")) {
 					zephir_array_fetch_long(&_415$$38, &match, 6, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 99);
 					zephir_array_fetch_long(&_416$$38, &_415$$38, 0, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 99);
-					ZEPHIR_CALL_FUNCTION(&_417$$38, "preg_quote", &_1, 128, &_416$$38);
+					ZEPHIR_CALL_FUNCTION(&_417$$38, "preg_quote", &_1, 161, &_416$$38);
 					zephir_check_call_status();
 					zephir_array_update_multi(&match, &_417$$38, SL("ll"), 2, 6, 0);
 				}
@@ -1450,12 +1450,12 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 					do {
 						ZEPHIR_INIT_NVAR(&_432$$42);
 						ZEPHIR_INIT_NVAR(&_432$$42);
-						zephir_create_closure_ex(&_432$$42, NULL, zeplara_3__closure_ce, SL("__invoke"));
+						zephir_create_closure_ex(&_432$$42, NULL, zeplara_6__closure_ce, SL("__invoke"));
 						ZEPHIR_INIT_NVAR(&_433$$42);
 						ZVAL_STRING(&_433$$42, "#\\(((?!\\?\\:|\\*\\)|\\+\\)|\\?\\)).+)\\)#");
 						ZVAL_LONG(&_434$$42, -1);
 						ZEPHIR_MAKE_REF(&count$$39);
-						ZEPHIR_CALL_FUNCTION(&_435$$42, "preg_replace_callback", &_202, 41, &_433$$42, &_432$$42, &requirement, &_434$$42, &count$$39);
+						ZEPHIR_CALL_FUNCTION(&_435$$42, "preg_replace_callback", &_202, 42, &_433$$42, &_432$$42, &requirement, &_434$$42, &count$$39);
 						ZEPHIR_UNREF(&count$$39);
 						zephir_check_call_status();
 						ZEPHIR_CPY_WRT(&requirement, &_435$$42);
@@ -1480,9 +1480,9 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 					} else {
 						ZEPHIR_INIT_NVAR(&_441$$45);
 						ZEPHIR_CONCAT_VV(&_441$$45, separator, &nextSeparatorOfRequirement);
-						ZEPHIR_CALL_FUNCTION(&_442$$45, "str_split", &_210, 131, &_441$$45);
+						ZEPHIR_CALL_FUNCTION(&_442$$45, "str_split", &_210, 97, &_441$$45);
 						zephir_check_call_status();
-						ZEPHIR_CALL_FUNCTION(&_443$$45, "array_unique", &_212, 117, &_442$$45);
+						ZEPHIR_CALL_FUNCTION(&_443$$45, "array_unique", &_212, 150, &_442$$45);
 						zephir_check_call_status();
 						ZEPHIR_INIT_NVAR(&nextSeparatorOfRequirement);
 						zephir_fast_join_str(&nextSeparatorOfRequirement, SL(""), &_443$$45);
@@ -1564,7 +1564,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 	ZEPHIR_INIT_NVAR(&match);
 	ZEPHIR_INIT_NVAR(&i);
 	if (ZEPHIR_IS_STRING_IDENTICAL(&regex, "")) {
-		ZEPHIR_CALL_FUNCTION(&regex, "preg_quote", &_1, 128, pattern);
+		ZEPHIR_CALL_FUNCTION(&regex, "preg_quote", &_1, 161, pattern);
 		zephir_check_call_status();
 	}
 	object_init_ex(return_value, zeplara_routing_regex_ce);
@@ -1572,7 +1572,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, parseRegex) {
 	ZVAL_STRING(&_480, "{^%s$}%s");
 	ZEPHIR_CALL_FUNCTION(&_481, "sprintf", &_29, 2, &_480, &regex, flags);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 132, &_481, &variables);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 164, &_481, &variables);
 	zephir_check_call_status();
 	RETURN_MM();
 

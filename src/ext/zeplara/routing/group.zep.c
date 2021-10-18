@@ -37,7 +37,7 @@
  */
 ZEPHIR_INIT_CLASS(Zeplara_Routing_Group) {
 
-	ZEPHIR_REGISTER_CLASS_EX(Zeplara\\Routing, Group, zeplara, routing_group, zeplara_routing_attribute_ce, zeplara_routing_group_method_entry, ZEND_ACC_FINAL_CLASS);
+	ZEPHIR_REGISTER_CLASS_EX(Zeplara\\Routing, Group, zeplara, routing_group, zeplara_routing_abstractattribute_ce, zeplara_routing_group_method_entry, ZEND_ACC_FINAL_CLASS);
 
 	zend_class_implements(zeplara_routing_group_ce, 1, zeplara_contracts_routing_group_ce);
 	return SUCCESS;
@@ -79,7 +79,7 @@ PHP_METHOD(Zeplara_Routing_Group, load) {
 			ZVAL_STRING(&_2$$5, "File [%s] does not exists.");
 			ZEPHIR_CALL_FUNCTION(&_3$$5, "sprintf", NULL, 2, &_2$$5, handler);
 			zephir_check_call_status();
-			ZEPHIR_CALL_METHOD(NULL, &_0$$5, "__construct", NULL, 9, &_3$$5);
+			ZEPHIR_CALL_METHOD(NULL, &_0$$5, "__construct", NULL, 8, &_3$$5);
 			zephir_check_call_status();
 			zephir_throw_exception_debug(&_0$$5, "zeplara/Routing/Group.zep", 30);
 			ZEPHIR_MM_RESTORE();
@@ -199,7 +199,7 @@ PHP_METHOD(Zeplara_Routing_Group, initSchemeAttribute) {
 	}
 
 
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setschemeattribute", NULL, 109, &value);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setschemeattribute", NULL, 142, &value);
 	zephir_check_call_status();
 	ZEPHIR_MM_RESTORE();
 
@@ -234,7 +234,7 @@ PHP_METHOD(Zeplara_Routing_Group, initHostAttribute) {
 	}
 
 
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "sethostattribute", NULL, 110, &value);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "sethostattribute", NULL, 143, &value);
 	zephir_check_call_status();
 	ZEPHIR_MM_RESTORE();
 
@@ -328,7 +328,7 @@ PHP_METHOD(Zeplara_Routing_Group, initPrefixAttribute) {
 	}
 
 
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setprefixattribute", NULL, 111, &value);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setprefixattribute", NULL, 144, &value);
 	zephir_check_call_status();
 	ZEPHIR_MM_RESTORE();
 
@@ -398,7 +398,7 @@ PHP_METHOD(Zeplara_Routing_Group, setPrefixAttribute) {
 
 	ZEPHIR_INIT_VAR(&_0);
 	ZEPHIR_INIT_VAR(&_1);
-	ZEPHIR_CALL_METHOD(&_2, this_ptr, "getprefixattribute", NULL, 112);
+	ZEPHIR_CALL_METHOD(&_2, this_ptr, "getprefixattribute", NULL, 145);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_3);
 	ZVAL_STRING(&_3, "/");
@@ -450,7 +450,7 @@ PHP_METHOD(Zeplara_Routing_Group, initNamespaceAttribute) {
 	}
 
 
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setnamespaceattribute", NULL, 113, &value);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setnamespaceattribute", NULL, 146, &value);
 	zephir_check_call_status();
 	ZEPHIR_MM_RESTORE();
 
@@ -520,7 +520,7 @@ PHP_METHOD(Zeplara_Routing_Group, setNamespaceAttribute) {
 
 	ZEPHIR_INIT_VAR(&_0);
 	ZEPHIR_INIT_VAR(&_1);
-	ZEPHIR_CALL_METHOD(&_2, this_ptr, "getnamespaceattribute", NULL, 114);
+	ZEPHIR_CALL_METHOD(&_2, this_ptr, "getnamespaceattribute", NULL, 147);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_3);
 	ZVAL_STRING(&_3, "\\");
@@ -669,7 +669,7 @@ PHP_METHOD(Zeplara_Routing_Group, initRequirementsAttribute) {
 	ZEPHIR_OBS_COPY_OR_DUP(&requirements, requirements_param);
 
 
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setrequirementsattribute", NULL, 115, &requirements);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setrequirementsattribute", NULL, 148, &requirements);
 	zephir_check_call_status();
 	ZEPHIR_MM_RESTORE();
 
@@ -710,7 +710,7 @@ PHP_METHOD(Zeplara_Routing_Group, setWhereAttribute) {
 	ZEPHIR_INIT_VAR(&_0);
 	zephir_create_array(&_0, 1, 0);
 	zephir_array_update_zval(&_0, &key, value, PH_COPY);
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setrequirementsattribute", NULL, 115, &_0);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setrequirementsattribute", NULL, 148, &_0);
 	zephir_check_call_status();
 	ZEPHIR_MM_RESTORE();
 
@@ -796,13 +796,13 @@ PHP_METHOD(Zeplara_Routing_Group, setMiddlewareAttribute) {
 	ZEPHIR_MM_GROW();
 
 	ZEPHIR_INIT_VAR(&_0);
-	ZEPHIR_CALL_METHOD(&_1, this_ptr, "getmiddlewareattribute", NULL, 116);
+	ZEPHIR_CALL_METHOD(&_1, this_ptr, "getmiddlewareattribute", NULL, 149);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_2);
 	zephir_get_args(&_2);
 	zephir_fast_array_merge(&_0, &_1, &_2);
 	ZVAL_LONG(&_3, 0);
-	ZEPHIR_CALL_FUNCTION(&_4, "array_unique", NULL, 117, &_0, &_3);
+	ZEPHIR_CALL_FUNCTION(&_4, "array_unique", NULL, 150, &_0, &_3);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_5);
 	ZVAL_STRING(&_5, "middleware");

@@ -20,7 +20,7 @@
 
 ZEPHIR_INIT_CLASS(Zeplara_Container_InvalidAbstractException) {
 
-	ZEPHIR_REGISTER_CLASS_EX(Zeplara\\Container, InvalidAbstractException, zeplara, container_invalidabstractexception, spl_ce_InvalidArgumentException, zeplara_container_invalidabstractexception_method_entry, 0);
+	ZEPHIR_REGISTER_CLASS_EX(Zeplara\\Container, InvalidAbstractException, zeplara, container_invalidabstractexception, spl_ce_InvalidArgumentException, zeplara_container_invalidabstractexception_method_entry, ZEND_ACC_FINAL_CLASS);
 
 	/**
 	 * @var mixed

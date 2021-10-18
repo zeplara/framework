@@ -19,7 +19,7 @@
 
 ZEPHIR_INIT_CLASS(Zeplara_Support_File_Parser_ParserException) {
 
-	ZEPHIR_REGISTER_CLASS_EX(Zeplara\\Support\\File\\Parser, ParserException, zeplara, support_file_parser_parserexception, zephir_get_internal_ce(SL("errorexception")), zeplara_support_file_parser_parserexception_method_entry, 0);
+	ZEPHIR_REGISTER_CLASS_EX(Zeplara\\Support\\File\\Parser, ParserException, zeplara, support_file_parser_parserexception, zephir_get_internal_ce(SL("errorexception")), zeplara_support_file_parser_parserexception_method_entry, ZEND_ACC_FINAL_CLASS);
 
 	return SUCCESS;
 

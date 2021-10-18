@@ -7,12 +7,12 @@ fi
 
 WORKDIR=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
 
-echo -e "\x1b[32mCompiling At $(date)\x1b[0m" && 
+echo -e "\x1b[34mCompiling At $(date)\x1b[0m" && 
 cd $WORKDIR && 
-../../vendor/bin/zephir fullclean && 
-../../vendor/bin/zephir build && 
-../../vendor/bin/zephir stubs && 
-../../vendor/bin/zephir api -o ../../docs/api && 
+../../zephir fullclean && 
+../../zephir build && 
+../../zephir stubs && 
+../../zephir api -o ../../docs/api && 
 echo -e "\n\x1b[32mRestarting web server...\x1b[0m" && 
 sudo service apache2 reload && 
 echo -e "\n\x1b[32mRunning unit testing...\x1b[0m" && 

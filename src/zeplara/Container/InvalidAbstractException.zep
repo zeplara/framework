@@ -3,7 +3,7 @@ namespace Zeplara\Container;
 use InvalidArgumentException;
 use Zeplara\Contracts\Container\InvalidAbstractException as InvalidAbstractExceptionContract;
 
-class InvalidAbstractException extends InvalidArgumentException implements InvalidAbstractExceptionContract
+final class InvalidAbstractException extends InvalidArgumentException implements InvalidAbstractExceptionContract
 {
     /**
      * @var mixed

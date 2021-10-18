@@ -14,7 +14,7 @@ use Zeplara\Contracts\Routing\Registrar as RegistrarContract;
  * @method Registrar|array middleware(...$args)
  * @method Registrar|string name(string $name = null)
  */
-final class Registrar extends Attribute implements RegistrarContract
+final class Registrar extends AbstractAttribute implements RegistrarContract
 {
     /**
      * @var Router

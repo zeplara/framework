@@ -95,7 +95,7 @@ PHP_METHOD(Zeplara_Container_Container, get) {
 		ZVAL_STRING(&_3$$3, "Binding [%s] does not exists.");
 		ZEPHIR_CALL_FUNCTION(&_4$$3, "sprintf", NULL, 2, &_3$$3, key);
 		zephir_check_call_status();
-		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", NULL, 8, &_4$$3);
+		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", NULL, 21, &_4$$3);
 		zephir_check_call_status();
 		zephir_throw_exception_debug(&_1$$3, "zeplara/Container/Container.zep", 38);
 		ZEPHIR_MM_RESTORE();
@@ -226,7 +226,7 @@ PHP_METHOD(Zeplara_Container_Container, set) {
 				ZVAL_STRING(&_14$$5, "Cannot make alias [%s] when that alias already exists as root binding or as alias.");
 				ZEPHIR_CALL_FUNCTION(&_15$$5, "sprintf", NULL, 2, &_14$$5, key);
 				zephir_check_call_status();
-				ZEPHIR_CALL_METHOD(NULL, &_12$$5, "__construct", NULL, 8, &_15$$5);
+				ZEPHIR_CALL_METHOD(NULL, &_12$$5, "__construct", NULL, 21, &_15$$5);
 				zephir_check_call_status();
 				zephir_throw_exception_debug(&_12$$5, "zeplara/Container/Container.zep", 70);
 				ZEPHIR_MM_RESTORE();
@@ -308,7 +308,7 @@ PHP_METHOD(Zeplara_Container_Container, put) {
 		ZEPHIR_OBS_VAR(&_8$$3);
 		zephir_array_fetch(&_8$$3, &_7$$3, key, PH_NOISY, "zeplara/Container/Container.zep", 101);
 		zephir_array_fetch(&_6$$3, &_5$$3, &_8$$3, PH_NOISY | PH_READONLY, "zeplara/Container/Container.zep", 101);
-		ZEPHIR_CALL_FUNCTION(&_9$$3, "array_search", NULL, 21, key, &_6$$3);
+		ZEPHIR_CALL_FUNCTION(&_9$$3, "array_search", NULL, 22, key, &_6$$3);
 		zephir_check_call_status();
 		zephir_array_unset(&_2$$3, &_9$$3, PH_SEPARATE);
 		zephir_read_property(&_10$$3, this_ptr, ZEND_STRL("aliasBindings"), PH_NOISY_CC | PH_READONLY);
@@ -432,7 +432,7 @@ PHP_METHOD(Zeplara_Container_Container, make) {
 		if (!ZEPHIR_IS_FALSE_IDENTICAL(&_4$$3)) {
 			ZEPHIR_INIT_VAR(&_5$$5);
 			zephir_fast_explode_str(&_5$$5, SL("."), abstract, 2 );
-			ZEPHIR_RETURN_CALL_METHOD(this_ptr, "make", NULL, 22, &_5$$5, &arguments);
+			ZEPHIR_RETURN_CALL_METHOD(this_ptr, "make", NULL, 23, &_5$$5, &arguments);
 			zephir_check_call_status();
 			RETURN_MM();
 		}
@@ -441,7 +441,7 @@ PHP_METHOD(Zeplara_Container_Container, make) {
 
 			ZEPHIR_INIT_VAR(&reflection);
 			object_init_ex(&reflection, zephir_get_internal_ce(SL("reflectionclass")));
-			ZEPHIR_CALL_METHOD(NULL, &reflection, "__construct", NULL, 23, abstract);
+			ZEPHIR_CALL_METHOD(NULL, &reflection, "__construct", NULL, 24, abstract);
 			zephir_check_call_status_or_jump(try_end_1);
 
 		try_end_1:
@@ -459,7 +459,7 @@ PHP_METHOD(Zeplara_Container_Container, make) {
 
 					ZEPHIR_INIT_NVAR(&reflection);
 					object_init_ex(&reflection, zephir_get_internal_ce(SL("reflectionfunction")));
-					ZEPHIR_CALL_METHOD(NULL, &reflection, "__construct", NULL, 24, abstract);
+					ZEPHIR_CALL_METHOD(NULL, &reflection, "__construct", NULL, 25, abstract);
 					zephir_check_call_status_or_jump(try_end_2);
 
 				try_end_2:
@@ -474,7 +474,7 @@ PHP_METHOD(Zeplara_Container_Container, make) {
 						ZEPHIR_CPY_WRT(&_9$$7, &_8$$7);
 						ZEPHIR_INIT_VAR(&_10$$9);
 						object_init_ex(&_10$$9, zeplara_container_invalidabstractexception_ce);
-						ZEPHIR_CALL_METHOD(NULL, &_10$$9, "__construct", NULL, 25, abstract);
+						ZEPHIR_CALL_METHOD(NULL, &_10$$9, "__construct", NULL, 26, abstract);
 						zephir_check_call_status();
 						zephir_throw_exception_debug(&_10$$9, "zeplara/Container/Container.zep", 143);
 						ZEPHIR_MM_RESTORE();
@@ -495,22 +495,22 @@ PHP_METHOD(Zeplara_Container_Container, make) {
 			ZEPHIR_INIT_VAR(&_13$$11);
 			ZVAL_STRING(&_13$$11, "__invoke");
 			zephir_array_fast_append(&_12$$11, &_13$$11);
-			ZEPHIR_RETURN_CALL_METHOD(this_ptr, "make", NULL, 22, &_12$$11, &arguments);
+			ZEPHIR_RETURN_CALL_METHOD(this_ptr, "make", NULL, 23, &_12$$11, &arguments);
 			zephir_check_call_status();
 			RETURN_MM();
 		}
 		ZEPHIR_INIT_NVAR(&reflection);
 		if (Z_TYPE_P(abstract) != IS_ARRAY) {
 			object_init_ex(&reflection, zephir_get_internal_ce(SL("reflectionfunction")));
-			ZEPHIR_CALL_METHOD(NULL, &reflection, "__construct", NULL, 24, abstract);
+			ZEPHIR_CALL_METHOD(NULL, &reflection, "__construct", NULL, 25, abstract);
 			zephir_check_call_status();
 		} else {
 			object_init_ex(&reflection, zephir_get_internal_ce(SL("reflectionmethod")));
 			zephir_array_fetch_long(&_14$$13, abstract, 0, PH_NOISY | PH_READONLY, "zeplara/Container/Container.zep", 154);
 			zephir_array_fetch_long(&_15$$13, abstract, 1, PH_NOISY | PH_READONLY, "zeplara/Container/Container.zep", 154);
-			ZEPHIR_CALL_METHOD(NULL, &reflection, "__construct", NULL, 26, &_14$$13, &_15$$13);
+			ZEPHIR_CALL_METHOD(NULL, &reflection, "__construct", NULL, 27, &_14$$13, &_15$$13);
 			zephir_check_call_status();
-			ZEPHIR_CALL_METHOD(&_16$$13, &reflection, "isstatic", NULL, 27);
+			ZEPHIR_CALL_METHOD(&_16$$13, &reflection, "isstatic", NULL, 28);
 			zephir_check_call_status();
 			_17$$13 = ZEPHIR_IS_FALSE_IDENTICAL(&_16$$13);
 			if (_17$$13) {
@@ -520,7 +520,7 @@ PHP_METHOD(Zeplara_Container_Container, make) {
 			}
 			if (_17$$13) {
 				zephir_array_fetch_long(&_20$$14, abstract, 0, PH_NOISY | PH_READONLY, "zeplara/Container/Container.zep", 156);
-				ZEPHIR_CALL_METHOD(&_19$$14, this_ptr, "make", NULL, 22, &_20$$14);
+				ZEPHIR_CALL_METHOD(&_19$$14, this_ptr, "make", NULL, 23, &_20$$14);
 				zephir_check_call_status();
 				zephir_array_update_long(abstract, 0, &_19$$14, PH_COPY | PH_SEPARATE ZEPHIR_DEBUG_PARAMS_DUMMY);
 			}
@@ -528,7 +528,7 @@ PHP_METHOD(Zeplara_Container_Container, make) {
 	} else {
 		ZEPHIR_INIT_VAR(&_21$$15);
 		object_init_ex(&_21$$15, zeplara_container_invalidabstractexception_ce);
-		ZEPHIR_CALL_METHOD(NULL, &_21$$15, "__construct", NULL, 25, abstract);
+		ZEPHIR_CALL_METHOD(NULL, &_21$$15, "__construct", NULL, 26, abstract);
 		zephir_check_call_status();
 		zephir_throw_exception_debug(&_21$$15, "zeplara/Container/Container.zep", 160);
 		ZEPHIR_MM_RESTORE();
@@ -541,7 +541,7 @@ PHP_METHOD(Zeplara_Container_Container, make) {
 		zephir_check_call_status();
 		RETURN_MM();
 	}
-	ZEPHIR_CALL_METHOD(&constructor, &reflection, "getconstructor", NULL, 28);
+	ZEPHIR_CALL_METHOD(&constructor, &reflection, "getconstructor", NULL, 29);
 	zephir_check_call_status();
 	if (Z_TYPE_P(&constructor) == IS_NULL) {
 		zephir_fetch_safe_class(&_24$$17, abstract);
@@ -558,7 +558,7 @@ PHP_METHOD(Zeplara_Container_Container, make) {
 	}
 	ZEPHIR_CALL_METHOD(&_26, this_ptr, "parsearguments", &_23, 0, &constructor, &arguments);
 	zephir_check_call_status();
-	ZEPHIR_RETURN_CALL_METHOD(&reflection, "newinstanceargs", NULL, 29, &_26);
+	ZEPHIR_RETURN_CALL_METHOD(&reflection, "newinstanceargs", NULL, 30, &_26);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -968,7 +968,7 @@ PHP_METHOD(Zeplara_Container_Container, parseArguments) {
 				if (ZEPHIR_IS_FALSE_IDENTICAL(&_31$$17)) {
 					ZEPHIR_INIT_NVAR(&_32$$18);
 					object_init_ex(&_32$$18, zeplara_container_bindingresolutionexception_ce);
-					ZEPHIR_CALL_METHOD(NULL, &_32$$18, "__construct", &_33, 30, reflector, &parameter);
+					ZEPHIR_CALL_METHOD(NULL, &_32$$18, "__construct", &_33, 31, reflector, &parameter);
 					zephir_check_call_status();
 					zephir_throw_exception_debug(&_32$$18, "zeplara/Container/Container.zep", 300);
 					ZEPHIR_MM_RESTORE();
@@ -1025,7 +1025,7 @@ PHP_METHOD(Zeplara_Container_Container, parseArguments) {
 						/* try_start_2: */
 
 							zephir_read_property(&_46$$24, &refClass, ZEND_STRL("name"), PH_NOISY_CC | PH_READONLY);
-							ZEPHIR_CALL_METHOD(&_45$$24, this_ptr, "make", &_16, 22, &_46$$24);
+							ZEPHIR_CALL_METHOD(&_45$$24, this_ptr, "make", &_16, 23, &_46$$24);
 							zephir_check_call_status_or_jump(try_end_2);
 							zephir_array_update_zval(&parameters, &i, &_45$$24, PH_COPY | PH_SEPARATE);
 
@@ -1099,7 +1099,7 @@ PHP_METHOD(Zeplara_Container_Container, parseArguments) {
 					if (ZEPHIR_IS_FALSE_IDENTICAL(&_61$$33)) {
 						ZEPHIR_INIT_NVAR(&_62$$34);
 						object_init_ex(&_62$$34, zeplara_container_bindingresolutionexception_ce);
-						ZEPHIR_CALL_METHOD(NULL, &_62$$34, "__construct", &_33, 30, reflector, &parameter);
+						ZEPHIR_CALL_METHOD(NULL, &_62$$34, "__construct", &_33, 31, reflector, &parameter);
 						zephir_check_call_status();
 						zephir_throw_exception_debug(&_62$$34, "zeplara/Container/Container.zep", 300);
 						ZEPHIR_MM_RESTORE();
@@ -1167,7 +1167,7 @@ PHP_METHOD(Zeplara_Container_Container, resolveBinding) {
 		_0 = zephir_instance_of_ev(binding, zend_ce_closure);
 	}
 	if (_0) {
-		ZEPHIR_CALL_FUNCTION(&_1$$3, "call_user_func", NULL, 31, binding, this_ptr);
+		ZEPHIR_CALL_FUNCTION(&_1$$3, "call_user_func", NULL, 32, binding, this_ptr);
 		zephir_check_call_status();
 		zephir_update_property_array(this_ptr, SL("bindingsResolved"), key, &_1$$3);
 		zephir_read_property(&_2$$3, this_ptr, ZEND_STRL("bindingsResolved"), PH_NOISY_CC | PH_READONLY);
@@ -1196,7 +1196,7 @@ PHP_METHOD(Zeplara_Container_Container, resolveBinding) {
 		if (_10$$4) {
 			zephir_read_property(&_13$$6, this_ptr, ZEND_STRL("aliasBindings"), PH_NOISY_CC | PH_READONLY);
 			zephir_array_unset(&_13$$6, binding, PH_SEPARATE);
-			ZEPHIR_CALL_METHOD(&_14$$6, this_ptr, "make", &_6, 22, binding);
+			ZEPHIR_CALL_METHOD(&_14$$6, this_ptr, "make", &_6, 23, binding);
 			zephir_check_call_status();
 			zephir_update_property_array(this_ptr, SL("bindingsResolved"), key, &_14$$6);
 			zephir_update_property_array(this_ptr, SL("aliasBindings"), binding, key);
@@ -1205,7 +1205,7 @@ PHP_METHOD(Zeplara_Container_Container, resolveBinding) {
 			RETURN_CTOR(&_16$$6);
 		}
 	}
-	ZEPHIR_CALL_METHOD(&_17, this_ptr, "make", &_6, 22, binding);
+	ZEPHIR_CALL_METHOD(&_17, this_ptr, "make", &_6, 23, binding);
 	zephir_check_call_status();
 	zephir_update_property_array(this_ptr, SL("bindingsResolved"), key, &_17);
 	zephir_read_property(&_18, this_ptr, ZEND_STRL("bindingsResolved"), PH_NOISY_CC | PH_READONLY);
@@ -1251,7 +1251,7 @@ PHP_METHOD(Zeplara_Container_Container, resolveKey) {
 	}
 	zephir_read_property(&_4, this_ptr, ZEND_STRL("aliasBindings"), PH_NOISY_CC | PH_READONLY);
 	zephir_array_fetch(&_5, &_4, key, PH_NOISY | PH_READONLY, "zeplara/Container/Container.zep", 359);
-	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "resolvekey", NULL, 32, &_5);
+	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "resolvekey", NULL, 33, &_5);
 	zephir_check_call_status();
 	RETURN_MM();
 

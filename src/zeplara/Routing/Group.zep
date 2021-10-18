@@ -13,7 +13,7 @@ use Zeplara\Contracts\Routing\Router as RouterContract;
  * @method Group where(string $key, $value)
  * @method Group|array middleware(...$args)
  */
-final class Group extends Attribute implements GroupContract
+final class Group extends AbstractAttribute implements GroupContract
 {
     /**
      * @param RouterContract router

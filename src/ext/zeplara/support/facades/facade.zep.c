@@ -13,8 +13,9 @@
 
 #include "kernel/main.h"
 #include "kernel/object.h"
-#include "kernel/exception.h"
 #include "kernel/memory.h"
+#include "kernel/operators.h"
+#include "kernel/exception.h"
 #include "ext/spl/spl_exceptions.h"
 #include "kernel/fcall.h"
 
@@ -22,6 +23,8 @@
 ZEPHIR_INIT_CLASS(Zeplara_Support_Facades_Facade) {
 
 	ZEPHIR_REGISTER_CLASS(Zeplara\\Support\\Facades, Facade, zeplara, support_facades_facade, zeplara_support_facades_facade_method_entry, ZEND_ACC_EXPLICIT_ABSTRACT_CLASS);
+
+	zend_declare_property_null(zeplara_support_facades_facade_ce, SL("container"), ZEND_ACC_PROTECTED|ZEND_ACC_STATIC);
 
 	return SUCCESS;
 
@@ -33,6 +36,49 @@ ZEPHIR_INIT_CLASS(Zeplara_Support_Facades_Facade) {
 PHP_METHOD(Zeplara_Support_Facades_Facade, __construct) {
 
 	zval *this_ptr = getThis();
+
+
+
+}
+
+/**
+ * @param Container container
+ * @return void
+ */
+PHP_METHOD(Zeplara_Support_Facades_Facade, setContainer) {
+
+	zval *container, container_sub;
+	zval *this_ptr = getThis();
+
+	ZVAL_UNDEF(&container_sub);
+
+	zephir_fetch_params_without_memory_grow(1, 0, &container);
+
+
+
+	zephir_update_static_property_ce(zeplara_support_facades_facade_ce, ZEND_STRL("container"), container);
+
+}
+
+PHP_METHOD(Zeplara_Support_Facades_Facade, __callStatic) {
+
+	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
+	zval paramters;
+	zval *name, name_sub, *paramters_param = NULL;
+	zval *this_ptr = getThis();
+
+	ZVAL_UNDEF(&name_sub);
+	ZVAL_UNDEF(&paramters);
+
+	ZEPHIR_MM_GROW();
+	zephir_fetch_params(1, 1, 1, &name, &paramters_param);
+
+	if (!paramters_param) {
+		ZEPHIR_INIT_VAR(&paramters);
+		array_init(&paramters);
+	} else {
+		zephir_get_arrval(&paramters, paramters_param);
+	}
 
 
 
@@ -69,7 +115,7 @@ PHP_METHOD(Zeplara_Support_Facades_Facade, getAccessor) {
 	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(NULL, &_0, "__construct", NULL, 8, &_5);
 	zephir_check_call_status();
-	zephir_throw_exception_debug(&_0, "zeplara/Support/Facades/Facade.zep", 20);
+	zephir_throw_exception_debug(&_0, "zeplara/Support/Facades/Facade.zep", 37);
 	ZEPHIR_MM_RESTORE();
 	return;
 

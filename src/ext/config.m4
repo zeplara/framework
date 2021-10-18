@@ -9,13 +9,14 @@ if test "$PHP_ZEPLARA" = "yes"; then
 	fi
 
 	AC_DEFINE(HAVE_ZEPLARA, 1, [Whether you have Zeplara])
-	zeplara_sources="zeplara.c kernel/main.c kernel/memory.c kernel/exception.c kernel/debug.c kernel/backtrace.c kernel/object.c kernel/array.c kernel/string.c kernel/fcall.c kernel/require.c kernel/file.c kernel/operators.c kernel/math.c kernel/concat.c kernel/variables.c kernel/filter.c kernel/iterator.c kernel/time.c kernel/exit.c zeplara/contracts/routing/attribute.zep.c
-	zeplara/support/file/finder/abstractfilter.zep.c
+	zeplara_sources="zeplara.c kernel/main.c kernel/memory.c kernel/exception.c kernel/debug.c kernel/backtrace.c kernel/object.c kernel/array.c kernel/string.c kernel/fcall.c kernel/require.c kernel/file.c kernel/operators.c kernel/math.c kernel/concat.c kernel/variables.c kernel/filter.c kernel/iterator.c kernel/time.c kernel/exit.c zeplara/contracts/file/finder/filter.zep.c
+	zeplara/contracts/routing/attribute.zep.c
 	zeplara/contracts/config/loader.zep.c
 	zeplara/contracts/repository.zep.c
+	zeplara/contracts/file/parser/parser.zep.c
 	zeplara/http/abstractmessage.zep.c
-	zeplara/routing/attribute.zep.c
-	zeplara/support/repository.zep.c
+	zeplara/routing/abstractattribute.zep.c
+	zeplara/support/abstractrepository.zep.c
 	zeplara/contracts/container/container.zep.c
 	zeplara/container/containerexception.zep.c
 	zeplara/contracts/config/loaderexception.zep.c
@@ -26,6 +27,13 @@ if test "$PHP_ZEPLARA" = "yes"; then
 	zeplara/contracts/cookie/queue.zep.c
 	zeplara/contracts/encryption/encrypter.zep.c
 	zeplara/contracts/encryption/encryptionexception.zep.c
+	zeplara/contracts/file/finder/finder.zep.c
+	zeplara/contracts/file/finder/iterator.zep.c
+	zeplara/contracts/file/parser/compiledvalue.zep.c
+	zeplara/contracts/file/parser/linesiterator.zep.c
+	zeplara/contracts/file/parser/parserexception.zep.c
+	zeplara/contracts/file/parser/rawvalue.zep.c
+	zeplara/contracts/file/splfileinfo.zep.c
 	zeplara/contracts/pipeline/pipeline.zep.c
 	zeplara/contracts/routing/compiledroute.zep.c
 	zeplara/contracts/routing/group.zep.c
@@ -36,8 +44,8 @@ if test "$PHP_ZEPLARA" = "yes"; then
 	zeplara/contracts/routing/routecompilerexception.zep.c
 	zeplara/contracts/routing/router.zep.c
 	zeplara/contracts/session/manager.zep.c
+	zeplara/file/parser/abstractparser.zep.c
 	zeplara/http/request.zep.c
-	zeplara/support/file/parser/abstractparser.zep.c
 	zeplara/config/envloader.zep.c
 	zeplara/config/iniloader.zep.c
 	zeplara/config/jsonloader.zep.c
@@ -45,6 +53,7 @@ if test "$PHP_ZEPLARA" = "yes"; then
 	zeplara/config/phploader.zep.c
 	zeplara/config/repository.zep.c
 	zeplara/config/xmlloader.zep.c
+	zeplara/config/yamlloader.zep.c
 	zeplara/container/bindingresolutionexception.zep.c
 	zeplara/container/container.zep.c
 	zeplara/container/invalidabstractexception.zep.c
@@ -55,6 +64,25 @@ if test "$PHP_ZEPLARA" = "yes"; then
 	zeplara/cookie/queue.zep.c
 	zeplara/encryption/encrypter.zep.c
 	zeplara/encryption/encryptionexception.zep.c
+	zeplara/file/finder/callbackfilter.zep.c
+	zeplara/file/finder/datefilter.zep.c
+	zeplara/file/finder/directoryfilter.zep.c
+	zeplara/file/finder/executablefilter.zep.c
+	zeplara/file/finder/fileextensionfilter.zep.c
+	zeplara/file/finder/filefilter.zep.c
+	zeplara/file/finder/filterfactory.zep.c
+	zeplara/file/finder/finder.zep.c
+	zeplara/file/finder/ignoredotfilefilter.zep.c
+	zeplara/file/finder/iterator.zep.c
+	zeplara/file/finder/linkfilter.zep.c
+	zeplara/file/finder/readablefilter.zep.c
+	zeplara/file/finder/writablefilter.zep.c
+	zeplara/file/parser/compiledvalue.zep.c
+	zeplara/file/parser/envparser.zep.c
+	zeplara/file/parser/linesiterator.zep.c
+	zeplara/file/parser/parserexception.zep.c
+	zeplara/file/parser/rawvalue.zep.c
+	zeplara/file/splfileinfo.zep.c
 	zeplara/http/requestfactory.zep.c
 	zeplara/http/response.zep.c
 	zeplara/http/responsefactory.zep.c
@@ -81,26 +109,7 @@ if test "$PHP_ZEPLARA" = "yes"; then
 	zeplara/session/flash.zep.c
 	zeplara/session/manager.zep.c
 	zeplara/support/arr.zep.c
-	zeplara/support/facades/facade.zep.c
-	zeplara/support/file/finder/callbackfilter.zep.c
-	zeplara/support/file/finder/datefilter.zep.c
-	zeplara/support/file/finder/directoryfilter.zep.c
-	zeplara/support/file/finder/executablefilter.zep.c
-	zeplara/support/file/finder/fileextensionfilter.zep.c
-	zeplara/support/file/finder/filefilter.zep.c
-	zeplara/support/file/finder/filefinder.zep.c
-	zeplara/support/file/finder/filterfactory.zep.c
-	zeplara/support/file/finder/ignoredotfilefilter.zep.c
-	zeplara/support/file/finder/iterator.zep.c
-	zeplara/support/file/finder/linkfilter.zep.c
-	zeplara/support/file/finder/readablefilter.zep.c
-	zeplara/support/file/finder/writablefilter.zep.c
-	zeplara/support/file/parser/compiledvalue.zep.c
-	zeplara/support/file/parser/envparser.zep.c
-	zeplara/support/file/parser/linesiterator.zep.c
-	zeplara/support/file/parser/parserexception.zep.c
-	zeplara/support/file/parser/rawvalue.zep.c
-	zeplara/support/file/splfileinfo.zep.c
+	zeplara/support/facades/abstractfacade.zep.c
 	zeplara/support/str.zep.c
 	zeplara/0__closure.zep.c
 	zeplara/1__closure.zep.c
@@ -113,6 +122,8 @@ if test "$PHP_ZEPLARA" = "yes"; then
 	zeplara/8__closure.zep.c
 	zeplara/9__closure.zep.c "
 	PHP_NEW_EXTENSION(zeplara, $zeplara_sources, $ext_shared,, )
+	PHP_ADD_BUILD_DIR([$ext_builddir/kernel/])
+	PHP_ADD_BUILD_DIR([$ext_builddir/zeplara/])
 	PHP_SUBST(ZEPLARA_SHARED_LIBADD)
 
 	old_CPPFLAGS=$CPPFLAGS

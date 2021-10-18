@@ -170,7 +170,7 @@ PHP_METHOD(Zeplara_Http_UriFactory, create) {
 			ZVAL_STRING(&_5$$5, "%s://%s");
 			ZEPHIR_CALL_FUNCTION(&_6$$5, "sprintf", NULL, 2, &_5$$5, &scheme, &_4$$5);
 			zephir_check_call_status();
-			ZEPHIR_CALL_FUNCTION(&parsed$$5, "parse_url", &_7, 103, &_6$$5);
+			ZEPHIR_CALL_FUNCTION(&parsed$$5, "parse_url", &_7, 136, &_6$$5);
 			zephir_check_call_status();
 			if (zephir_array_isset_string(&parsed$$5, SL("host"))) {
 				zephir_array_fetch_string(&_8$$6, &parsed$$5, SL("host"), PH_NOISY | PH_READONLY, "zeplara/Http/UriFactory.zep", 55);
@@ -219,7 +219,7 @@ PHP_METHOD(Zeplara_Http_UriFactory, create) {
 		}
 	}
 	if (Z_TYPE_P(uri) == IS_STRING) {
-		ZEPHIR_CALL_FUNCTION(&_21$$14, "parse_url", &_7, 103, uri);
+		ZEPHIR_CALL_FUNCTION(&_21$$14, "parse_url", &_7, 136, uri);
 		zephir_check_call_status();
 		ZEPHIR_CPY_WRT(uri, &_21$$14);
 		if (ZEPHIR_IS_FALSE_IDENTICAL(uri)) {
@@ -264,7 +264,7 @@ PHP_METHOD(Zeplara_Http_UriFactory, create) {
 		zephir_array_fetch_string(&pass, uri, SL("pass"), PH_NOISY, "zeplara/Http/UriFactory.zep", 128);
 	}
 	object_init_ex(return_value, zeplara_http_uri_ce);
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 104, &scheme, &host, &port, &path, &query, &fragment, &user, &pass);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 137, &scheme, &host, &port, &path, &query, &fragment, &user, &pass);
 	zephir_check_call_status();
 	RETURN_MM();
 

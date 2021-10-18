@@ -1,5 +1,6 @@
 namespace Zeplara\Http;
 
+use Zeplara\Support\Arr;
 use Psr\Http\Message\UriInterface;
 use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -15,7 +16,7 @@ final class ServerRequestFactory implements ServerRequestFactoryInterface
      */
     public function createServerRequest(string! method, uri, array! serverParams = []) -> <ServerRequestInterface>
     {
-        return self::create(method, uri, null,  serverParams);
+        return self::create(method, uri, null, serverParams);
     }
 
     /**
@@ -26,7 +27,7 @@ final class ServerRequestFactory implements ServerRequestFactoryInterface
      */
     public static function create
     (
-        string method = null,
+        string! method = "",
         uri = null,
         <StreamInterface> body = null,
         array! serverParams = [],
@@ -35,11 +36,11 @@ final class ServerRequestFactory implements ServerRequestFactoryInterface
         array! cookieParams = [],
         array! uploadedFiles = [],
         array! headers = [],
-        string! protocolVersion = "1.1"
+        string! protocolVersion = ""
     )
     {
-        if typeof method == "NULL" {
-            let method = (string) _SERVER["REQUEST_METHOD"];
+        if method === "" {
+            let method = (isset _SERVER["REQUEST_METHOD"] ? (string) _SERVER["REQUEST_METHOD"] : "GET");
         }
 
         if (uri instanceof UriInterface) === false {
@@ -73,6 +74,8 @@ final class ServerRequestFactory implements ServerRequestFactoryInterface
         if empty headers {
             let headers = (array) self::getAllHeaders();
         }
+
+        let protocolVersion = protocolVersion === "" ? Arr::get(self::parseProtocolVersion(), 1, "1.1") : protocolVersion;
         
         return new ServerRequest(method, uri, body, serverParams, parsedBody, queryParams, cookieParams, uploadedFiles, headers, protocolVersion);
     }
@@ -160,5 +163,17 @@ final class ServerRequestFactory implements ServerRequestFactoryInterface
         }
 
         return headers;
+    }
+
+    /**
+     * @return array
+     */
+    private static function parseProtocolVersion()
+    {
+        var matches;
+
+        preg_match("~^HTTP\\/(\d\\.\d)$~i", Arr::get(_SERVER, "SERVER_PROTOCOL", ""), matches);
+
+        return matches;
     }
 }

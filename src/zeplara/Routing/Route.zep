@@ -11,7 +11,7 @@ use Zeplara\Contracts\Routing\Route as RouteContract;
  * @method Route|array middleware(...$args)
  * @method Route|string name(string $name = null)
  */
-final class Route extends Attribute implements RouteContract
+final class Route extends AbstractAttribute implements RouteContract
 {
     /**
      * @var string

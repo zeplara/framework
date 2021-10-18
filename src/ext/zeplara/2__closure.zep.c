@@ -12,9 +12,10 @@
 #include <Zend/zend_interfaces.h>
 
 #include "kernel/main.h"
-#include "kernel/array.h"
 #include "kernel/memory.h"
 #include "kernel/fcall.h"
+#include "kernel/array.h"
+#include "kernel/operators.h"
 #include "kernel/object.h"
 
 
@@ -22,33 +23,40 @@ ZEPHIR_INIT_CLASS(zeplara_2__closure) {
 
 	ZEPHIR_REGISTER_CLASS(zeplara, 2__closure, zeplara, 2__closure, zeplara_2__closure_method_entry, ZEND_ACC_FINAL_CLASS);
 
+	zend_declare_property_null(zeplara_2__closure_ce, SL("values"), ZEND_ACC_PUBLIC|ZEND_ACC_STATIC);
+
 	return SUCCESS;
 
 }
 
 PHP_METHOD(zeplara_2__closure, __invoke) {
 
+	zval _4;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
-	zval *matches, matches_sub, _0, _1, _2;
+	zephir_fcall_cache_entry *_1 = NULL;
+	zval values, *matches, matches_sub, _0, _2, _3;
 	zval *this_ptr = getThis();
 
+	ZVAL_UNDEF(&values);
 	ZVAL_UNDEF(&matches_sub);
 	ZVAL_UNDEF(&_0);
-	ZVAL_UNDEF(&_1);
 	ZVAL_UNDEF(&_2);
+	ZVAL_UNDEF(&_3);
+	ZVAL_UNDEF(&_4);
 
 	ZEPHIR_MM_GROW();
+	zephir_read_static_property_ce(&values, zeplara_2__closure_ce, SL("values"), PH_NOISY_CC);
 	zephir_fetch_params(1, 1, 0, &matches);
 
 
 
-	zephir_array_fetch_long(&_0, matches, 1, PH_NOISY | PH_READONLY, "zeplara/Routing/RouteCompiler.zep", 115);
-	ZEPHIR_INIT_VAR(&_1);
-	ZVAL_STRING(&_1, "(?:%s)");
-	ZEPHIR_CALL_FUNCTION(&_2, "sprintf", NULL, 2, &_1, &_0);
+	zephir_array_fetch_long(&_2, matches, 1, PH_NOISY | PH_READONLY, "zeplara/File/Parser/EnvParser.zep", 200);
+	zephir_array_fetch_long(&_3, matches, 0, PH_NOISY | PH_READONLY, "zeplara/File/Parser/EnvParser.zep", 200);
+	ZEPHIR_CALL_CE_STATIC(&_0, zeplara_support_arr_ce, "get", &_1, 0, &values, &_2, &_3);
 	zephir_check_call_status();
-	RETURN_CCTOR(&_2);
+	zephir_get_strval(&_4, &_0);
+	RETURN_CTOR(&_4);
 
 }
 

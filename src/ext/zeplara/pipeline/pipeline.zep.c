@@ -115,7 +115,7 @@ PHP_METHOD(Zeplara_Pipeline_Pipeline, __construct) {
 
 
 	zephir_update_property_zval(this_ptr, ZEND_STRL("container"), container);
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setpipes", NULL, 105, &pipes);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setpipes", NULL, 138, &pipes);
 	zephir_check_call_status();
 	ZEPHIR_MM_RESTORE();
 
@@ -179,7 +179,7 @@ PHP_METHOD(Zeplara_Pipeline_Pipeline, send) {
 
 
 	zephir_read_property(&_0, this_ptr, ZEND_STRL("pipes"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_FUNCTION(&_1, "array_reverse", NULL, 106, &_0);
+	ZEPHIR_CALL_FUNCTION(&_1, "array_reverse", NULL, 139, &_0);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_2);
 	zephir_create_array(&_2, 2, 0);
@@ -187,7 +187,7 @@ PHP_METHOD(Zeplara_Pipeline_Pipeline, send) {
 	ZEPHIR_INIT_VAR(&_3);
 	ZVAL_STRING(&_3, "reduceCallback");
 	zephir_array_fast_append(&_2, &_3);
-	ZEPHIR_CALL_FUNCTION(&_4, "array_reduce", NULL, 107, &_1, &_2, destination);
+	ZEPHIR_CALL_FUNCTION(&_4, "array_reduce", NULL, 140, &_1, &_2, destination);
 	zephir_check_call_status();
 	ZEPHIR_CALL_CE_STATIC(&_5, zeplara_support_arr_ce, "wrap", &_6, 0, &arguments);
 	zephir_check_call_status();
@@ -233,7 +233,7 @@ PHP_METHOD(Zeplara_Pipeline_Pipeline, reduceCallback) {
 	}
 	object_init_ex(return_value, zeplara_pipeline_carry_ce);
 	zephir_read_property(&_2, this_ptr, ZEND_STRL("container"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 108, &_2, handler, pipe);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 141, &_2, handler, pipe);
 	zephir_check_call_status();
 	RETURN_MM();
 

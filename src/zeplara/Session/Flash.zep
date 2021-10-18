@@ -1,11 +1,11 @@
 namespace Zeplara\Session;
 
 use RuntimeException;
-use Zeplara\Support\Repository;
+use Zeplara\Support\AbstractRepository;
 use Zeplara\Contracts\Session\Manager;
 use Zeplara\Contracts\Session\Flash as FlashContract;
 
-final class Flash extends Repository
+final class Flash extends AbstractRepository
 {
     /**
      * @var string

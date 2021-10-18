@@ -136,7 +136,7 @@ PHP_METHOD(Zeplara_Http_UploadedFileFactory, create) {
 	object_init_ex(return_value, zeplara_http_uploadedfile_ce);
 	ZVAL_LONG(&_0, size);
 	ZVAL_LONG(&_1, error);
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 94, stream, &clientFilename, &clientFileMediaType, &_0, &_1);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 127, stream, &clientFilename, &clientFileMediaType, &_0, &_1);
 	zephir_check_call_status();
 	RETURN_MM();
 

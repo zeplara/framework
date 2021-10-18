@@ -225,29 +225,29 @@ PHP_METHOD(Zeplara_Http_Uri, __construct) {
 	}
 
 
-	ZEPHIR_CALL_METHOD(&_0, this_ptr, "filterscheme", NULL, 95, scheme);
+	ZEPHIR_CALL_METHOD(&_0, this_ptr, "filterscheme", NULL, 128, scheme);
 	zephir_check_call_status();
 	zephir_update_property_zval(this_ptr, ZEND_STRL("scheme"), &_0);
-	ZEPHIR_CALL_METHOD(&_1, this_ptr, "filterhost", NULL, 96, host);
+	ZEPHIR_CALL_METHOD(&_1, this_ptr, "filterhost", NULL, 129, host);
 	zephir_check_call_status();
 	zephir_update_property_zval(this_ptr, ZEND_STRL("host"), &_1);
-	ZEPHIR_CALL_METHOD(&_2, this_ptr, "filterport", NULL, 97, port);
+	ZEPHIR_CALL_METHOD(&_2, this_ptr, "filterport", NULL, 130, port);
 	zephir_check_call_status();
 	zephir_update_property_zval(this_ptr, ZEND_STRL("port"), &_2);
-	ZEPHIR_CALL_METHOD(&_3, this_ptr, "filterpath", NULL, 98, path);
+	ZEPHIR_CALL_METHOD(&_3, this_ptr, "filterpath", NULL, 131, path);
 	zephir_check_call_status();
 	zephir_update_property_zval(this_ptr, ZEND_STRL("path"), &_3);
-	ZEPHIR_CALL_METHOD(&_4, this_ptr, "filterqueryorfragment", &_5, 99, query);
+	ZEPHIR_CALL_METHOD(&_4, this_ptr, "filterqueryorfragment", &_5, 132, query);
 	zephir_check_call_status();
 	zephir_update_property_zval(this_ptr, ZEND_STRL("query"), &_4);
-	ZEPHIR_CALL_METHOD(&_6, this_ptr, "filterqueryorfragment", &_5, 99, fragment);
+	ZEPHIR_CALL_METHOD(&_6, this_ptr, "filterqueryorfragment", &_5, 132, fragment);
 	zephir_check_call_status();
 	zephir_update_property_zval(this_ptr, ZEND_STRL("fragment"), &_6);
-	ZEPHIR_CALL_METHOD(&_7, this_ptr, "filteruserinfo", &_8, 100, user);
+	ZEPHIR_CALL_METHOD(&_7, this_ptr, "filteruserinfo", &_8, 133, user);
 	zephir_check_call_status();
 	zephir_update_property_zval(this_ptr, ZEND_STRL("userInfo"), &_7);
 	if (zephir_is_true(password)) {
-		ZEPHIR_CALL_METHOD(&_9$$3, this_ptr, "filteruserinfo", &_8, 100, password);
+		ZEPHIR_CALL_METHOD(&_9$$3, this_ptr, "filteruserinfo", &_8, 133, password);
 		zephir_check_call_status();
 		ZEPHIR_INIT_VAR(&_10$$3);
 		ZEPHIR_CONCAT_SV(&_10$$3, ":", &_9$$3);
@@ -566,7 +566,7 @@ PHP_METHOD(Zeplara_Http_Uri, __toString) {
 
 	ZEPHIR_INIT_VAR(&uri);
 	ZVAL_STRING(&uri, "");
-	ZEPHIR_CALL_METHOD(&authority, this_ptr, "getauthority", NULL, 101);
+	ZEPHIR_CALL_METHOD(&authority, this_ptr, "getauthority", NULL, 134);
 	zephir_check_call_status();
 	zephir_read_property(&_0, this_ptr, ZEND_STRL("scheme"), PH_NOISY_CC | PH_READONLY);
 	if (!ZEPHIR_IS_STRING_IDENTICAL(&_0, "")) {
@@ -724,7 +724,7 @@ PHP_METHOD(Zeplara_Http_Uri, filterPort) {
 		zephir_read_property(&_3$$5, this_ptr, ZEND_STRL("scheme"), PH_NOISY_CC | PH_READONLY);
 		ZEPHIR_INIT_VAR(&_4$$5);
 		ZVAL_STRING(&_4$$5, "tcp");
-		ZEPHIR_CALL_FUNCTION(&defaultPortByScheme$$5, "getservbyname", NULL, 102, &_3$$5, &_4$$5);
+		ZEPHIR_CALL_FUNCTION(&defaultPortByScheme$$5, "getservbyname", NULL, 135, &_3$$5, &_4$$5);
 		zephir_check_call_status();
 		_5$$5 = zephir_get_intval(port);
 		ZEPHIR_INIT_NVAR(port);
@@ -787,7 +787,7 @@ PHP_METHOD(Zeplara_Http_Uri, filterPath) {
 	ZEPHIR_CONCAT_SV(&_3, "/", &_1);
 	ZEPHIR_INIT_VAR(&_4);
 	ZVAL_STRING(&_4, "/(?:[^a-zA-Z0-9_\\-\\.~:@&=\\+\\$,\\/;%]+|%(?![A-Fa-f0-9]{2}))/");
-	ZEPHIR_RETURN_CALL_FUNCTION("preg_replace_callback", NULL, 41, &_4, &_0, &_3);
+	ZEPHIR_RETURN_CALL_FUNCTION("preg_replace_callback", NULL, 42, &_4, &_0, &_3);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -826,7 +826,7 @@ PHP_METHOD(Zeplara_Http_Uri, filterQueryOrFragment) {
 	zephir_array_fast_append(&_0, &_1);
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "/(?:[^a-zA-Z0-9_\\-\\.~!\\$&\"\\(\\)\\*\\+,;=%:@\\/\?]+|%(?![A-Fa-f0-9]{2}))/");
-	ZEPHIR_RETURN_CALL_FUNCTION("preg_replace_callback", NULL, 41, &_1, &_0, value);
+	ZEPHIR_RETURN_CALL_FUNCTION("preg_replace_callback", NULL, 42, &_1, &_0, value);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -865,7 +865,7 @@ PHP_METHOD(Zeplara_Http_Uri, filterUserInfo) {
 	zephir_array_fast_append(&_0, &_1);
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "/(?:[^a-zA-Z0-9_\\-\\.~!\\$&\"\\(\\)\\*\\+,;=]+|%(?![A-Fa-f0-9]{2}))/u");
-	ZEPHIR_RETURN_CALL_FUNCTION("preg_replace_callback", NULL, 41, &_1, &_0, userInfo);
+	ZEPHIR_RETURN_CALL_FUNCTION("preg_replace_callback", NULL, 42, &_1, &_0, userInfo);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -893,7 +893,7 @@ PHP_METHOD(Zeplara_Http_Uri, rawUrlEncodeFilter) {
 
 
 	zephir_array_fetch_long(&_0, &matches, 0, PH_NOISY | PH_READONLY, "zeplara/Http/Uri.zep", 342);
-	ZEPHIR_RETURN_CALL_FUNCTION("rawurlencode", NULL, 44, &_0);
+	ZEPHIR_RETURN_CALL_FUNCTION("rawurlencode", NULL, 45, &_0);
 	zephir_check_call_status();
 	RETURN_MM();
 

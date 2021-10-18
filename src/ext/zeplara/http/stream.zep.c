@@ -94,7 +94,7 @@ PHP_METHOD(Zeplara_Http_Stream, __construct) {
 
 
 	zephir_update_property_zval(this_ptr, ZEND_STRL("resource"), resource);
-	ZEPHIR_CALL_FUNCTION(&meta, "stream_get_meta_data", NULL, 77, resource);
+	ZEPHIR_CALL_FUNCTION(&meta, "stream_get_meta_data", NULL, 110, resource);
 	zephir_check_call_status();
 	if (zephir_array_isset_string(&meta, SL("seekable"))) {
 		zephir_array_fetch_string(&_0$$3, &meta, SL("seekable"), PH_NOISY | PH_READONLY, "zeplara/Http/Stream.zep", 41);
@@ -159,7 +159,7 @@ PHP_METHOD(Zeplara_Http_Stream, getSize) {
 	}
 	if (_1) {
 		zephir_read_property(&_3$$3, this_ptr, ZEND_STRL("resource"), PH_NOISY_CC | PH_READONLY);
-		ZEPHIR_CALL_FUNCTION(&stats$$3, "fstat", NULL, 78, &_3$$3);
+		ZEPHIR_CALL_FUNCTION(&stats$$3, "fstat", NULL, 111, &_3$$3);
 		zephir_check_call_status();
 		if (zephir_array_isset_string(&stats$$3, SL("size"))) {
 			zephir_array_fetch_string(&_4$$4, &stats$$3, SL("size"), PH_NOISY | PH_READONLY, "zeplara/Http/Stream.zep", 57);
@@ -185,10 +185,10 @@ PHP_METHOD(Zeplara_Http_Stream, tell) {
 
 	ZEPHIR_MM_GROW();
 
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "assertdetachedstream", NULL, 79);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "assertdetachedstream", NULL, 112);
 	zephir_check_call_status();
 	zephir_read_property(&_0, this_ptr, ZEND_STRL("resource"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_FUNCTION(&tell, "ftell", NULL, 80, &_0);
+	ZEPHIR_CALL_FUNCTION(&tell, "ftell", NULL, 113, &_0);
 	zephir_check_call_status();
 	if (ZEPHIR_IS_FALSE_IDENTICAL(&tell)) {
 		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_RuntimeException, "Uncaught position a stream.", "zeplara/Http/Stream.zep", 76);
@@ -212,7 +212,7 @@ PHP_METHOD(Zeplara_Http_Stream, eof) {
 
 	ZEPHIR_MM_GROW();
 
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "assertdetachedstream", NULL, 79);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "assertdetachedstream", NULL, 112);
 	zephir_check_call_status();
 	zephir_read_property(&_0, this_ptr, ZEND_STRL("resource"), PH_NOISY_CC | PH_READONLY);
 	RETURN_MM_BOOL(zephir_feof(&_0));
@@ -262,13 +262,13 @@ PHP_METHOD(Zeplara_Http_Stream, seek) {
 	}
 
 
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "assertdetachedstream", NULL, 79);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "assertdetachedstream", NULL, 112);
 	zephir_check_call_status();
 	zephir_read_property(&_0, this_ptr, ZEND_STRL("seekable"), PH_NOISY_CC | PH_READONLY);
 	_1 = !zephir_is_true(&_0);
 	if (!(_1)) {
 		zephir_read_property(&_2, this_ptr, ZEND_STRL("resource"), PH_NOISY_CC | PH_READONLY);
-		ZEPHIR_CALL_FUNCTION(&_3, "fseek", NULL, 81, &_2, offset, whence);
+		ZEPHIR_CALL_FUNCTION(&_3, "fseek", NULL, 114, &_2, offset, whence);
 		zephir_check_call_status();
 		_1 = ZEPHIR_IS_LONG_IDENTICAL(&_3, -1);
 	}
@@ -295,7 +295,7 @@ PHP_METHOD(Zeplara_Http_Stream, rewind) {
 	ZEPHIR_MM_GROW();
 
 	ZVAL_LONG(&_0, 0);
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "seek", NULL, 82, &_0);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "seek", NULL, 115, &_0);
 	zephir_check_call_status();
 	ZEPHIR_MM_RESTORE();
 
@@ -337,7 +337,7 @@ PHP_METHOD(Zeplara_Http_Stream, write) {
 
 
 
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "assertdetachedstream", NULL, 79);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "assertdetachedstream", NULL, 112);
 	zephir_check_call_status();
 	zephir_read_property(&_0, this_ptr, ZEND_STRL("writable"), PH_NOISY_CC | PH_READONLY);
 	if (!(zephir_is_true(&_0))) {
@@ -391,7 +391,7 @@ PHP_METHOD(Zeplara_Http_Stream, read) {
 
 
 
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "assertdetachedstream", NULL, 79);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "assertdetachedstream", NULL, 112);
 	zephir_check_call_status();
 	if (ZEPHIR_LE_LONG(length, 0)) {
 		RETURN_MM_STRING("");
@@ -402,7 +402,7 @@ PHP_METHOD(Zeplara_Http_Stream, read) {
 		return;
 	}
 	zephir_read_property(&_1, this_ptr, ZEND_STRL("resource"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_FUNCTION(&data, "fread", NULL, 83, &_1, length);
+	ZEPHIR_CALL_FUNCTION(&data, "fread", NULL, 116, &_1, length);
 	zephir_check_call_status();
 	if (ZEPHIR_IS_FALSE_IDENTICAL(&data)) {
 		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_RuntimeException, "Could'nt read from stream.", "zeplara/Http/Stream.zep", 183);
@@ -427,10 +427,10 @@ PHP_METHOD(Zeplara_Http_Stream, getContents) {
 
 	ZEPHIR_MM_GROW();
 
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "assertdetachedstream", NULL, 79);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "assertdetachedstream", NULL, 112);
 	zephir_check_call_status();
 	zephir_read_property(&_0, this_ptr, ZEND_STRL("resource"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_FUNCTION(&content, "stream_get_contents", NULL, 84, &_0);
+	ZEPHIR_CALL_FUNCTION(&content, "stream_get_contents", NULL, 117, &_0);
 	zephir_check_call_status();
 	if (ZEPHIR_IS_FALSE_IDENTICAL(&content)) {
 		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_RuntimeException, "Uncaught to read the stream.", "zeplara/Http/Stream.zep", 200);
@@ -478,7 +478,7 @@ PHP_METHOD(Zeplara_Http_Stream, getMetadata) {
 		RETURN_MM();
 	}
 	zephir_read_property(&_1, this_ptr, ZEND_STRL("resource"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_FUNCTION(&metaData, "stream_get_meta_data", NULL, 77, &_1);
+	ZEPHIR_CALL_FUNCTION(&metaData, "stream_get_meta_data", NULL, 110, &_1);
 	zephir_check_call_status();
 	if (Z_TYPE_P(key) == IS_NULL) {
 		RETURN_CCTOR(&metaData);
@@ -551,7 +551,7 @@ PHP_METHOD(Zeplara_Http_Stream, close) {
 	if (Z_TYPE_P(&_0) != IS_NULL) {
 		zephir_read_property(&_1$$3, this_ptr, ZEND_STRL("resource"), PH_NOISY_CC | PH_READONLY);
 		zephir_fclose(&_1$$3);
-		ZEPHIR_CALL_METHOD(NULL, this_ptr, "detach", NULL, 85);
+		ZEPHIR_CALL_METHOD(NULL, this_ptr, "detach", NULL, 118);
 		zephir_check_call_status();
 	}
 	ZEPHIR_MM_RESTORE();
@@ -576,9 +576,9 @@ PHP_METHOD(Zeplara_Http_Stream, __toString) {
 
 	/* try_start_1: */
 
-		ZEPHIR_CALL_METHOD(NULL, this_ptr, "rewind", NULL, 86);
+		ZEPHIR_CALL_METHOD(NULL, this_ptr, "rewind", NULL, 119);
 		zephir_check_call_status_or_jump(try_end_1);
-		ZEPHIR_RETURN_CALL_METHOD(this_ptr, "getcontents", NULL, 87);
+		ZEPHIR_RETURN_CALL_METHOD(this_ptr, "getcontents", NULL, 120);
 		zephir_check_call_status_or_jump(try_end_1);
 		RETURN_MM();
 
@@ -611,7 +611,7 @@ PHP_METHOD(Zeplara_Http_Stream, __destruct) {
 
 	ZEPHIR_MM_GROW();
 
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "close", NULL, 88);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "close", NULL, 121);
 	zephir_check_call_status();
 	ZEPHIR_MM_RESTORE();
 

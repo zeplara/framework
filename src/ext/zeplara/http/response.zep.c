@@ -145,13 +145,13 @@ PHP_METHOD(Zeplara_Http_Response, __construct) {
 
 
 	ZVAL_LONG(&_0, statusCode);
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "assertstatuscode", NULL, 67, &_0);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "assertstatuscode", NULL, 99, &_0);
 	zephir_check_call_status();
 	ZEPHIR_INIT_ZVAL_NREF(_0);
 	ZVAL_LONG(&_0, statusCode);
 	zephir_update_property_zval(this_ptr, ZEND_STRL("statusCode"), &_0);
 	ZVAL_LONG(&_0, statusCode);
-	ZEPHIR_CALL_METHOD(&_1, this_ptr, "filterreasonphrase", NULL, 68, &_0, &reasonPhrase);
+	ZEPHIR_CALL_METHOD(&_1, this_ptr, "filterreasonphrase", NULL, 100, &_0, &reasonPhrase);
 	zephir_check_call_status();
 	zephir_update_property_zval(this_ptr, ZEND_STRL("reasonPhrase"), &_1);
 	ZEPHIR_CALL_PARENT(NULL, zeplara_http_response_ce, getThis(), "__construct", &_2, 0, body, &headers, &protocolVersion);
@@ -187,14 +187,14 @@ PHP_METHOD(Zeplara_Http_Response, withStatus) {
 	}
 
 
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "assertstatuscode", NULL, 67, statusCode);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "assertstatuscode", NULL, 99, statusCode);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&clone);
 	if (zephir_clone(&clone, this_ptr) == FAILURE) {
 		RETURN_MM();
 	}
 	zephir_update_property_zval(&clone, ZEND_STRL("statusCode"), statusCode);
-	ZEPHIR_CALL_METHOD(&_0, this_ptr, "filterreasonphrase", NULL, 68, statusCode, reasonPhrase);
+	ZEPHIR_CALL_METHOD(&_0, this_ptr, "filterreasonphrase", NULL, 100, statusCode, reasonPhrase);
 	zephir_check_call_status();
 	zephir_update_property_zval(&clone, ZEND_STRL("reasonPhrase"), &_0);
 	RETURN_CCTOR(&clone);
@@ -223,7 +223,7 @@ PHP_METHOD(Zeplara_Http_Response, assertStatusCode) {
 
 
 	ZVAL_LONG(&_0, 257);
-	ZEPHIR_CALL_FUNCTION(&_1, "filter_var", NULL, 69, statusCode, &_0);
+	ZEPHIR_CALL_FUNCTION(&_1, "filter_var", NULL, 101, statusCode, &_0);
 	zephir_check_call_status();
 	_2 = ZEPHIR_IS_FALSE_IDENTICAL(&_1);
 	if (!(_2)) {
@@ -308,7 +308,7 @@ void zephir_init_static_properties_Zeplara_Http_Response(TSRMLS_D) {
 	ZEPHIR_MM_GROW();
 
 	ZEPHIR_INIT_VAR(&_0);
-	zephir_create_array(&_0, 58, 0);
+	zephir_create_array(&_0, 59, 0);
 	add_index_stringl(&_0, 100, SL("Continue"));
 	add_index_stringl(&_0, 101, SL("Switching Protocols"));
 	add_index_stringl(&_0, 102, SL("Processing"));

@@ -4,7 +4,7 @@ use Reflector;
 use ReflectionParameter;
 use Zeplara\Contracts\Container\BindingResolutionException as BindingResolutionExceptionContract;
 
-class BindingResolutionException extends ContainerException implements BindingResolutionExceptionContract
+final class BindingResolutionException extends ContainerException implements BindingResolutionExceptionContract
 {
     /**
      * @var Reflector

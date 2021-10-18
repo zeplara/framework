@@ -36,7 +36,7 @@
  */
 ZEPHIR_INIT_CLASS(Zeplara_Routing_Registrar) {
 
-	ZEPHIR_REGISTER_CLASS_EX(Zeplara\\Routing, Registrar, zeplara, routing_registrar, zeplara_routing_attribute_ce, zeplara_routing_registrar_method_entry, ZEND_ACC_FINAL_CLASS);
+	ZEPHIR_REGISTER_CLASS_EX(Zeplara\\Routing, Registrar, zeplara, routing_registrar, zeplara_routing_abstractattribute_ce, zeplara_routing_registrar_method_entry, ZEND_ACC_FINAL_CLASS);
 
 	/**
 	 * @var Router
@@ -116,7 +116,7 @@ PHP_METHOD(Zeplara_Routing_Registrar, get) {
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "HEAD");
 	zephir_array_fast_append(&_0, &_1);
-	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "register", NULL, 118, pattern, callback, &_0, &attributes);
+	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "register", NULL, 151, pattern, callback, &_0, &attributes);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -158,7 +158,7 @@ PHP_METHOD(Zeplara_Routing_Registrar, post) {
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "POST");
 	zephir_array_fast_append(&_0, &_1);
-	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "register", NULL, 118, pattern, callback, &_0, &attributes);
+	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "register", NULL, 151, pattern, callback, &_0, &attributes);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -200,7 +200,7 @@ PHP_METHOD(Zeplara_Routing_Registrar, put) {
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "PUT");
 	zephir_array_fast_append(&_0, &_1);
-	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "register", NULL, 118, pattern, callback, &_0, &attributes);
+	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "register", NULL, 151, pattern, callback, &_0, &attributes);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -242,7 +242,7 @@ PHP_METHOD(Zeplara_Routing_Registrar, delete) {
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "DELETE");
 	zephir_array_fast_append(&_0, &_1);
-	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "register", NULL, 118, pattern, callback, &_0, &attributes);
+	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "register", NULL, 151, pattern, callback, &_0, &attributes);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -284,7 +284,7 @@ PHP_METHOD(Zeplara_Routing_Registrar, patch) {
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "PATCH");
 	zephir_array_fast_append(&_0, &_1);
-	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "register", NULL, 118, pattern, callback, &_0, &attributes);
+	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "register", NULL, 151, pattern, callback, &_0, &attributes);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -326,7 +326,7 @@ PHP_METHOD(Zeplara_Routing_Registrar, options) {
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "OPTIONS");
 	zephir_array_fast_append(&_0, &_1);
-	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "register", NULL, 118, pattern, callback, &_0, &attributes);
+	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "register", NULL, 151, pattern, callback, &_0, &attributes);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -386,7 +386,7 @@ PHP_METHOD(Zeplara_Routing_Registrar, any) {
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "OPTIONS");
 	zephir_array_fast_append(&_0, &_1);
-	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "register", NULL, 118, pattern, callback, &_0, &attributes);
+	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "register", NULL, 151, pattern, callback, &_0, &attributes);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -819,7 +819,7 @@ PHP_METHOD(Zeplara_Routing_Registrar, setWhereAttribute) {
 	ZEPHIR_INIT_VAR(&_0);
 	zephir_create_array(&_0, 1, 0);
 	zephir_array_update_zval(&_0, &key, value, PH_COPY);
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setrequirementsattribute", NULL, 119, &_0);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setrequirementsattribute", NULL, 152, &_0);
 	zephir_check_call_status();
 	ZEPHIR_MM_RESTORE();
 
@@ -859,7 +859,7 @@ PHP_METHOD(Zeplara_Routing_Registrar, setMiddlewareAttribute) {
 	zephir_get_args(&_5);
 	zephir_fast_array_merge(&_0, &_1, &_5);
 	ZVAL_LONG(&_6, 0);
-	ZEPHIR_CALL_FUNCTION(&_7, "array_unique", NULL, 117, &_0, &_6);
+	ZEPHIR_CALL_FUNCTION(&_7, "array_unique", NULL, 150, &_0, &_6);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_8);
 	ZVAL_STRING(&_8, "middleware");

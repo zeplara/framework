@@ -20,7 +20,7 @@
 
 ZEPHIR_INIT_CLASS(Zeplara_Container_BindingResolutionException) {
 
-	ZEPHIR_REGISTER_CLASS_EX(Zeplara\\Container, BindingResolutionException, zeplara, container_bindingresolutionexception, zeplara_container_containerexception_ce, zeplara_container_bindingresolutionexception_method_entry, 0);
+	ZEPHIR_REGISTER_CLASS_EX(Zeplara\\Container, BindingResolutionException, zeplara, container_bindingresolutionexception, zeplara_container_containerexception_ce, zeplara_container_bindingresolutionexception_method_entry, ZEND_ACC_FINAL_CLASS);
 
 	/**
 	 * @var Reflector

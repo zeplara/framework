@@ -129,7 +129,7 @@ PHP_METHOD(Zeplara_Encryption_Encrypter, __construct) {
 		ZVAL_STRING(&_4$$3, "Cipher %s is not supported.");
 		ZEPHIR_CALL_FUNCTION(&_5$$3, "sprintf", NULL, 2, &_4$$3, &cipher);
 		zephir_check_call_status();
-		ZEPHIR_CALL_METHOD(NULL, this_ptr, "throwencryptionexception", NULL, 46, &_5$$3);
+		ZEPHIR_CALL_METHOD(NULL, this_ptr, "throwencryptionexception", NULL, 47, &_5$$3);
 		zephir_check_call_status();
 	}
 	zephir_update_property_zval(this_ptr, ZEND_STRL("key"), &key);
@@ -169,7 +169,7 @@ PHP_METHOD(Zeplara_Encryption_Encrypter, encrypt) {
 	ZEPHIR_SEPARATE_PARAM(value);
 
 
-	ZEPHIR_CALL_FUNCTION(NULL, "error_clear_last", NULL, 47);
+	ZEPHIR_CALL_FUNCTION(NULL, "error_clear_last", NULL, 48);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_0);
 	zephir_create_array(&_0, 2, 0);
@@ -177,38 +177,38 @@ PHP_METHOD(Zeplara_Encryption_Encrypter, encrypt) {
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "throwEncryptError");
 	zephir_array_fast_append(&_0, &_1);
-	ZEPHIR_CALL_FUNCTION(NULL, "set_error_handler", NULL, 48, &_0);
+	ZEPHIR_CALL_FUNCTION(NULL, "set_error_handler", NULL, 49, &_0);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(&iv, this_ptr, "generateiv", NULL, 49);
+	ZEPHIR_CALL_METHOD(&iv, this_ptr, "generateiv", NULL, 50);
 	zephir_check_call_status();
-	ZEPHIR_CALL_FUNCTION(&_2, "serialize", NULL, 50, value);
+	ZEPHIR_CALL_FUNCTION(&_2, "serialize", NULL, 51, value);
 	zephir_check_call_status();
 	zephir_read_property(&_3, this_ptr, ZEND_STRL("cipher"), PH_NOISY_CC | PH_READONLY);
 	zephir_read_property(&_4, this_ptr, ZEND_STRL("key"), PH_NOISY_CC | PH_READONLY);
 	ZVAL_LONG(&_5, 0);
-	ZEPHIR_CALL_FUNCTION(value, "openssl_encrypt", NULL, 51, &_2, &_3, &_4, &_5, &iv);
+	ZEPHIR_CALL_FUNCTION(value, "openssl_encrypt", NULL, 52, &_2, &_3, &_4, &_5, &iv);
 	zephir_check_call_status();
 	if (ZEPHIR_IS_FALSE_IDENTICAL(value)) {
-		ZEPHIR_CALL_METHOD(NULL, this_ptr, "throwencrypterror", &_6, 52);
+		ZEPHIR_CALL_METHOD(NULL, this_ptr, "throwencrypterror", &_6, 53);
 		zephir_check_call_status();
 	}
 	ZEPHIR_INIT_NVAR(&_1);
 	ZEPHIR_INIT_VAR(&_7);
 	zephir_create_array(&_7, 2, 0);
-	ZEPHIR_CALL_FUNCTION(&_8, "base64_encode", &_9, 53, &iv);
+	ZEPHIR_CALL_FUNCTION(&_8, "base64_encode", &_9, 54, &iv);
 	zephir_check_call_status();
 	zephir_array_update_string(&_7, SL("iv"), &_8, PH_COPY | PH_SEPARATE);
 	zephir_array_update_string(&_7, SL("value"), value, PH_COPY | PH_SEPARATE);
 	zephir_json_encode(&_1, &_7, 0 );
-	ZEPHIR_CALL_FUNCTION(value, "base64_encode", &_9, 53, &_1);
+	ZEPHIR_CALL_FUNCTION(value, "base64_encode", &_9, 54, &_1);
 	zephir_check_call_status();
 	ZEPHIR_CALL_FUNCTION(&_8, "json_last_error", NULL, 15);
 	zephir_check_call_status();
 	if (!ZEPHIR_IS_LONG_IDENTICAL(&_8, 0)) {
-		ZEPHIR_CALL_METHOD(NULL, this_ptr, "throwencrypterror", &_6, 52);
+		ZEPHIR_CALL_METHOD(NULL, this_ptr, "throwencrypterror", &_6, 53);
 		zephir_check_call_status();
 	}
-	ZEPHIR_CALL_FUNCTION(NULL, "restore_error_handler", NULL, 54);
+	ZEPHIR_CALL_FUNCTION(NULL, "restore_error_handler", NULL, 55);
 	zephir_check_call_status();
 	RETVAL_ZVAL(value, 1, 0);
 	RETURN_MM();
@@ -256,7 +256,7 @@ PHP_METHOD(Zeplara_Encryption_Encrypter, decrypt) {
 		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The encrypted value must be string.", "zeplara/Encryption/Encrypter.zep", 176);
 		return;
 	}
-	ZEPHIR_CALL_FUNCTION(NULL, "error_clear_last", NULL, 47);
+	ZEPHIR_CALL_FUNCTION(NULL, "error_clear_last", NULL, 48);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_0);
 	zephir_create_array(&_0, 2, 0);
@@ -264,13 +264,13 @@ PHP_METHOD(Zeplara_Encryption_Encrypter, decrypt) {
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "throwDecryptError");
 	zephir_array_fast_append(&_0, &_1);
-	ZEPHIR_CALL_FUNCTION(NULL, "set_error_handler", NULL, 48, &_0);
+	ZEPHIR_CALL_FUNCTION(NULL, "set_error_handler", NULL, 49, &_0);
 	zephir_check_call_status();
-	ZEPHIR_CALL_FUNCTION(&_2, "base64_decode", &_3, 55, value);
+	ZEPHIR_CALL_FUNCTION(&_2, "base64_decode", &_3, 56, value);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(value, &_2);
 	if (ZEPHIR_IS_FALSE_IDENTICAL(value)) {
-		ZEPHIR_CALL_METHOD(NULL, this_ptr, "throwdecrypterror", &_4, 56);
+		ZEPHIR_CALL_METHOD(NULL, this_ptr, "throwdecrypterror", &_4, 57);
 		zephir_check_call_status();
 	}
 	ZEPHIR_INIT_NVAR(&_1);
@@ -279,7 +279,7 @@ PHP_METHOD(Zeplara_Encryption_Encrypter, decrypt) {
 	ZEPHIR_CALL_FUNCTION(&_2, "json_last_error", NULL, 15);
 	zephir_check_call_status();
 	if (!ZEPHIR_IS_LONG_IDENTICAL(&_2, 0)) {
-		ZEPHIR_CALL_METHOD(NULL, this_ptr, "throwdecrypterror", &_4, 56);
+		ZEPHIR_CALL_METHOD(NULL, this_ptr, "throwdecrypterror", &_4, 57);
 		zephir_check_call_status();
 	}
 	zephir_get_arrval(&_5, value);
@@ -289,18 +289,18 @@ PHP_METHOD(Zeplara_Encryption_Encrypter, decrypt) {
 		_6 = zephir_array_isset_string(value, SL("value")) == 0;
 	}
 	if (_6) {
-		ZEPHIR_CALL_METHOD(NULL, this_ptr, "throwdecrypterror", &_4, 56);
+		ZEPHIR_CALL_METHOD(NULL, this_ptr, "throwdecrypterror", &_4, 57);
 		zephir_check_call_status();
 	}
 	zephir_array_fetch_string(&_7, value, SL("iv"), PH_NOISY | PH_READONLY, "zeplara/Encryption/Encrypter.zep", 200);
-	ZEPHIR_CALL_FUNCTION(&_8, "base64_decode", &_3, 55, &_7);
+	ZEPHIR_CALL_FUNCTION(&_8, "base64_decode", &_3, 56, &_7);
 	zephir_check_call_status();
 	zephir_array_update_string(value, SL("iv"), &_8, PH_COPY | PH_SEPARATE);
 	zephir_array_fetch_string(&_10, value, SL("iv"), PH_NOISY | PH_READONLY, "zeplara/Encryption/Encrypter.zep", 202);
-	ZEPHIR_CALL_METHOD(&_9, this_ptr, "isvalidiv", NULL, 57, &_10);
+	ZEPHIR_CALL_METHOD(&_9, this_ptr, "isvalidiv", NULL, 58, &_10);
 	zephir_check_call_status();
 	if (ZEPHIR_IS_FALSE_IDENTICAL(&_9)) {
-		ZEPHIR_CALL_METHOD(NULL, this_ptr, "throwdecrypterror", &_4, 56);
+		ZEPHIR_CALL_METHOD(NULL, this_ptr, "throwdecrypterror", &_4, 57);
 		zephir_check_call_status();
 	}
 	zephir_array_fetch_string(&_11, value, SL("value"), PH_NOISY | PH_READONLY, "zeplara/Encryption/Encrypter.zep", 206);
@@ -308,16 +308,16 @@ PHP_METHOD(Zeplara_Encryption_Encrypter, decrypt) {
 	zephir_read_property(&_13, this_ptr, ZEND_STRL("key"), PH_NOISY_CC | PH_READONLY);
 	zephir_array_fetch_string(&_14, value, SL("iv"), PH_NOISY | PH_READONLY, "zeplara/Encryption/Encrypter.zep", 206);
 	ZVAL_LONG(&_15, 0);
-	ZEPHIR_CALL_FUNCTION(value, "openssl_decrypt", NULL, 58, &_11, &_12, &_13, &_15, &_14);
+	ZEPHIR_CALL_FUNCTION(value, "openssl_decrypt", NULL, 59, &_11, &_12, &_13, &_15, &_14);
 	zephir_check_call_status();
 	if (ZEPHIR_IS_FALSE_IDENTICAL(value)) {
-		ZEPHIR_CALL_METHOD(NULL, this_ptr, "throwdecrypterror", &_4, 56);
+		ZEPHIR_CALL_METHOD(NULL, this_ptr, "throwdecrypterror", &_4, 57);
 		zephir_check_call_status();
 	}
-	ZEPHIR_CALL_FUNCTION(&_16, "unserialize", NULL, 59, value);
+	ZEPHIR_CALL_FUNCTION(&_16, "unserialize", NULL, 60, value);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(value, &_16);
-	ZEPHIR_CALL_FUNCTION(NULL, "restore_error_handler", NULL, 54);
+	ZEPHIR_CALL_FUNCTION(NULL, "restore_error_handler", NULL, 55);
 	zephir_check_call_status();
 	RETVAL_ZVAL(value, 1, 0);
 	RETURN_MM();
@@ -349,7 +349,7 @@ PHP_METHOD(Zeplara_Encryption_Encrypter, IvLength) {
 	zephir_read_property(&_1, this_ptr, ZEND_STRL("cipher"), PH_NOISY_CC | PH_READONLY);
 	if (!(zephir_array_isset(&_0, &_1))) {
 		zephir_read_property(&_2$$3, this_ptr, ZEND_STRL("cipher"), PH_NOISY_CC | PH_READONLY);
-		ZEPHIR_CALL_FUNCTION(&_3$$3, "openssl_cipher_iv_length", NULL, 60, &_2$$3);
+		ZEPHIR_CALL_FUNCTION(&_3$$3, "openssl_cipher_iv_length", NULL, 61, &_2$$3);
 		zephir_check_call_status();
 		ZEPHIR_OBS_VAR(&_4$$3);
 		zephir_read_property(&_4$$3, this_ptr, ZEND_STRL("cipher"), PH_NOISY_CC);
@@ -378,9 +378,9 @@ PHP_METHOD(Zeplara_Encryption_Encrypter, generateIv) {
 
 	ZEPHIR_MM_GROW();
 
-	ZEPHIR_CALL_METHOD(&_0, this_ptr, "ivlength", NULL, 61);
+	ZEPHIR_CALL_METHOD(&_0, this_ptr, "ivlength", NULL, 62);
 	zephir_check_call_status();
-	ZEPHIR_RETURN_CALL_FUNCTION("openssl_random_pseudo_bytes", NULL, 62, &_0);
+	ZEPHIR_RETURN_CALL_FUNCTION("openssl_random_pseudo_bytes", NULL, 63, &_0);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -409,16 +409,16 @@ PHP_METHOD(Zeplara_Encryption_Encrypter, isValidIv) {
 
 
 
-	ZEPHIR_CALL_METHOD(&ivLength, this_ptr, "ivlength", NULL, 61);
+	ZEPHIR_CALL_METHOD(&ivLength, this_ptr, "ivlength", NULL, 62);
 	zephir_check_call_status();
 	ZVAL_LONG(&_0, 0);
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "8bit");
-	ZEPHIR_CALL_FUNCTION(&_2, "mb_strcut", NULL, 63, iv, &_0, &ivLength, &_1);
+	ZEPHIR_CALL_FUNCTION(&_2, "mb_strcut", NULL, 64, iv, &_0, &ivLength, &_1);
 	zephir_check_call_status();
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "8bit");
-	ZEPHIR_CALL_FUNCTION(&_3, "mb_strlen", NULL, 64, &_2, &_1);
+	ZEPHIR_CALL_FUNCTION(&_3, "mb_strlen", NULL, 65, &_2, &_1);
 	zephir_check_call_status();
 	RETURN_MM_BOOL(ZEPHIR_IS_LONG_IDENTICAL(&ivLength, zephir_get_intval(&_3)));
 
@@ -445,7 +445,7 @@ PHP_METHOD(Zeplara_Encryption_Encrypter, throwEncryptionException) {
 
 	ZEPHIR_INIT_VAR(&_0);
 	object_init_ex(&_0, zeplara_encryption_encryptionexception_ce);
-	ZEPHIR_CALL_METHOD(NULL, &_0, "__construct", NULL, 65, message);
+	ZEPHIR_CALL_METHOD(NULL, &_0, "__construct", NULL, 66, message);
 	zephir_check_call_status();
 	zephir_throw_exception_debug(&_0, "zeplara/Encryption/Encrypter.zep", 257);
 	ZEPHIR_MM_RESTORE();
@@ -469,7 +469,7 @@ PHP_METHOD(Zeplara_Encryption_Encrypter, throwEncryptError) {
 
 	ZEPHIR_INIT_VAR(&_0);
 	ZVAL_STRING(&_0, "Could not encrypt data.");
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "throwencryptionexception", NULL, 46, &_0);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "throwencryptionexception", NULL, 47, &_0);
 	zephir_check_call_status();
 	ZEPHIR_MM_RESTORE();
 
@@ -491,7 +491,7 @@ PHP_METHOD(Zeplara_Encryption_Encrypter, throwDecryptError) {
 
 	ZEPHIR_INIT_VAR(&_0);
 	ZVAL_STRING(&_0, "Could not decrypt data.");
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "throwencryptionexception", NULL, 46, &_0);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "throwencryptionexception", NULL, 47, &_0);
 	zephir_check_call_status();
 	ZEPHIR_MM_RESTORE();
 
@@ -511,7 +511,7 @@ void zephir_init_static_properties_Zeplara_Encryption_Encrypter(TSRMLS_D) {
 	array_init(&_0);
 	zephir_update_static_property_ce(zeplara_encryption_encrypter_ce, ZEND_STRL("ivLengthCache"), &_0);
 	ZEPHIR_INIT_VAR(&_1);
-	zephir_create_array(&_1, 92, 0);
+	zephir_create_array(&_1, 97, 0);
 	add_assoc_stringl_ex(&_1, SL("AES-128-CBC"), SL("AES-128-CBC"));
 	add_assoc_stringl_ex(&_1, SL("AES-128-CBC-HMAC-SHA1"), SL("AES-128-CBC-HMAC-SHA1"));
 	add_assoc_stringl_ex(&_1, SL("AES-128-CBC-HMAC-SHA256"), SL("AES-128-CBC-HMAC-SHA256"));

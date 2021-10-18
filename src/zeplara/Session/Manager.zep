@@ -3,10 +3,10 @@ namespace Zeplara\Session;
 use RuntimeException;
 use Zeplara\Support\Str;
 use SessionHandlerInterface;
-use Zeplara\Support\Repository;
+use Zeplara\Support\AbstractRepository;
 use Zeplara\Contracts\Session\Manager as ManagerContract;
 
-final class Manager extends Repository implements ManagerContract
+final class Manager extends AbstractRepository implements ManagerContract
 {
     /**
      * @var string

@@ -146,7 +146,7 @@ PHP_METHOD(Zeplara_Support_File_Finder_FilterFactory, extension) {
 	object_init_ex(return_value, zeplara_support_file_finder_fileextensionfilter_ce);
 	ZEPHIR_CALL_CE_STATIC(&_0, zeplara_support_arr_ce, "wrap", &_1, 0, extensions);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 165, &_0, state);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 166, &_0, state);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -385,7 +385,7 @@ PHP_METHOD(Zeplara_Support_File_Finder_FilterFactory, callback) {
 
 
 	object_init_ex(return_value, zeplara_support_file_finder_callbackfilter_ce);
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 166, callback);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 167, callback);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -417,7 +417,7 @@ PHP_METHOD(Zeplara_Support_File_Finder_FilterFactory, date) {
 
 
 	object_init_ex(return_value, zeplara_support_file_finder_datefilter_ce);
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 167, time, operator);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 168, time, operator);
 	zephir_check_call_status();
 	RETURN_MM();
 

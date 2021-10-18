@@ -2,7 +2,7 @@ namespace Zeplara\Session;
 
 use SessionHandlerInterface;
 use InvalidArgumentException;
-use Zeplara\Support\File\Finder\FileFinder;
+use Zeplara\File\Finder\Finder;
 
 final class FileSessionHandler implements SessionHandlerInterface
 {
@@ -18,7 +18,7 @@ final class FileSessionHandler implements SessionHandlerInterface
      */
     public function __construct(path)
     {
-        if (!is_writable(path)) {
+        if is_writable(path) === false {
             throw new InvalidArgumentException(sprintf(
                 "Directory %s is not writable", path
             ));
@@ -68,10 +68,10 @@ final class FileSessionHandler implements SessionHandlerInterface
     {
         var file, files;
 
-        let files = FileFinder::instance(this->path)
-                            ->ignoreDotFiles()
-                            ->files()
-                            ->date(time() - maxlifetime, "<=");
+        let files = Finder::instance(this->path)
+                        ->ignoreDotFiles()
+                        ->files()
+                        ->date(time() - maxlifetime, "<=");
 
         error_clear_last();
 

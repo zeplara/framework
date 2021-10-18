@@ -69,17 +69,17 @@ final class Arr
             return values[key];
         }
 
-        var sgmnts, segments;
+        var segmentsTmp, segments;
 
         let segments = self::createSegmentsOfKey(key),
-            sgmnts = segments;
+            segmentsTmp = segments;
         
-        while isset values[key] === false && count(sgmnts) > 1 {
-            array_pop(sgmnts);
-            let key = self::implodeSegmentsOfKey(sgmnts);
+        while isset values[key] === false && count(segmentsTmp) > 1 {
+            array_pop(segmentsTmp);
+            let key = self::implodeSegmentsOfKey(segmentsTmp);
         }
 
-        let segments = array_slice(segments, count(sgmnts));
+        let segments = array_slice(segments, count(segmentsTmp));
 
         if isset values[key] {
             if count(segments) {
@@ -103,17 +103,17 @@ final class Arr
             return true;
         }
 
-        var sgmnts, segments;
+        var segmentsTmp, segments;
 
         let segments = self::createSegmentsOfKey(key),
-            sgmnts = segments;
+            segmentsTmp = segments;
         
-        while isset values[key] === false && count(sgmnts) > 1 {
-            array_pop(sgmnts);
-            let key = self::implodeSegmentsOfKey(sgmnts);
+        while isset values[key] === false && count(segmentsTmp) > 1 {
+            array_pop(segmentsTmp);
+            let key = self::implodeSegmentsOfKey(segmentsTmp);
         }
 
-        let segments = array_slice(segments, count(sgmnts));
+        let segments = array_slice(segments, count(segmentsTmp));
 
         if isset values[key] {
             if count(segments) {
@@ -135,17 +135,17 @@ final class Arr
     {
         unset values[key];
 
-        var sgmnts, segments;
+        var segmentsTmp, segments;
 
         let segments = self::createSegmentsOfKey(key),
-            sgmnts = segments;
+            segmentsTmp = segments;
         
-        while isset values[key] === false && count(sgmnts) > 1 {
-            array_pop(sgmnts);
-            let key = self::implodeSegmentsOfKey(sgmnts);
+        while isset values[key] === false && count(segmentsTmp) > 1 {
+            array_pop(segmentsTmp);
+            let key = self::implodeSegmentsOfKey(segmentsTmp);
         }
 
-        let segments = array_slice(segments, count(sgmnts));
+        let segments = array_slice(segments, count(segmentsTmp));
         
         if isset values[key] {
             if count(segments) {
@@ -172,17 +172,17 @@ final class Arr
             return values;
         }
 
-        var sgmnts, segments;
+        var segmentsTmp, segments;
 
         let segments = self::createSegmentsOfKey(key),
-            sgmnts = segments;
+            segmentsTmp = segments;
         
-        while isset values[key] === false && count(sgmnts) > 1 {
-            array_pop(sgmnts);
-            let key = self::implodeSegmentsOfKey(sgmnts);
+        while isset values[key] === false && count(segmentsTmp) > 1 {
+            array_pop(segmentsTmp);
+            let key = self::implodeSegmentsOfKey(segmentsTmp);
         }
 
-        let segments = array_slice(segments, count(sgmnts));
+        let segments = array_slice(segments, count(segmentsTmp));
 
         if count(segments) {
             let values[key] = self::set(self::wrap(isset values[key] ? values[key] : []), self::implodeSegmentsOfKey(segments), value);

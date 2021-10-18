@@ -1,5 +1,7 @@
 namespace Zeplara\Support;
 
+use InvalidArgumentException;
+
 final class Str
 {
     /**
@@ -290,6 +292,10 @@ final class Str
      */
     public static function random(int! length)
     {
+        if length <= 0 {
+            throw new InvalidArgumentException("The length must be greater than zero.");
+        }
+
         var chr, chars;
         
         let chr = "",

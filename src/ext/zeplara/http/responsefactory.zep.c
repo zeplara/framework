@@ -174,7 +174,7 @@ PHP_METHOD(Zeplara_Http_ResponseFactory, create) {
 	}
 	object_init_ex(return_value, zeplara_http_response_ce);
 	ZVAL_LONG(&_3, code);
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 70, body, &_3, &reasonPhrase, &headers, &protocolVersion);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 102, body, &_3, &reasonPhrase, &headers, &protocolVersion);
 	zephir_check_call_status();
 	RETURN_MM();
 

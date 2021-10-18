@@ -161,7 +161,7 @@ PHP_METHOD(Zeplara_Http_RequestFactory, create) {
 		zephir_check_call_status();
 	}
 	object_init_ex(return_value, zeplara_http_request_ce);
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 66, &method, uri, body, &headers, &protocolVersion);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 98, &method, uri, body, &headers, &protocolVersion);
 	zephir_check_call_status();
 	RETURN_MM();
 

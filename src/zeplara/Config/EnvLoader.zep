@@ -1,8 +1,8 @@
 namespace Zeplara\Config;
 
 use Zeplara\Contracts\Config\Loader;
-use Zeplara\Support\File\Parser\EnvParser;
-use Zeplara\Support\File\Parser\ParserException;
+use Zeplara\File\Parser\EnvParser;
+use Zeplara\File\Parser\ParserException;
 
 final class EnvLoader implements Loader
 {
@@ -16,7 +16,7 @@ final class EnvLoader implements Loader
         var e;
 
         try {
-            return EnvParser::parseFile(file);
+            return (new EnvParser)->parseFile(file);
         } catch ParserException, e {
             throw new LoaderException(e->getMessage(), e->getFile(), e->getLine());
         }

@@ -70,7 +70,7 @@ PHP_METHOD(Zeplara_Http_StreamFactory, createStream) {
 	ZVAL_STRING(&_0, "php://temp");
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_STRING(&_1, "wb+");
-	ZEPHIR_CALL_METHOD(&stream, this_ptr, "createstreamfromfile", NULL, 89, &_0, &_1);
+	ZEPHIR_CALL_METHOD(&stream, this_ptr, "createstreamfromfile", NULL, 122, &_0, &_1);
 	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(NULL, &stream, "write", NULL, 0, &content);
 	zephir_check_call_status();
@@ -127,23 +127,23 @@ PHP_METHOD(Zeplara_Http_StreamFactory, createStreamFromFile) {
 	}
 
 
-	ZEPHIR_CALL_FUNCTION(NULL, "error_clear_last", NULL, 47);
+	ZEPHIR_CALL_FUNCTION(NULL, "error_clear_last", NULL, 48);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_0);
 	ZEPHIR_INIT_NVAR(&_0);
-	zephir_create_closure_ex(&_0, NULL, zeplara_0__closure_ce, SL("__invoke"));
+	zephir_create_closure_ex(&_0, NULL, zeplara_3__closure_ce, SL("__invoke"));
 	ZVAL_LONG(&_1, 2);
-	ZEPHIR_CALL_FUNCTION(NULL, "set_error_handler", NULL, 48, &_0, &_1);
+	ZEPHIR_CALL_FUNCTION(NULL, "set_error_handler", NULL, 49, &_0, &_1);
 	zephir_check_call_status();
-	ZEPHIR_CALL_FUNCTION(&handler, "fopen", NULL, 90, &filename, &mode);
+	ZEPHIR_CALL_FUNCTION(&handler, "fopen", NULL, 123, &filename, &mode);
 	zephir_check_call_status();
-	ZEPHIR_CALL_FUNCTION(NULL, "restore_error_handler", NULL, 54);
+	ZEPHIR_CALL_FUNCTION(NULL, "restore_error_handler", NULL, 55);
 	zephir_check_call_status();
 	if (ZEPHIR_IS_FALSE_IDENTICAL(&handler)) {
 		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_RuntimeException, "The file couldn't be opened.", "zeplara/Http/StreamFactory.zep", 43);
 		return;
 	}
-	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "createstreamfromresource", NULL, 91, &handler);
+	ZEPHIR_RETURN_CALL_METHOD(this_ptr, "createstreamfromresource", NULL, 124, &handler);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -168,7 +168,7 @@ PHP_METHOD(Zeplara_Http_StreamFactory, createStreamFromResource) {
 
 
 	object_init_ex(return_value, zeplara_http_stream_ce);
-	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 92, resource);
+	ZEPHIR_CALL_METHOD(NULL, return_value, "__construct", NULL, 125, resource);
 	zephir_check_call_status();
 	RETURN_MM();
 
@@ -207,7 +207,7 @@ PHP_METHOD(Zeplara_Http_StreamFactory, create) {
 		zephir_check_call_status();
 	}
 	if (Z_TYPE_P(filenameOrResourceOrContent) == IS_RESOURCE) {
-		ZEPHIR_RETURN_CALL_METHOD(&newSelf, "createstreamfromresource", NULL, 91, filenameOrResourceOrContent);
+		ZEPHIR_RETURN_CALL_METHOD(&newSelf, "createstreamfromresource", NULL, 124, filenameOrResourceOrContent);
 		zephir_check_call_status();
 		RETURN_MM();
 	}
@@ -216,11 +216,11 @@ PHP_METHOD(Zeplara_Http_StreamFactory, create) {
 		return;
 	}
 	if (Z_TYPE_P(mode) == IS_NULL) {
-		ZEPHIR_RETURN_CALL_METHOD(&newSelf, "createstream", NULL, 93, filenameOrResourceOrContent);
+		ZEPHIR_RETURN_CALL_METHOD(&newSelf, "createstream", NULL, 126, filenameOrResourceOrContent);
 		zephir_check_call_status();
 		RETURN_MM();
 	}
-	ZEPHIR_RETURN_CALL_METHOD(&newSelf, "createstreamfromfile", NULL, 89, filenameOrResourceOrContent, mode);
+	ZEPHIR_RETURN_CALL_METHOD(&newSelf, "createstreamfromfile", NULL, 122, filenameOrResourceOrContent, mode);
 	zephir_check_call_status();
 	RETURN_MM();
 

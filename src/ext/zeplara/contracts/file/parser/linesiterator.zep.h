@@ -1,0 +1,5 @@
+
+extern zend_class_entry *zeplara_contracts_file_parser_linesiterator_ce;
+
+ZEPHIR_INIT_CLASS(Zeplara_Contracts_File_Parser_LinesIterator);
+

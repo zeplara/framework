@@ -14,7 +14,7 @@
 #define PHP_ZEPLARA_VERSION     "1.0.0"
 #define PHP_ZEPLARA_EXTNAME     "zeplara"
 #define PHP_ZEPLARA_AUTHOR      "Mochammad Riyadh Ilham Akbar Pasya"
-#define PHP_ZEPLARA_ZEPVERSION  "0.12.19-$Id$"
+#define PHP_ZEPLARA_ZEPVERSION  "0.12.20-$Id$"
 #define PHP_ZEPLARA_DESCRIPTION "The Zeplara PHP Framework"
 
 

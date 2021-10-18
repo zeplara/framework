@@ -24,7 +24,7 @@
 
 ZEPHIR_INIT_CLASS(Zeplara_Session_Manager) {
 
-	ZEPHIR_REGISTER_CLASS_EX(Zeplara\\Session, Manager, zeplara, session_manager, zeplara_support_repository_ce, zeplara_session_manager_method_entry, ZEND_ACC_FINAL_CLASS);
+	ZEPHIR_REGISTER_CLASS_EX(Zeplara\\Session, Manager, zeplara, session_manager, zeplara_support_abstractrepository_ce, zeplara_session_manager_method_entry, ZEND_ACC_FINAL_CLASS);
 
 	/**
 	 * @var string
@@ -137,9 +137,9 @@ PHP_METHOD(Zeplara_Session_Manager, __construct) {
 
 	zephir_update_property_zval(this_ptr, ZEND_STRL("handler"), handler);
 	zephir_update_property_zval(this_ptr, ZEND_STRL("name"), name);
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setprefix", NULL, 142, prefix);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setprefix", NULL, 174, prefix);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setid", NULL, 143, id);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setid", NULL, 175, id);
 	zephir_check_call_status();
 	ZEPHIR_MM_RESTORE();
 
@@ -169,7 +169,7 @@ PHP_METHOD(Zeplara_Session_Manager, setId) {
 	ZEPHIR_INIT_VAR(&_0);
 	_1 = Z_TYPE_P(id) == IS_STRING;
 	if (_1) {
-		ZEPHIR_CALL_FUNCTION(&_2, "ctype_alnum", NULL, 144, id);
+		ZEPHIR_CALL_FUNCTION(&_2, "ctype_alnum", NULL, 176, id);
 		zephir_check_call_status();
 		_1 = ZEPHIR_IS_TRUE_IDENTICAL(&_2);
 	}
@@ -180,7 +180,7 @@ PHP_METHOD(Zeplara_Session_Manager, setId) {
 	if (_3) {
 		ZEPHIR_CPY_WRT(&_0, id);
 	} else {
-		ZEPHIR_CALL_METHOD(&_0, this_ptr, "generatesessionid", NULL, 145);
+		ZEPHIR_CALL_METHOD(&_0, this_ptr, "generatesessionid", NULL, 177);
 		zephir_check_call_status();
 	}
 	zephir_update_property_zval(this_ptr, ZEND_STRL("id"), &_0);
@@ -264,21 +264,21 @@ PHP_METHOD(Zeplara_Session_Manager, start) {
 	ZEPHIR_CALL_METHOD(&data, &_1, "read", NULL, 0, &_4);
 	zephir_check_call_status();
 	if (!ZEPHIR_IS_STRING_IDENTICAL(&data, "")) {
-		ZEPHIR_CALL_FUNCTION(NULL, "error_clear_last", NULL, 47);
+		ZEPHIR_CALL_FUNCTION(NULL, "error_clear_last", NULL, 48);
 		zephir_check_call_status();
 		ZEPHIR_INIT_VAR(&_5$$4);
 		ZEPHIR_INIT_NVAR(&_5$$4);
-		zephir_create_closure_ex(&_5$$4, NULL, zeplara_6__closure_ce, SL("__invoke"));
-		ZEPHIR_CALL_FUNCTION(NULL, "set_error_handler", NULL, 48, &_5$$4);
+		zephir_create_closure_ex(&_5$$4, NULL, zeplara_9__closure_ce, SL("__invoke"));
+		ZEPHIR_CALL_FUNCTION(NULL, "set_error_handler", NULL, 49, &_5$$4);
 		zephir_check_call_status();
-		ZEPHIR_CALL_FUNCTION(&_6$$4, "unserialize", NULL, 59, &data);
+		ZEPHIR_CALL_FUNCTION(&_6$$4, "unserialize", NULL, 60, &data);
 		zephir_check_call_status();
 		ZEPHIR_CPY_WRT(&data, &_6$$4);
 		if (!ZEPHIR_IS_FALSE_IDENTICAL(&data)) {
 			ZEPHIR_CALL_METHOD(NULL, this_ptr, "setitems", NULL, 0, &data);
 			zephir_check_call_status();
 		}
-		ZEPHIR_CALL_FUNCTION(NULL, "restore_error_handler", NULL, 54);
+		ZEPHIR_CALL_FUNCTION(NULL, "restore_error_handler", NULL, 55);
 		zephir_check_call_status();
 	}
 	if (1) {
@@ -333,9 +333,9 @@ PHP_METHOD(Zeplara_Session_Manager, regenerate) {
 		ZEPHIR_CALL_METHOD(NULL, &_1$$4, "destroy", NULL, 0, &_4$$4);
 		zephir_check_call_status();
 	}
-	ZEPHIR_CALL_METHOD(&_5, this_ptr, "generatesessionid", NULL, 145);
+	ZEPHIR_CALL_METHOD(&_5, this_ptr, "generatesessionid", NULL, 177);
 	zephir_check_call_status();
-	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setid", NULL, 143, &_5);
+	ZEPHIR_CALL_METHOD(NULL, this_ptr, "setid", NULL, 175, &_5);
 	zephir_check_call_status();
 	ZEPHIR_MM_RESTORE();
 
@@ -374,7 +374,7 @@ PHP_METHOD(Zeplara_Session_Manager, save) {
 	ZEPHIR_INIT_VAR(&_4);
 	ZEPHIR_CONCAT_VV(&_4, &_2, &_3);
 	zephir_read_property(&_5, this_ptr, ZEND_STRL("items"), PH_NOISY_CC | PH_READONLY);
-	ZEPHIR_CALL_FUNCTION(&_6, "serialize", NULL, 50, &_5);
+	ZEPHIR_CALL_FUNCTION(&_6, "serialize", NULL, 51, &_5);
 	zephir_check_call_status();
 	ZEPHIR_CALL_METHOD(NULL, &_1, "write", NULL, 0, &_4, &_6);
 	zephir_check_call_status();

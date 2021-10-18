@@ -76,25 +76,25 @@ ZEPHIR_DOC_METHOD(Zeplara_Contracts_Cookie_Cookie, isHttpOnly);
 ZEPHIR_DOC_METHOD(Zeplara_Contracts_Cookie_Cookie, getSameSite);
 
 /**
- * @param value
+ * @param string|null value
  * @return void
  */
 ZEPHIR_DOC_METHOD(Zeplara_Contracts_Cookie_Cookie, setValue);
 
 /**
- * @param DateTimeInterface|int|string| expiration
+ * @param \DateTimeInterface|int|string expiration
  * @return void
  */
 ZEPHIR_DOC_METHOD(Zeplara_Contracts_Cookie_Cookie, setExpiration);
 
 /**
- * @param path
+ * @param string path
  * @return void
  */
 ZEPHIR_DOC_METHOD(Zeplara_Contracts_Cookie_Cookie, setPath);
 
 /**
- * @param domain
+ * @param string domain
  * @return void
  */
 ZEPHIR_DOC_METHOD(Zeplara_Contracts_Cookie_Cookie, setDomain);
@@ -112,7 +112,7 @@ ZEPHIR_DOC_METHOD(Zeplara_Contracts_Cookie_Cookie, setSecure);
 ZEPHIR_DOC_METHOD(Zeplara_Contracts_Cookie_Cookie, setHttpOnly);
 
 /**
- * @param sameSite
+ * @param string sameSite
  * @return mixed
  */
 ZEPHIR_DOC_METHOD(Zeplara_Contracts_Cookie_Cookie, setSameSite);

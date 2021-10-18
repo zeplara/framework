@@ -95,7 +95,7 @@ final class Cookie implements CookieContract
     }
 
     /**
-     * @param value
+     * @param string|null value
      * @return void
      */
     public function setValue(value)
@@ -130,7 +130,7 @@ final class Cookie implements CookieContract
     }
 
     /**
-     * @param path
+     * @param string path
      * @return void
      */
     public function setPath(path)
@@ -149,7 +149,7 @@ final class Cookie implements CookieContract
     }
 
     /**
-     * @param domain
+     * @param string domain
      * @return void
      */
     public function setDomain(domain)
@@ -191,7 +191,7 @@ final class Cookie implements CookieContract
     }
 
     /**
-     * @param sameSite
+     * @param string sameSite
      * @return void
      */
     public function setSameSite(sameSite)

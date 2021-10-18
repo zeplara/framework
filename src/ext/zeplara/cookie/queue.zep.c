@@ -101,7 +101,7 @@ PHP_METHOD(Zeplara_Cookie_Queue, get) {
 		ZVAL_STRING(&_3$$3, "Cookie %s does not exists.");
 		ZEPHIR_CALL_FUNCTION(&_4$$3, "sprintf", NULL, 2, &_3$$3, key);
 		zephir_check_call_status();
-		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", NULL, 9, &_4$$3);
+		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", NULL, 8, &_4$$3);
 		zephir_check_call_status();
 		zephir_throw_exception_debug(&_1$$3, "zeplara/Cookie/Queue.zep", 30);
 		ZEPHIR_MM_RESTORE();

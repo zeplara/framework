@@ -248,7 +248,7 @@ PHP_METHOD(Zeplara_Http_UploadedFile, moveTo) {
 		ZEPHIR_OBS_VAR(&_4$$3);
 		zephir_read_property(&_4$$3, this_ptr, ZEND_STRL("error"), PH_NOISY_CC);
 		zephir_array_fetch(&_3$$3, &_2$$3, &_4$$3, PH_NOISY | PH_READONLY, "zeplara/Http/UploadedFile.zep", 91);
-		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", NULL, 8, &_3$$3);
+		ZEPHIR_CALL_METHOD(NULL, &_1$$3, "__construct", NULL, 21, &_3$$3);
 		zephir_check_call_status();
 		zephir_throw_exception_debug(&_1$$3, "zeplara/Http/UploadedFile.zep", 91);
 		ZEPHIR_MM_RESTORE();
@@ -275,19 +275,19 @@ PHP_METHOD(Zeplara_Http_UploadedFile, moveTo) {
 		ZEPHIR_INIT_NVAR(&size);
 		ZVAL_LONG(&size, 1048576);
 	}
-	ZEPHIR_CALL_FUNCTION(NULL, "error_clear_last", NULL, 47);
+	ZEPHIR_CALL_FUNCTION(NULL, "error_clear_last", NULL, 48);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_9);
 	ZEPHIR_INIT_NVAR(&_9);
-	zephir_create_closure_ex(&_9, NULL, zeplara_1__closure_ce, SL("__invoke"));
+	zephir_create_closure_ex(&_9, NULL, zeplara_4__closure_ce, SL("__invoke"));
 	ZVAL_LONG(&_10, 2);
-	ZEPHIR_CALL_FUNCTION(NULL, "set_error_handler", NULL, 48, &_9, &_10);
+	ZEPHIR_CALL_FUNCTION(NULL, "set_error_handler", NULL, 49, &_9, &_10);
 	zephir_check_call_status();
 	ZEPHIR_INIT_VAR(&_11);
 	ZVAL_STRING(&_11, "wb+");
-	ZEPHIR_CALL_FUNCTION(&handle, "fopen", NULL, 90, targetPath, &_11);
+	ZEPHIR_CALL_FUNCTION(&handle, "fopen", NULL, 123, targetPath, &_11);
 	zephir_check_call_status();
-	ZEPHIR_CALL_FUNCTION(NULL, "restore_error_handler", NULL, 54);
+	ZEPHIR_CALL_FUNCTION(NULL, "restore_error_handler", NULL, 55);
 	zephir_check_call_status();
 	if (ZEPHIR_IS_FALSE_IDENTICAL(&handle)) {
 		ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_RuntimeException, "The target path is not writable.", "zeplara/Http/UploadedFile.zep", 118);

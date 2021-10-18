@@ -12,8 +12,8 @@
 #include <Zend/zend_interfaces.h>
 
 #include "kernel/main.h"
-#include "kernel/fcall.h"
 #include "kernel/memory.h"
+#include "kernel/fcall.h"
 #include "kernel/object.h"
 #include "kernel/exception.h"
 
@@ -36,13 +36,13 @@ PHP_METHOD(Zeplara_Config_EnvLoader, load) {
 
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
-	zephir_fcall_cache_entry *_0 = NULL;
-	zval *file, file_sub, e, _1, _2$$4, _3$$4, _4$$4, _5$$4;
+	zval *file, file_sub, e, _1, _0$$3, _2$$4, _3$$4, _4$$4, _5$$4;
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&file_sub);
 	ZVAL_UNDEF(&e);
 	ZVAL_UNDEF(&_1);
+	ZVAL_UNDEF(&_0$$3);
 	ZVAL_UNDEF(&_2$$4);
 	ZVAL_UNDEF(&_3$$4);
 	ZVAL_UNDEF(&_4$$4);
@@ -56,7 +56,13 @@ PHP_METHOD(Zeplara_Config_EnvLoader, load) {
 
 	/* try_start_1: */
 
-		ZEPHIR_RETURN_CALL_CE_STATIC(zeplara_support_file_parser_envparser_ce, "parsefile", &_0, 0, file);
+		ZEPHIR_INIT_VAR(&_0$$3);
+		object_init_ex(&_0$$3, zeplara_file_parser_envparser_ce);
+		if (zephir_has_constructor(&_0$$3)) {
+			ZEPHIR_CALL_METHOD(NULL, &_0$$3, "__construct", NULL, 0);
+			zephir_check_call_status_or_jump(try_end_1);
+		}
+		ZEPHIR_RETURN_CALL_METHOD(&_0$$3, "parsefile", NULL, 10, file);
 		zephir_check_call_status_or_jump(try_end_1);
 		RETURN_MM();
 
@@ -66,7 +72,7 @@ PHP_METHOD(Zeplara_Config_EnvLoader, load) {
 		ZEPHIR_INIT_VAR(&_1);
 		ZVAL_OBJ(&_1, EG(exception));
 		Z_ADDREF_P(&_1);
-		if (zephir_instance_of_ev(&_1, zeplara_support_file_parser_parserexception_ce)) {
+		if (zephir_instance_of_ev(&_1, zeplara_file_parser_parserexception_ce)) {
 			zend_clear_exception(TSRMLS_C);
 			ZEPHIR_CPY_WRT(&e, &_1);
 			ZEPHIR_INIT_VAR(&_2$$4);
