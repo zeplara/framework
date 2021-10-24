@@ -5,7 +5,7 @@ use ReflectionClass;
 use ReflectionMethod;
 use ReflectionFunction;
 use ReflectionException;
-use Zeplara\Contracts\Container\Container as ContainerContract;
+use Zeplara\Interfaces\Container\Container as ContainerContract;
 
 class Container implements ContainerContract
 {

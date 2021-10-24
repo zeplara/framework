@@ -7,7 +7,7 @@ PHP_METHOD(Zeplara_Pipeline_Carry, __construct);
 PHP_METHOD(Zeplara_Pipeline_Carry, __invoke);
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_zeplara_pipeline_carry___construct, 0, 0, 3)
-	ZEND_ARG_OBJ_INFO(0, container, Zeplara\\Contracts\\Container\\Container, 0)
+	ZEND_ARG_OBJ_INFO(0, container, Zeplara\\Interfaces\\Container\\Container, 0)
 	ZEND_ARG_INFO(0, handler)
 	ZEND_ARG_INFO(0, pipe)
 ZEND_END_ARG_INFO()

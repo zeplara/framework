@@ -6,8 +6,8 @@ use Zeplara\Support\Arr;
 use Zeplara\Support\Str;
 use BadMethodCallException;
 use Zeplara\File\SplFileInfo;
-use Zeplara\Contracts\File\Finder\Filter;
-use Zeplara\Contracts\File\Finder\Finder as FinderContract;
+use Zeplara\Interfaces\File\Finder\Filter;
+use Zeplara\Interfaces\File\Finder\Finder as FinderContract;
 
 /**
  * @method Finder|FileFilter file()

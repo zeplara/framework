@@ -3,7 +3,7 @@
 namespace Zeplara\Tests\File\Finder;
 
 use PHPUnit\Framework\TestCase;
-use Zeplara\Contracts\File\SplFileInfo;
+use Zeplara\Interfaces\File\SplFileInfo;
 use Zeplara\File\Finder\ExecutableFilter;
 
 class ExecutableFilterTest extends TestCase

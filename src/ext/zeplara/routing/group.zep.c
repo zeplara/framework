@@ -39,7 +39,7 @@ ZEPHIR_INIT_CLASS(Zeplara_Routing_Group) {
 
 	ZEPHIR_REGISTER_CLASS_EX(Zeplara\\Routing, Group, zeplara, routing_group, zeplara_routing_abstractattribute_ce, zeplara_routing_group_method_entry, ZEND_ACC_FINAL_CLASS);
 
-	zend_class_implements(zeplara_routing_group_ce, 1, zeplara_contracts_routing_group_ce);
+	zend_class_implements(zeplara_routing_group_ce, 1, zeplara_interfaces_routing_group_ce);
 	return SUCCESS;
 
 }

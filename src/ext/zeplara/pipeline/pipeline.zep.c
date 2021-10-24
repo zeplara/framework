@@ -37,7 +37,7 @@ ZEPHIR_INIT_CLASS(Zeplara_Pipeline_Pipeline) {
 
 	zeplara_pipeline_pipeline_ce->create_object = zephir_init_properties_Zeplara_Pipeline_Pipeline;
 
-	zend_class_implements(zeplara_pipeline_pipeline_ce, 1, zeplara_contracts_pipeline_pipeline_ce);
+	zend_class_implements(zeplara_pipeline_pipeline_ce, 1, zeplara_interfaces_pipeline_pipeline_ce);
 	return SUCCESS;
 
 }

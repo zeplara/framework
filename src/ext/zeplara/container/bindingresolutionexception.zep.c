@@ -32,7 +32,7 @@ ZEPHIR_INIT_CLASS(Zeplara_Container_BindingResolutionException) {
 	 */
 	zend_declare_property_null(zeplara_container_bindingresolutionexception_ce, SL("parameter"), ZEND_ACC_PROTECTED);
 
-	zend_class_implements(zeplara_container_bindingresolutionexception_ce, 1, zeplara_contracts_container_bindingresolutionexception_ce);
+	zend_class_implements(zeplara_container_bindingresolutionexception_ce, 1, zeplara_interfaces_container_bindingresolutionexception_ce);
 	return SUCCESS;
 
 }

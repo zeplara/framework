@@ -5,7 +5,7 @@ namespace Zeplara\Tests\File\Finder;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use Zeplara\File\Finder\DateFilter;
-use Zeplara\Contracts\File\SplFileInfo;
+use Zeplara\Interfaces\File\SplFileInfo;
 
 class DateFilterTest extends TestCase
 {

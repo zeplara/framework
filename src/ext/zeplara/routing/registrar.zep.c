@@ -43,7 +43,7 @@ ZEPHIR_INIT_CLASS(Zeplara_Routing_Registrar) {
 	 */
 	zend_declare_property_null(zeplara_routing_registrar_ce, SL("router"), ZEND_ACC_PROTECTED);
 
-	zend_class_implements(zeplara_routing_registrar_ce, 1, zeplara_contracts_routing_registrar_ce);
+	zend_class_implements(zeplara_routing_registrar_ce, 1, zeplara_interfaces_routing_registrar_ce);
 	return SUCCESS;
 
 }

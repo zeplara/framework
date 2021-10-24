@@ -4,7 +4,7 @@ namespace Zeplara\Tests\Cookie;
 
 use Zeplara\Cookie\Factory;
 use PHPUnit\Framework\TestCase;
-use Zeplara\Contracts\Cookie\Cookie;
+use Zeplara\Interfaces\Cookie\Cookie;
 
 class FactoryTest extends TestCase
 {

@@ -25,7 +25,7 @@ ZEND_BEGIN_ARG_INFO_EX(arginfo_zeplara_cookie_queue_get, 0, 0, 1)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_zeplara_cookie_queue_set, 0, 0, 1)
-	ZEND_ARG_OBJ_INFO(0, cookie, Zeplara\\Contracts\\Cookie\\Cookie, 0)
+	ZEND_ARG_OBJ_INFO(0, cookie, Zeplara\\Interfaces\\Cookie\\Cookie, 0)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_zeplara_cookie_queue_put, 0, 0, 1)

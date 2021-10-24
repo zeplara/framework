@@ -2,7 +2,7 @@ namespace Zeplara\Encryption;
 
 use Zeplara\Support\Str;
 use InvalidArgumentException;
-use Zeplara\Contracts\Encryption\Encrypter as EncrypterContract;
+use Zeplara\Interfaces\Encryption\Encrypter as EncrypterContract;
 
 final class Encrypter implements EncrypterContract
 {

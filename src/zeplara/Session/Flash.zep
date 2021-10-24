@@ -2,8 +2,8 @@ namespace Zeplara\Session;
 
 use RuntimeException;
 use Zeplara\Support\AbstractRepository;
-use Zeplara\Contracts\Session\Manager;
-use Zeplara\Contracts\Session\Flash as FlashContract;
+use Zeplara\Interfaces\Session\Manager;
+use Zeplara\Interfaces\Session\Flash as FlashContract;
 
 final class Flash extends AbstractRepository
 {

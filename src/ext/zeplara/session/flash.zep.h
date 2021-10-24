@@ -17,7 +17,7 @@ ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_zeplara_session_flash_getname, 0
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_zeplara_session_flash___construct, 0, 0, 2)
-	ZEND_ARG_OBJ_INFO(0, manager, Zeplara\\Contracts\\Session\\Manager, 0)
+	ZEND_ARG_OBJ_INFO(0, manager, Zeplara\\Interfaces\\Session\\Manager, 0)
 	ZEND_ARG_INFO(0, name)
 ZEND_END_ARG_INFO()
 

@@ -1,6 +1,6 @@
 namespace Zeplara\File\Parser;
 
-use Zeplara\Contracts\File\Parser\CompiledValue as CompiledValueContract;
+use Zeplara\Interfaces\File\Parser\CompiledValue as CompiledValueContract;
 
 final class CompiledValue implements CompiledValueContract
 {

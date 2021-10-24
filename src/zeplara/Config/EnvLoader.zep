@@ -1,6 +1,6 @@
 namespace Zeplara\Config;
 
-use Zeplara\Contracts\Config\Loader;
+use Zeplara\Interfaces\Config\Loader;
 use Zeplara\File\Parser\EnvParser;
 use Zeplara\File\Parser\ParserException;
 

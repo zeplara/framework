@@ -1,7 +1,7 @@
 namespace Zeplara\File\Parser;
 
 use ArrayIterator;
-use Zeplara\Contracts\File\Parser\LinesIterator as LinesIteratorContract;
+use Zeplara\Interfaces\File\Parser\LinesIterator as LinesIteratorContract;
 
 final class LinesIterator extends ArrayIterator implements LinesIteratorContract
 {

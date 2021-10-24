@@ -3,7 +3,7 @@ namespace Zeplara\Cookie;
 use DateTimeInterface;
 use Zeplara\Support\Str;
 use InvalidArgumentException;
-use Zeplara\Contracts\Cookie\Cookie as CookieContract;
+use Zeplara\Interfaces\Cookie\Cookie as CookieContract;
 
 final class Cookie implements CookieContract
 {

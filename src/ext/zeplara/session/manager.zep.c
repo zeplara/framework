@@ -51,7 +51,7 @@ ZEPHIR_INIT_CLASS(Zeplara_Session_Manager) {
 	 */
 	zend_declare_property_bool(zeplara_session_manager_ce, SL("started"), 0, ZEND_ACC_PROTECTED);
 
-	zend_class_implements(zeplara_session_manager_ce, 1, zeplara_contracts_session_manager_ce);
+	zend_class_implements(zeplara_session_manager_ce, 1, zeplara_interfaces_session_manager_ce);
 	return SUCCESS;
 
 }

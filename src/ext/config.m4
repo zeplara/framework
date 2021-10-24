@@ -9,43 +9,43 @@ if test "$PHP_ZEPLARA" = "yes"; then
 	fi
 
 	AC_DEFINE(HAVE_ZEPLARA, 1, [Whether you have Zeplara])
-	zeplara_sources="zeplara.c kernel/main.c kernel/memory.c kernel/exception.c kernel/debug.c kernel/backtrace.c kernel/object.c kernel/array.c kernel/string.c kernel/fcall.c kernel/require.c kernel/file.c kernel/operators.c kernel/math.c kernel/concat.c kernel/variables.c kernel/filter.c kernel/iterator.c kernel/time.c kernel/exit.c zeplara/contracts/file/finder/filter.zep.c
-	zeplara/contracts/routing/attribute.zep.c
-	zeplara/contracts/config/loader.zep.c
-	zeplara/contracts/repository.zep.c
-	zeplara/contracts/file/parser/parser.zep.c
+	zeplara_sources="zeplara.c kernel/main.c kernel/memory.c kernel/exception.c kernel/debug.c kernel/backtrace.c kernel/object.c kernel/array.c kernel/string.c kernel/fcall.c kernel/require.c kernel/file.c kernel/operators.c kernel/math.c kernel/concat.c kernel/variables.c kernel/filter.c kernel/iterator.c kernel/time.c kernel/exit.c zeplara/interfaces/file/finder/filter.zep.c
+	zeplara/interfaces/routing/attribute.zep.c
+	zeplara/interfaces/config/loader.zep.c
+	zeplara/interfaces/repository.zep.c
 	zeplara/http/abstractmessage.zep.c
 	zeplara/routing/abstractattribute.zep.c
 	zeplara/support/abstractrepository.zep.c
-	zeplara/contracts/container/container.zep.c
+	zeplara/interfaces/container/container.zep.c
+	zeplara/interfaces/file/parser/parser.zep.c
 	zeplara/container/containerexception.zep.c
-	zeplara/contracts/config/loaderexception.zep.c
-	zeplara/contracts/config/repository.zep.c
-	zeplara/contracts/container/bindingresolutionexception.zep.c
-	zeplara/contracts/container/invalidabstractexception.zep.c
-	zeplara/contracts/cookie/cookie.zep.c
-	zeplara/contracts/cookie/queue.zep.c
-	zeplara/contracts/encryption/encrypter.zep.c
-	zeplara/contracts/encryption/encryptionexception.zep.c
-	zeplara/contracts/file/finder/finder.zep.c
-	zeplara/contracts/file/finder/iterator.zep.c
-	zeplara/contracts/file/parser/compiledvalue.zep.c
-	zeplara/contracts/file/parser/linesiterator.zep.c
-	zeplara/contracts/file/parser/parserexception.zep.c
-	zeplara/contracts/file/parser/rawvalue.zep.c
-	zeplara/contracts/file/splfileinfo.zep.c
-	zeplara/contracts/pipeline/pipeline.zep.c
-	zeplara/contracts/routing/compiledroute.zep.c
-	zeplara/contracts/routing/group.zep.c
-	zeplara/contracts/routing/regex.zep.c
-	zeplara/contracts/routing/registrar.zep.c
-	zeplara/contracts/routing/route.zep.c
-	zeplara/contracts/routing/routecompiler.zep.c
-	zeplara/contracts/routing/routecompilerexception.zep.c
-	zeplara/contracts/routing/router.zep.c
-	zeplara/contracts/session/manager.zep.c
 	zeplara/file/parser/abstractparser.zep.c
 	zeplara/http/request.zep.c
+	zeplara/interfaces/config/loaderexception.zep.c
+	zeplara/interfaces/config/repository.zep.c
+	zeplara/interfaces/container/bindingresolutionexception.zep.c
+	zeplara/interfaces/container/invalidabstractexception.zep.c
+	zeplara/interfaces/cookie/cookie.zep.c
+	zeplara/interfaces/cookie/queue.zep.c
+	zeplara/interfaces/encryption/encrypter.zep.c
+	zeplara/interfaces/encryption/encryptionexception.zep.c
+	zeplara/interfaces/file/finder/finder.zep.c
+	zeplara/interfaces/file/finder/iterator.zep.c
+	zeplara/interfaces/file/parser/compiledvalue.zep.c
+	zeplara/interfaces/file/parser/linesiterator.zep.c
+	zeplara/interfaces/file/parser/parserexception.zep.c
+	zeplara/interfaces/file/parser/rawvalue.zep.c
+	zeplara/interfaces/file/splfileinfo.zep.c
+	zeplara/interfaces/pipeline/pipeline.zep.c
+	zeplara/interfaces/routing/compiledroute.zep.c
+	zeplara/interfaces/routing/group.zep.c
+	zeplara/interfaces/routing/regex.zep.c
+	zeplara/interfaces/routing/registrar.zep.c
+	zeplara/interfaces/routing/route.zep.c
+	zeplara/interfaces/routing/routecompiler.zep.c
+	zeplara/interfaces/routing/routecompilerexception.zep.c
+	zeplara/interfaces/routing/router.zep.c
+	zeplara/interfaces/session/manager.zep.c
 	zeplara/config/envloader.zep.c
 	zeplara/config/iniloader.zep.c
 	zeplara/config/jsonloader.zep.c
@@ -57,8 +57,6 @@ if test "$PHP_ZEPLARA" = "yes"; then
 	zeplara/container/bindingresolutionexception.zep.c
 	zeplara/container/container.zep.c
 	zeplara/container/invalidabstractexception.zep.c
-	zeplara/contracts/application.zep.c
-	zeplara/contracts/session/flash.zep.c
 	zeplara/cookie/cookie.zep.c
 	zeplara/cookie/factory.zep.c
 	zeplara/cookie/queue.zep.c
@@ -94,6 +92,8 @@ if test "$PHP_ZEPLARA" = "yes"; then
 	zeplara/http/uploadedfilefactory.zep.c
 	zeplara/http/uri.zep.c
 	zeplara/http/urifactory.zep.c
+	zeplara/interfaces/application.zep.c
+	zeplara/interfaces/session/flash.zep.c
 	zeplara/pipeline/carry.zep.c
 	zeplara/pipeline/pipeline.zep.c
 	zeplara/routing/compiledroute.zep.c

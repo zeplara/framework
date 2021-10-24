@@ -27,7 +27,7 @@ ZEPHIR_INIT_CLASS(Zeplara_Container_InvalidAbstractException) {
 	 */
 	zend_declare_property_null(zeplara_container_invalidabstractexception_ce, SL("abstract"), ZEND_ACC_PROTECTED);
 
-	zend_class_implements(zeplara_container_invalidabstractexception_ce, 1, zeplara_contracts_container_invalidabstractexception_ce);
+	zend_class_implements(zeplara_container_invalidabstractexception_ce, 1, zeplara_interfaces_container_invalidabstractexception_ce);
 	return SUCCESS;
 
 }

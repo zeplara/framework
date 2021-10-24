@@ -30,7 +30,7 @@ ZEPHIR_INIT_CLASS(Zeplara_Cookie_Queue) {
 	 */
 	zend_declare_property_null(zeplara_cookie_queue_ce, SL("cookies"), ZEND_ACC_PROTECTED);
 
-	zend_class_implements(zeplara_cookie_queue_ce, 1, zeplara_contracts_cookie_queue_ce);
+	zend_class_implements(zeplara_cookie_queue_ce, 1, zeplara_interfaces_cookie_queue_ce);
 	return SUCCESS;
 
 }

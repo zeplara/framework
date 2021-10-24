@@ -10,22 +10,22 @@ if (PHP_ZEPLARA != "no") {
     AC_DEFINE("ZEPHIR_USE_PHP_JSON", 1, "Whether PHP json extension is present at compile time");
   }
   
-  ADD_SOURCES(configure_module_dirname + "/zeplara/contracts/file/finder", "filter.zep.c finder.zep.c iterator.zep.c", "zeplara");
-	ADD_SOURCES(configure_module_dirname + "/zeplara/contracts/routing", "attribute.zep.c compiledroute.zep.c group.zep.c regex.zep.c registrar.zep.c route.zep.c routecompiler.zep.c routecompilerexception.zep.c router.zep.c", "zeplara");
-	ADD_SOURCES(configure_module_dirname + "/zeplara/contracts/config", "loader.zep.c loaderexception.zep.c repository.zep.c", "zeplara");
-	ADD_SOURCES(configure_module_dirname + "/zeplara/contracts", "repository.zep.c application.zep.c", "zeplara");
-	ADD_SOURCES(configure_module_dirname + "/zeplara/contracts/file/parser", "parser.zep.c compiledvalue.zep.c linesiterator.zep.c parserexception.zep.c rawvalue.zep.c", "zeplara");
+  ADD_SOURCES(configure_module_dirname + "/zeplara/interfaces/file/finder", "filter.zep.c finder.zep.c iterator.zep.c", "zeplara");
+	ADD_SOURCES(configure_module_dirname + "/zeplara/interfaces/routing", "attribute.zep.c compiledroute.zep.c group.zep.c regex.zep.c registrar.zep.c route.zep.c routecompiler.zep.c routecompilerexception.zep.c router.zep.c", "zeplara");
+	ADD_SOURCES(configure_module_dirname + "/zeplara/interfaces/config", "loader.zep.c loaderexception.zep.c repository.zep.c", "zeplara");
+	ADD_SOURCES(configure_module_dirname + "/zeplara/interfaces", "repository.zep.c application.zep.c", "zeplara");
 	ADD_SOURCES(configure_module_dirname + "/zeplara/http", "abstractmessage.zep.c request.zep.c requestfactory.zep.c response.zep.c responsefactory.zep.c serverrequest.zep.c serverrequestfactory.zep.c stream.zep.c streamfactory.zep.c uploadedfile.zep.c uploadedfilefactory.zep.c uri.zep.c urifactory.zep.c", "zeplara");
 	ADD_SOURCES(configure_module_dirname + "/zeplara/routing", "abstractattribute.zep.c compiledroute.zep.c group.zep.c regex.zep.c registrar.zep.c route.zep.c routecompiler.zep.c routecompilerexception.zep.c router.zep.c", "zeplara");
 	ADD_SOURCES(configure_module_dirname + "/zeplara/support", "abstractrepository.zep.c arr.zep.c str.zep.c", "zeplara");
-	ADD_SOURCES(configure_module_dirname + "/zeplara/contracts/container", "container.zep.c bindingresolutionexception.zep.c invalidabstractexception.zep.c", "zeplara");
+	ADD_SOURCES(configure_module_dirname + "/zeplara/interfaces/container", "container.zep.c bindingresolutionexception.zep.c invalidabstractexception.zep.c", "zeplara");
+	ADD_SOURCES(configure_module_dirname + "/zeplara/interfaces/file/parser", "parser.zep.c compiledvalue.zep.c linesiterator.zep.c parserexception.zep.c rawvalue.zep.c", "zeplara");
 	ADD_SOURCES(configure_module_dirname + "/zeplara/container", "containerexception.zep.c bindingresolutionexception.zep.c container.zep.c invalidabstractexception.zep.c", "zeplara");
-	ADD_SOURCES(configure_module_dirname + "/zeplara/contracts/cookie", "cookie.zep.c queue.zep.c", "zeplara");
-	ADD_SOURCES(configure_module_dirname + "/zeplara/contracts/encryption", "encrypter.zep.c encryptionexception.zep.c", "zeplara");
-	ADD_SOURCES(configure_module_dirname + "/zeplara/contracts/file", "splfileinfo.zep.c", "zeplara");
-	ADD_SOURCES(configure_module_dirname + "/zeplara/contracts/pipeline", "pipeline.zep.c", "zeplara");
-	ADD_SOURCES(configure_module_dirname + "/zeplara/contracts/session", "manager.zep.c flash.zep.c", "zeplara");
 	ADD_SOURCES(configure_module_dirname + "/zeplara/file/parser", "abstractparser.zep.c compiledvalue.zep.c envparser.zep.c linesiterator.zep.c parserexception.zep.c rawvalue.zep.c", "zeplara");
+	ADD_SOURCES(configure_module_dirname + "/zeplara/interfaces/cookie", "cookie.zep.c queue.zep.c", "zeplara");
+	ADD_SOURCES(configure_module_dirname + "/zeplara/interfaces/encryption", "encrypter.zep.c encryptionexception.zep.c", "zeplara");
+	ADD_SOURCES(configure_module_dirname + "/zeplara/interfaces/file", "splfileinfo.zep.c", "zeplara");
+	ADD_SOURCES(configure_module_dirname + "/zeplara/interfaces/pipeline", "pipeline.zep.c", "zeplara");
+	ADD_SOURCES(configure_module_dirname + "/zeplara/interfaces/session", "manager.zep.c flash.zep.c", "zeplara");
 	ADD_SOURCES(configure_module_dirname + "/zeplara/config", "envloader.zep.c iniloader.zep.c jsonloader.zep.c loaderexception.zep.c phploader.zep.c repository.zep.c xmlloader.zep.c yamlloader.zep.c", "zeplara");
 	ADD_SOURCES(configure_module_dirname + "/zeplara/cookie", "cookie.zep.c factory.zep.c queue.zep.c", "zeplara");
 	ADD_SOURCES(configure_module_dirname + "/zeplara/encryption", "encrypter.zep.c encryptionexception.zep.c", "zeplara");

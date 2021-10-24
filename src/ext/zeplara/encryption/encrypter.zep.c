@@ -46,7 +46,7 @@ ZEPHIR_INIT_CLASS(Zeplara_Encryption_Encrypter) {
 	 */
 	zend_declare_property_null(zeplara_encryption_encrypter_ce, SL("ivLengthCache"), ZEND_ACC_PRIVATE|ZEND_ACC_STATIC);
 
-	zend_class_implements(zeplara_encryption_encrypter_ce, 1, zeplara_contracts_encryption_encrypter_ce);
+	zend_class_implements(zeplara_encryption_encrypter_ce, 1, zeplara_interfaces_encryption_encrypter_ce);
 	return SUCCESS;
 
 }

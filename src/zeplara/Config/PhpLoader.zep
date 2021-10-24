@@ -1,7 +1,7 @@
 namespace Zeplara\Config;
 
 use Throwable;
-use Zeplara\Contracts\Config\Loader;
+use Zeplara\Interfaces\Config\Loader;
 
 final class PhpLoader implements Loader
 {

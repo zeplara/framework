@@ -9,7 +9,7 @@ PHP_METHOD(Zeplara_Routing_RouteCompiler, hasNextStaticPrefixOnNextMatch);
 PHP_METHOD(Zeplara_Routing_RouteCompiler, hasStaticPrefixWithoutSeparatorOnPrevMatch);
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_zeplara_routing_routecompiler_compile, 0, 0, 1)
-	ZEND_ARG_OBJ_INFO(0, route, Zeplara\\Contracts\\Routing\\Route, 0)
+	ZEND_ARG_OBJ_INFO(0, route, Zeplara\\Interfaces\\Routing\\Route, 0)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_zeplara_routing_routecompiler_parseregex, 0, 0, 3)

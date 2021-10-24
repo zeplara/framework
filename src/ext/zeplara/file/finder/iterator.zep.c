@@ -30,7 +30,7 @@ ZEPHIR_INIT_CLASS(Zeplara_File_Finder_Iterator) {
 	 */
 	zend_declare_property_null(zeplara_file_finder_iterator_ce, SL("filters"), ZEND_ACC_PROTECTED);
 
-	zend_class_implements(zeplara_file_finder_iterator_ce, 1, zeplara_contracts_file_finder_iterator_ce);
+	zend_class_implements(zeplara_file_finder_iterator_ce, 1, zeplara_interfaces_file_finder_iterator_ce);
 	return SUCCESS;
 
 }
@@ -137,7 +137,7 @@ PHP_METHOD(Zeplara_File_Finder_Iterator, isAccepted) {
 			}
 			_5$$3 = Z_TYPE_P(&filter) != IS_OBJECT;
 			if (!(_5$$3)) {
-				_5$$3 = (zephir_instance_of_ev(&filter, zeplara_contracts_file_finder_filter_ce)) == 0;
+				_5$$3 = (zephir_instance_of_ev(&filter, zeplara_interfaces_file_finder_filter_ce)) == 0;
 			}
 			if (_5$$3) {
 				ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_UnexpectedValueException, "The filter must be instanceof \\Zeplara\\Contracts\\File\\Finder\\Filter", "zeplara/File/Finder/Iterator.zep", 47);
@@ -167,7 +167,7 @@ PHP_METHOD(Zeplara_File_Finder_Iterator, isAccepted) {
 				}
 				_8$$7 = Z_TYPE_P(&filter) != IS_OBJECT;
 				if (!(_8$$7)) {
-					_8$$7 = (zephir_instance_of_ev(&filter, zeplara_contracts_file_finder_filter_ce)) == 0;
+					_8$$7 = (zephir_instance_of_ev(&filter, zeplara_interfaces_file_finder_filter_ce)) == 0;
 				}
 				if (_8$$7) {
 					ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_UnexpectedValueException, "The filter must be instanceof \\Zeplara\\Contracts\\File\\Finder\\Filter", "zeplara/File/Finder/Iterator.zep", 47);

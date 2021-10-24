@@ -58,7 +58,7 @@ ZEND_BEGIN_ARG_INFO_EX(arginfo_zeplara_file_finder_finder___construct, 0, 0, 1)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_zeplara_file_finder_finder_addfilter, 0, 0, 1)
-	ZEND_ARG_OBJ_INFO(0, filter, Zeplara\\Contracts\\File\\Finder\\Filter, 0)
+	ZEND_ARG_OBJ_INFO(0, filter, Zeplara\\Interfaces\\File\\Finder\\Filter, 0)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_zeplara_file_finder_finder___call, 0, 0, 1)

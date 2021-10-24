@@ -37,7 +37,7 @@ ZEPHIR_INIT_CLASS(Zeplara_Routing_AbstractAttribute) {
 
 	zeplara_routing_abstractattribute_ce->create_object = zephir_init_properties_Zeplara_Routing_AbstractAttribute;
 
-	zend_class_implements(zeplara_routing_abstractattribute_ce, 1, zeplara_contracts_routing_attribute_ce);
+	zend_class_implements(zeplara_routing_abstractattribute_ce, 1, zeplara_interfaces_routing_attribute_ce);
 	return SUCCESS;
 
 }

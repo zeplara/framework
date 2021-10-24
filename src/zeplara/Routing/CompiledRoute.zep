@@ -1,6 +1,6 @@
 namespace Zeplara\Routing;
 
-use Zeplara\Contracts\Routing\CompiledRoute as CompiledRouteContract;
+use Zeplara\Interfaces\Routing\CompiledRoute as CompiledRouteContract;
 
 final class CompiledRoute implements CompiledRouteContract
 {

@@ -21,7 +21,7 @@ ZEPHIR_INIT_CLASS(Zeplara_File_Parser_ParserException) {
 
 	ZEPHIR_REGISTER_CLASS_EX(Zeplara\\File\\Parser, ParserException, zeplara, file_parser_parserexception, zephir_get_internal_ce(SL("errorexception")), zeplara_file_parser_parserexception_method_entry, ZEND_ACC_FINAL_CLASS);
 
-	zend_class_implements(zeplara_file_parser_parserexception_ce, 1, zeplara_contracts_file_parser_parserexception_ce);
+	zend_class_implements(zeplara_file_parser_parserexception_ce, 1, zeplara_interfaces_file_parser_parserexception_ce);
 	return SUCCESS;
 
 }

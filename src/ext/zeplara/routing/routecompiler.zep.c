@@ -31,7 +31,7 @@ ZEPHIR_INIT_CLASS(Zeplara_Routing_RouteCompiler) {
 	 */
 	zephir_declare_class_constant_long(zeplara_routing_routecompiler_ce, SL("MAX_VARIABLE_LEN"), 32);
 
-	zend_class_implements(zeplara_routing_routecompiler_ce, 1, zeplara_contracts_routing_routecompiler_ce);
+	zend_class_implements(zeplara_routing_routecompiler_ce, 1, zeplara_interfaces_routing_routecompiler_ce);
 	return SUCCESS;
 
 }

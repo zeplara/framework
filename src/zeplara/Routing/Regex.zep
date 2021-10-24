@@ -1,6 +1,6 @@
 namespace Zeplara\Routing;
 
-use Zeplara\Contracts\Routing\Regex as RegexContract;
+use Zeplara\Interfaces\Routing\Regex as RegexContract;
 
 final class Regex implements RegexContract
 {

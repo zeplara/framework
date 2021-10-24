@@ -3,7 +3,7 @@ namespace Zeplara\Routing;
 use Zeplara\Support\Str;
 use BadMethodCallException;
 use InvalidArgumentException;
-use Zeplara\Contracts\Routing\Attribute as AttributeContract;
+use Zeplara\Interfaces\Routing\Attribute as AttributeContract;
 
 abstract class AbstractAttribute implements AttributeContract
 {

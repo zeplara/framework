@@ -24,7 +24,7 @@ ZEND_BEGIN_ARG_INFO_EX(arginfo_zeplara_pipeline_pipeline_setpipes, 0, 0, 1)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_zeplara_pipeline_pipeline___construct, 0, 0, 1)
-	ZEND_ARG_OBJ_INFO(0, container, Zeplara\\Contracts\\Container\\Container, 0)
+	ZEND_ARG_OBJ_INFO(0, container, Zeplara\\Interfaces\\Container\\Container, 0)
 	ZEND_ARG_ARRAY_INFO(0, pipes, 0)
 ZEND_END_ARG_INFO()
 

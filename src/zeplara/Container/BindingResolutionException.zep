@@ -2,7 +2,7 @@ namespace Zeplara\Container;
 
 use Reflector;
 use ReflectionParameter;
-use Zeplara\Contracts\Container\BindingResolutionException as BindingResolutionExceptionContract;
+use Zeplara\Interfaces\Container\BindingResolutionException as BindingResolutionExceptionContract;
 
 final class BindingResolutionException extends ContainerException implements BindingResolutionExceptionContract
 {

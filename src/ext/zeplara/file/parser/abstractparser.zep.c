@@ -25,7 +25,7 @@ ZEPHIR_INIT_CLASS(Zeplara_File_Parser_AbstractParser) {
 
 	ZEPHIR_REGISTER_CLASS(Zeplara\\File\\Parser, AbstractParser, zeplara, file_parser_abstractparser, zeplara_file_parser_abstractparser_method_entry, ZEND_ACC_EXPLICIT_ABSTRACT_CLASS);
 
-	zend_class_implements(zeplara_file_parser_abstractparser_ce, 1, zeplara_contracts_file_parser_parser_ce);
+	zend_class_implements(zeplara_file_parser_abstractparser_ce, 1, zeplara_interfaces_file_parser_parser_ce);
 	return SUCCESS;
 
 }

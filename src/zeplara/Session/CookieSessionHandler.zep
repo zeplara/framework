@@ -2,7 +2,7 @@ namespace Zeplara\Session;
 
 use Zeplara\Cookie\Factory;
 use SessionHandlerInterface;
-use Zeplara\Contracts\Cookie\Queue;
+use Zeplara\Interfaces\Cookie\Queue;
 use Psr\Http\Message\ServerRequestInterface;
 
 final class CookieSessionHandler implements SessionHandlerInterface
