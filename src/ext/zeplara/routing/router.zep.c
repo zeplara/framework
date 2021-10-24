@@ -57,7 +57,7 @@ ZEPHIR_INIT_CLASS(Zeplara_Routing_Router) {
 
 	zeplara_routing_router_ce->create_object = zephir_init_properties_Zeplara_Routing_Router;
 
-	zend_class_implements(zeplara_routing_router_ce, 1, zeplara_contracts_routing_router_ce);
+	zend_class_implements(zeplara_routing_router_ce, 1, zeplara_interfaces_routing_router_ce);
 	return SUCCESS;
 
 }
@@ -143,7 +143,7 @@ PHP_METHOD(Zeplara_Routing_Router, setRoutes) {
 			ZVAL_COPY(&route, _0);
 			_2$$3 = Z_TYPE_P(&route) != IS_OBJECT;
 			if (!(_2$$3)) {
-				_2$$3 = (zephir_instance_of_ev(&route, zeplara_contracts_routing_route_ce)) == 0;
+				_2$$3 = (zephir_instance_of_ev(&route, zeplara_interfaces_routing_route_ce)) == 0;
 			}
 			if (_2$$3) {
 				ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The value must be instanceof Route.", "zeplara/Routing/Router.zep", 57);
@@ -165,7 +165,7 @@ PHP_METHOD(Zeplara_Routing_Router, setRoutes) {
 			zephir_check_call_status();
 				_4$$5 = Z_TYPE_P(&route) != IS_OBJECT;
 				if (!(_4$$5)) {
-					_4$$5 = (zephir_instance_of_ev(&route, zeplara_contracts_routing_route_ce)) == 0;
+					_4$$5 = (zephir_instance_of_ev(&route, zeplara_interfaces_routing_route_ce)) == 0;
 				}
 				if (_4$$5) {
 					ZEPHIR_THROW_EXCEPTION_DEBUG_STR(spl_ce_InvalidArgumentException, "The value must be instanceof Route.", "zeplara/Routing/Router.zep", 57);

@@ -49,7 +49,7 @@ ZEPHIR_INIT_CLASS(Zeplara_Container_Container) {
 
 	zeplara_container_container_ce->create_object = zephir_init_properties_Zeplara_Container_Container;
 
-	zend_class_implements(zeplara_container_container_ce, 1, zeplara_contracts_container_container_ce);
+	zend_class_implements(zeplara_container_container_ce, 1, zeplara_interfaces_container_container_ce);
 	return SUCCESS;
 
 }

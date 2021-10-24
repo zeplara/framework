@@ -26,7 +26,7 @@ ZEPHIR_INIT_CLASS(Zeplara_File_Parser_LinesIterator) {
 
 	ZEPHIR_REGISTER_CLASS_EX(Zeplara\\File\\Parser, LinesIterator, zeplara, file_parser_linesiterator, zephir_get_internal_ce(SL("arrayiterator")), zeplara_file_parser_linesiterator_method_entry, ZEND_ACC_FINAL_CLASS);
 
-	zend_class_implements(zeplara_file_parser_linesiterator_ce, 1, zeplara_contracts_file_parser_linesiterator_ce);
+	zend_class_implements(zeplara_file_parser_linesiterator_ce, 1, zeplara_interfaces_file_parser_linesiterator_ce);
 	return SUCCESS;
 
 }

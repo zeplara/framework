@@ -12,7 +12,7 @@ PHP_METHOD(Zeplara_Session_CookieSessionHandler, write);
 PHP_METHOD(Zeplara_Session_CookieSessionHandler, destroy);
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_zeplara_session_cookiesessionhandler___construct, 0, 0, 2)
-	ZEND_ARG_OBJ_INFO(0, queue, Zeplara\\Contracts\\Cookie\\Queue, 0)
+	ZEND_ARG_OBJ_INFO(0, queue, Zeplara\\Interfaces\\Cookie\\Queue, 0)
 	ZEND_ARG_OBJ_INFO(0, request, Psr\\Http\\Message\\ServerRequestInterface, 0)
 ZEND_END_ARG_INFO()
 

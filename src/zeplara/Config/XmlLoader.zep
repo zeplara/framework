@@ -1,6 +1,6 @@
 namespace Zeplara\Config;
 
-use Zeplara\Contracts\Config\Loader;
+use Zeplara\Interfaces\Config\Loader;
 
 final class XmlLoader implements Loader
 {

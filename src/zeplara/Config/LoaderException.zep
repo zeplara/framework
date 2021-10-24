@@ -1,7 +1,7 @@
 namespace Zeplara\Config;
 
 use ErrorException;
-use Zeplara\Contracts\Config\LoaderException as LoaderExceptionContract;
+use Zeplara\Interfaces\Config\LoaderException as LoaderExceptionContract;
 
 final class LoaderException extends ErrorException implements LoaderExceptionContract
 {

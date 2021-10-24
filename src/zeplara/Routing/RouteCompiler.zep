@@ -1,7 +1,7 @@
 namespace Zeplara\Routing;
 
-use Zeplara\Contracts\Routing\Route as RouteContract;
-use Zeplara\Contracts\Routing\RouteCompiler as RouteCompilerContract;
+use Zeplara\Interfaces\Routing\Route as RouteContract;
+use Zeplara\Interfaces\Routing\RouteCompiler as RouteCompilerContract;
 
 final class RouteCompiler implements RouteCompilerContract
 {

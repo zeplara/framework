@@ -2,7 +2,7 @@ namespace Zeplara\File\Parser;
 
 use RuntimeException;
 use InvalidArgumentException;
-use Zeplara\Contracts\File\Parser\Parser;
+use Zeplara\Interfaces\File\Parser\Parser;
 
 abstract class AbstractParser implements Parser
 {

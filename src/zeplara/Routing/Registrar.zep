@@ -2,7 +2,7 @@ namespace Zeplara\Routing;
 
 use Zeplara\Support\Arr;
 use InvalidArgumentException;
-use Zeplara\Contracts\Routing\Registrar as RegistrarContract;
+use Zeplara\Interfaces\Routing\Registrar as RegistrarContract;
 
 /**
  * @method Registrar|string scheme(string $value = null)

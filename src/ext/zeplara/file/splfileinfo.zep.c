@@ -19,7 +19,7 @@ ZEPHIR_INIT_CLASS(Zeplara_File_SplFileInfo) {
 
 	ZEPHIR_REGISTER_CLASS_EX(Zeplara\\File, SplFileInfo, zeplara, file_splfileinfo, spl_ce_SplFileInfo, NULL, ZEND_ACC_FINAL_CLASS);
 
-	zend_class_implements(zeplara_file_splfileinfo_ce, 1, zeplara_contracts_file_splfileinfo_ce);
+	zend_class_implements(zeplara_file_splfileinfo_ce, 1, zeplara_interfaces_file_splfileinfo_ce);
 	return SUCCESS;
 
 }

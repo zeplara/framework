@@ -21,7 +21,7 @@ ZEPHIR_INIT_CLASS(Zeplara_File_Finder_WritableFilter) {
 
 	ZEPHIR_REGISTER_CLASS(Zeplara\\File\\Finder, WritableFilter, zeplara, file_finder_writablefilter, zeplara_file_finder_writablefilter_method_entry, ZEND_ACC_FINAL_CLASS);
 
-	zend_class_implements(zeplara_file_finder_writablefilter_ce, 1, zeplara_contracts_file_finder_filter_ce);
+	zend_class_implements(zeplara_file_finder_writablefilter_ce, 1, zeplara_interfaces_file_finder_filter_ce);
 	return SUCCESS;
 
 }

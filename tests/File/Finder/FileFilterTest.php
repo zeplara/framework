@@ -4,7 +4,7 @@ namespace Zeplara\Tests\File\Finder;
 
 use PHPUnit\Framework\TestCase;
 use Zeplara\File\Finder\FileFilter;
-use Zeplara\Contracts\File\SplFileInfo;
+use Zeplara\Interfaces\File\SplFileInfo;
 
 class FileFilterTest extends TestCase
 {

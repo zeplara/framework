@@ -28,7 +28,7 @@ ZEND_BEGIN_ARG_INFO_EX(arginfo_zeplara_routing_router_setroutes, 0, 0, 1)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_zeplara_routing_router_addroute, 0, 0, 1)
-	ZEND_ARG_OBJ_INFO(0, route, Zeplara\\Contracts\\Routing\\Route, 0)
+	ZEND_ARG_OBJ_INFO(0, route, Zeplara\\Interfaces\\Routing\\Route, 0)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_zeplara_routing_router_createroute, 0, 0, 3)

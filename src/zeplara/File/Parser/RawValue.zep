@@ -1,6 +1,6 @@
 namespace Zeplara\File\Parser;
 
-use Zeplara\Contracts\File\Parser\RawValue as RawValueContract;
+use Zeplara\Interfaces\File\Parser\RawValue as RawValueContract;
 
 final class RawValue implements RawValueContract
 {

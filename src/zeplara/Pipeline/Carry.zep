@@ -1,6 +1,6 @@
 namespace Zeplara\Pipeline;
 
-use Zeplara\Contracts\Container\Container;
+use Zeplara\Interfaces\Container\Container;
 
 final class Carry
 {   

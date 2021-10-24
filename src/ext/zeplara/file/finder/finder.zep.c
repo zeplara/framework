@@ -61,7 +61,7 @@ ZEPHIR_INIT_CLASS(Zeplara_File_Finder_Finder) {
 	 */
 	zend_declare_property_null(zeplara_file_finder_finder_ce, SL("filters"), ZEND_ACC_PROTECTED);
 
-	zend_class_implements(zeplara_file_finder_finder_ce, 1, zeplara_contracts_file_finder_finder_ce);
+	zend_class_implements(zeplara_file_finder_finder_ce, 1, zeplara_interfaces_file_finder_finder_ce);
 	return SUCCESS;
 
 }

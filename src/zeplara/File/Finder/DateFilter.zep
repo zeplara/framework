@@ -2,8 +2,8 @@ namespace Zeplara\File\Finder;
 
 use DateTimeInterface;
 use InvalidArgumentException;
-use Zeplara\Contracts\File\SplFileInfo;
-use Zeplara\Contracts\File\Finder\Filter;
+use Zeplara\Interfaces\File\SplFileInfo;
+use Zeplara\Interfaces\File\Finder\Filter;
 
 final class DateFilter implements Filter
 {

@@ -4,7 +4,7 @@ use RuntimeException;
 use Zeplara\Support\Str;
 use SessionHandlerInterface;
 use Zeplara\Support\AbstractRepository;
-use Zeplara\Contracts\Session\Manager as ManagerContract;
+use Zeplara\Interfaces\Session\Manager as ManagerContract;
 
 final class Manager extends AbstractRepository implements ManagerContract
 {

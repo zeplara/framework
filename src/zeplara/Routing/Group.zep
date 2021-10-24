@@ -1,8 +1,8 @@
 namespace Zeplara\Routing;
 
 use InvalidArgumentException;
-use Zeplara\Contracts\Routing\Group as GroupContract;
-use Zeplara\Contracts\Routing\Router as RouterContract;
+use Zeplara\Interfaces\Routing\Group as GroupContract;
+use Zeplara\Interfaces\Routing\Router as RouterContract;
 
 /**
  * @method Group|string scheme(string $value = null)

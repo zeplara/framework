@@ -9,7 +9,7 @@ PHP_METHOD(Zeplara_Support_Facades_AbstractFacade, __callStatic);
 PHP_METHOD(Zeplara_Support_Facades_AbstractFacade, getAccessor);
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_zeplara_support_facades_abstractfacade_setcontainer, 0, 0, 1)
-	ZEND_ARG_OBJ_INFO(0, container, Zeplara\\Contracts\\Container\\Container, 0)
+	ZEND_ARG_OBJ_INFO(0, container, Zeplara\\Interfaces\\Container\\Container, 0)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_zeplara_support_facades_abstractfacade___callstatic, 0, 0, 1)

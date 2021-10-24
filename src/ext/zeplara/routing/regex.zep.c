@@ -34,7 +34,7 @@ ZEPHIR_INIT_CLASS(Zeplara_Routing_Regex) {
 	 */
 	zend_declare_property_null(zeplara_routing_regex_ce, SL("variables"), ZEND_ACC_PROTECTED);
 
-	zend_class_implements(zeplara_routing_regex_ce, 1, zeplara_contracts_routing_regex_ce);
+	zend_class_implements(zeplara_routing_regex_ce, 1, zeplara_interfaces_routing_regex_ce);
 	return SUCCESS;
 
 }

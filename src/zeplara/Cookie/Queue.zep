@@ -1,8 +1,8 @@
 namespace Zeplara\Cookie;
 
 use InvalidArgumentException;
-use Zeplara\Contracts\Cookie\Cookie;
-use Zeplara\Contracts\Cookie\Queue as QueueContract;
+use Zeplara\Interfaces\Cookie\Cookie;
+use Zeplara\Interfaces\Cookie\Queue as QueueContract;
 
 class Queue implements QueueContract
 {

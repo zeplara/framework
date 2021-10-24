@@ -34,7 +34,7 @@ ZEPHIR_INIT_CLASS(Zeplara_File_Finder_DateFilter) {
 	 */
 	zend_declare_property_null(zeplara_file_finder_datefilter_ce, SL("operator"), ZEND_ACC_PRIVATE);
 
-	zend_class_implements(zeplara_file_finder_datefilter_ce, 1, zeplara_contracts_file_finder_filter_ce);
+	zend_class_implements(zeplara_file_finder_datefilter_ce, 1, zeplara_interfaces_file_finder_filter_ce);
 	return SUCCESS;
 
 }

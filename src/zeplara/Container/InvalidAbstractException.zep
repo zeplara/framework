@@ -1,7 +1,7 @@
 namespace Zeplara\Container;
 
 use InvalidArgumentException;
-use Zeplara\Contracts\Container\InvalidAbstractException as InvalidAbstractExceptionContract;
+use Zeplara\Interfaces\Container\InvalidAbstractException as InvalidAbstractExceptionContract;
 
 final class InvalidAbstractException extends InvalidArgumentException implements InvalidAbstractExceptionContract
 {

@@ -1,7 +1,7 @@
 namespace Zeplara\Routing;
 
 use InvalidArgumentException;
-use Zeplara\Contracts\Routing\Route as RouteContract;
+use Zeplara\Interfaces\Routing\Route as RouteContract;
 
 /**
  * @method Route|string scheme(string $value = null)

@@ -1,8 +1,8 @@
 namespace Zeplara\Pipeline;
 
 use Zeplara\Support\Arr;
-use Zeplara\Contracts\Container\Container;
-use Zeplara\Contracts\Pipeline\Pipeline as PipelineContract;
+use Zeplara\Interfaces\Container\Container;
+use Zeplara\Interfaces\Pipeline\Pipeline as PipelineContract;
 
 final class Pipeline implements PipelineContract
 {

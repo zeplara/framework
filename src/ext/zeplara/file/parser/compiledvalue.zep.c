@@ -34,7 +34,7 @@ ZEPHIR_INIT_CLASS(Zeplara_File_Parser_CompiledValue) {
 	 */
 	zend_declare_property_null(zeplara_file_parser_compiledvalue_ce, SL("rawValue"), ZEND_ACC_PROTECTED);
 
-	zend_class_implements(zeplara_file_parser_compiledvalue_ce, 1, zeplara_contracts_file_parser_compiledvalue_ce);
+	zend_class_implements(zeplara_file_parser_compiledvalue_ce, 1, zeplara_interfaces_file_parser_compiledvalue_ce);
 	return SUCCESS;
 
 }

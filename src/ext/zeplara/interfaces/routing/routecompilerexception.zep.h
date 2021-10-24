@@ -1,0 +1,5 @@
+
+extern zend_class_entry *zeplara_interfaces_routing_routecompilerexception_ce;
+
+ZEPHIR_INIT_CLASS(Zeplara_Interfaces_Routing_RouteCompilerException);
+

@@ -1,7 +1,7 @@
 namespace Zeplara\Support\Facades;
 
 use RuntimeException;
-use Zeplara\Contracts\Container\Container;
+use Zeplara\Interfaces\Container\Container;
 
 abstract class AbstractFacade
 {

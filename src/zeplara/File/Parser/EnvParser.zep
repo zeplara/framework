@@ -2,9 +2,9 @@ namespace Zeplara\File\Parser;
 
 use Zeplara\Support\Arr;
 use Zeplara\Support\Str;
-use Zeplara\Contracts\File\Parser\Parser;
+use Zeplara\Interfaces\File\Parser\Parser;
 
-final class EnvParser extends AbstractParser implements Parser
+final class EnvParser extends AbstractParser
 {   
     /**
      * @var string
@@ -53,27 +53,26 @@ final class EnvParser extends AbstractParser implements Parser
 
                 let compiled = this->compileValue(val, values, i + 1);
                 
-                if typeof compiled != "NULL" {
-
-                    let x = i,
-                        y = compiled->getRawValue()->getLines()->count() + i - 1;
-
-                    while x <= y {
-
-                        if x === y {
-                            if trim(substr(lines[x], strlen(Arr::last((array) compiled->getRawValue()->getLines())) + (x === i ? (strlen(rawKey) + 1) : 0))) !== "" {
-                                this->throwParserExceptionUIMV(lines[x], i + 1);
-                            }
-                        }
-                            
-                        let lines[x] = "",
-                            x++;
-                    }
-
-                    let value = compiled->getValue();
-                } elseif strpos(value, " ") !== false {
+                if typeof compiled == "NULL" {
                     this->throwParserExceptionUIMV(lines[i], i + 1);
                 }
+
+                let x = i,
+                    y = compiled->getRawValue()->getLines()->count() + i - 1;
+
+                while x <= y {
+
+                    if x === y {
+                        if trim(substr(lines[x], strlen(Arr::last((array) compiled->getRawValue()->getLines())) + (x === i ? (strlen(rawKey) + 1) : 0))) !== "" {
+                            this->throwParserExceptionUIMV(lines[x], i + 1);
+                        }
+                    }
+                            
+                    let lines[x] = "",
+                        x++;
+                }
+
+                let value = compiled->getValue();
 
                 if shouldSkipKey === false {
                     let values[key] = value;
@@ -300,6 +299,12 @@ final class EnvParser extends AbstractParser implements Parser
             if typeof compiled != "NULL" {
                 return compiled;
             }
+        }
+
+        let value = Arr::first(explode("\n", value));
+
+        if strpos(value, " ") === false {
+            return new CompiledValue(value, value);
         }
     }
 

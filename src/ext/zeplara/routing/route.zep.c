@@ -56,7 +56,7 @@ ZEPHIR_INIT_CLASS(Zeplara_Routing_Route) {
 	 */
 	zend_declare_property_null(zeplara_routing_route_ce, SL("compiled"), ZEND_ACC_PRIVATE);
 
-	zend_class_implements(zeplara_routing_route_ce, 1, zeplara_contracts_routing_route_ce);
+	zend_class_implements(zeplara_routing_route_ce, 1, zeplara_interfaces_routing_route_ce);
 	return SUCCESS;
 
 }

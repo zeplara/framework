@@ -1,8 +1,8 @@
 namespace Zeplara\Routing;
 
 use InvalidArgumentException;
-use Zeplara\Contracts\Routing\Route as RouteContract;
-use Zeplara\Contracts\Routing\Router as RouterContract;
+use Zeplara\Interfaces\Routing\Route as RouteContract;
+use Zeplara\Interfaces\Routing\Router as RouterContract;
 
 /**
  * @method Route get(string $pattern, $callback, array $attributes = [])

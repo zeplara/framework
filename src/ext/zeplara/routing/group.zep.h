@@ -25,7 +25,7 @@ PHP_METHOD(Zeplara_Routing_Group, getMiddlewareAttribute);
 PHP_METHOD(Zeplara_Routing_Group, setMiddlewareAttribute);
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_zeplara_routing_group_load, 0, 0, 2)
-	ZEND_ARG_OBJ_INFO(0, router, Zeplara\\Contracts\\Routing\\Router, 0)
+	ZEND_ARG_OBJ_INFO(0, router, Zeplara\\Interfaces\\Routing\\Router, 0)
 	ZEND_ARG_INFO(0, handler)
 ZEND_END_ARG_INFO()
 

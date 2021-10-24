@@ -2,7 +2,7 @@ namespace Zeplara\File\Parser;
 
 use ErrorException;
 
-use Zeplara\Contracts\File\Parser\ParserException as ParserExceptionContract;
+use Zeplara\Interfaces\File\Parser\ParserException as ParserExceptionContract;
 
 final class ParserException extends ErrorException implements ParserExceptionContract
 {

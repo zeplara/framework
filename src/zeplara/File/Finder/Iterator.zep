@@ -3,8 +3,8 @@ namespace Zeplara\File\Finder;
 use FilterIterator;
 use UnexpectedValueException;
 use Iterator as BaseIteratorContract;
-use Zeplara\Contracts\File\Finder\Filter;
-use Zeplara\Contracts\File\Finder\Iterator as IteratorContract;
+use Zeplara\Interfaces\File\Finder\Filter;
+use Zeplara\Interfaces\File\Finder\Iterator as IteratorContract;
 
 final class Iterator extends FilterIterator implements IteratorContract
 {   

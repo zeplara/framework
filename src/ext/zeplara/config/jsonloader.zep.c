@@ -25,7 +25,7 @@ ZEPHIR_INIT_CLASS(Zeplara_Config_JsonLoader) {
 
 	ZEPHIR_REGISTER_CLASS(Zeplara\\Config, JsonLoader, zeplara, config_jsonloader, zeplara_config_jsonloader_method_entry, ZEND_ACC_FINAL_CLASS);
 
-	zend_class_implements(zeplara_config_jsonloader_ce, 1, zeplara_contracts_config_loader_ce);
+	zend_class_implements(zeplara_config_jsonloader_ce, 1, zeplara_interfaces_config_loader_ce);
 	return SUCCESS;
 
 }
