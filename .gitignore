@@ -1,26 +1,13 @@
 .phpunit.result.cache
 composer.lock
 
-*~
-*.o
-*.out
-*.lo
-*.la
-*.log
-*.loT
-*.gch
-*.h.ghc
-*.phc
-*.dSYM
-*.deps
-
 vendor/
 .zephir/
 .idea/
 .vscode/
 
 src/ide/
+src/ext/
+
 src/compile.log
 src/compile-errors.log
-
-src/ext/
