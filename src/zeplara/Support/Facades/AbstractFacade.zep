@@ -5,7 +5,14 @@ use Zeplara\Interfaces\Container\Container;
 
 abstract class AbstractFacade
 {
+    /**
+     * @var Container|null
+     */
     protected static container;
+    /**
+     * @var array
+     */
+    private static instances;
     
     /**
      * {@inheritdoc}
@@ -16,23 +23,53 @@ abstract class AbstractFacade
     }
 
     /**
+     * @return object
+     * @throws RuntimeException
+     */
+    final public static function getRoot()
+    {
+        var accessor;
+
+        let accessor = static::getAccessor();
+
+        if typeof accessor == "object" {
+            return accessor;
+        }
+
+        if typeof self::container == "NULL" {
+            throw new RuntimeException("The container has not been set.");
+        }
+
+        if !isset self::instances[accessor] {
+            let self::instances[accessor] = self::container->make(accessor);
+        }
+
+        return self::instances[accessor];
+    }
+
+    /**
      * @param Container container
      * @return void
      */
-    public static function setContainer(<Container> container)
+    final public static function setContainer(<Container> container)
     {
         let self::container = container;
     }
 
-    public static function __callStatic(name, array paramters = [])
+    /**
+     * @param string name
+     * @param array arguments
+     * @return mixed
+     */
+    final public static function __callStatic(name, array! arguments = [])
     {
-        
+        return call_user_func_array([self::getRoot(), name], arguments);
     }
 
     /**
      * @throws RuntimeException
      */
-    protected static function getAccessor()
+    protected static function getAccessor() -> object|string
     {
         throw new RuntimeException("%s class does not implement %s method."->format(get_called_class(), __FUNCTION__));
     }
